@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Letim\CalenderBundle\Entity\Plan" table="plan">
+    <indexes>
+      <index name="plan_to_plan_type" columns="type_id"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="name" type="string" column="name" length="255" nullable="false"/>
+    <field name="duration" type="boolean" column="duration" nullable="false"/>
+    <field name="cost" type="integer" column="cost" nullable="false"/>
+    <field name="maxPeople" type="boolean" column="max_people" nullable="false"/>
+    <field name="createdAt" type="datetime" column="created_at" nullable="false"/>
+    <field name="updatedAt" type="datetime" column="updated_at" nullable="false"/>
+    <many-to-one field="type" target-entity="PlanType">
+      <join-columns>
+        <join-column name="type_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

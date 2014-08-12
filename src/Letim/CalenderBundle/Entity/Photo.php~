@@ -1,0 +1,46 @@
+<?php
+
+namespace Letim\CalenderBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Photo
+ *
+ * @ORM\Table(name="photo")
+ * @ORM\Entity
+ */
+class Photo
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
+     */
+    private $title;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime", nullable=false)
+     */
+    private $date;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="photo", type="string", length=4000, nullable=true)
+     */
+    private $photo;
+
+
+}

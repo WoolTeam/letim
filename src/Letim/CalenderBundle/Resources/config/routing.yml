@@ -1,0 +1,4 @@
+letim_calender_homepage:
+    path:     /calender/gettunels
+    defaults: { _controller: LetimCalenderBundle:Default:getTunels }
+    methods:  [GET]
