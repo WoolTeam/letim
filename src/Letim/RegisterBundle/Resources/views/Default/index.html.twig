@@ -1,0 +1,10 @@
+{#Hello {{ name }}!#}
+{% extends "::letim.base.html.twig" %}
+
+{% block content %}
+    <div id="content">
+    <div class="zagolovok2">Регистрация</div>
+    {% autoescape false %}
+    {{ form(form) }}
+    {% endautoescape %}
+{% endblock %}

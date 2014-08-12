@@ -1,0 +1,11 @@
+{% extends "::letim.home.html.twig" %}
+{#{% block body %}#}
+    {#Hello {{ name }}!#}
+{#{% endblock %}#}
+{% block content %}
+    <div id="content">
+        <div class="zagolovok">{{page.title}}</div>
+        {% autoescape false %}
+            {{page.text}}
+        {% endautoescape %}
+{% endblock %}

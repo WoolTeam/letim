@@ -1,0 +1,15 @@
+parameters:
+#    letim_menu.example.class: Letim\MenuBundle\Example
+
+services:
+    admin.menu:
+            class: Letim\MenuBundle\Admin\MenuAdmin
+            tags:
+            - { name:  sonata.admin, manager_type: orm, group: Меню, label: Меню}
+            arguments: [null, Letim\MenuBundle\Entity\Menu, SonataAdminBundle:CRUD]
+
+    admin.menu_type:
+        class: Letim\MenuBundle\Admin\MenuItemAdmin
+        tags:
+        - { name:  sonata.admin, manager_type: orm, group: Элементы меню, label: Новый элемент}
+        arguments: [null, Letim\MenuBundle\Entity\MenuItem, SonataAdminBundle:CRUD]

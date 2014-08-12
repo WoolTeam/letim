@@ -1,0 +1,6 @@
+letim_page_homepage:
+    path:     /
+    defaults: { _controller: LetimPageBundle:Default:homePage}
+letim_get_page:
+    path:     /{url}
+    defaults: { _controller: LetimPageBundle:Default:index, url:get_home_page}

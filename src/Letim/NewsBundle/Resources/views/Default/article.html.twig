@@ -1,0 +1,10 @@
+{% extends "::letim.base.html.twig" %}
+{% block content %}
+    <div id="content">
+        <div class="zagolovok2">{{page.title}}</div>
+        {% autoescape false %}
+            {{page.text}}
+        {% endautoescape %}
+{% endblock %}
+{% block news %}
+{% endblock %}

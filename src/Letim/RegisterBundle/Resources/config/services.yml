@@ -1,0 +1,7 @@
+parameters:
+#    letim_register.example.class: Letim\RegisterBundle\Example
+
+services:
+#    letim_register.example:
+#        class: %letim_register.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

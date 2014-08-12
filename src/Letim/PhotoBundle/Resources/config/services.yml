@@ -1,0 +1,12 @@
+parameters:
+#    letim_photo.example.class: Letim\PhotoBundle\Example
+
+services:
+    sonata.admin.photo:
+        class: Letim\PhotoBundle\Admin\PhotoAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Фотографии", label: "Новая фотография" }
+        arguments:
+            - ~
+            - Letim\PhotoBundle\Entity\Photo
+            - ~

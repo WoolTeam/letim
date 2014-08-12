@@ -1,0 +1,6 @@
+letim_news_homepage:
+    path:     /hello/{page}
+    defaults: { _controller: LetimNewsBundle:Default:news, page:1}
+letim_article_homepage:
+    path:     /article/{id}
+    defaults: { _controller: LetimNewsBundle:Default:article}

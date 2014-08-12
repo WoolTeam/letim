@@ -1,0 +1,3 @@
+letim_hello_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: LetimHelloBundle:Default:index }

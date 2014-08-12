@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>Document</title>
+        <meta http-equiv="Content-type" content="text/html; charset=windows-1251"/>
+        <meta name="robots" content="all"/>
+        <meta name="description" content=" "/>
+        <meta name="keywords" content=" "/>
+        {% block stylesheets %}{% endblock %}
+        <link rel="stylesheet" type="text/css" href="/bundles/letim/css/style.css" media="screen"/>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,700,700italic&subset=latin,cyrillic-ext,cyrillic'
+              rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="/bundles/letim/js/jquery-1.5.2.min.js"></script>
+        <link rel="stylesheet" href="/bundles/letim/css/nivo-slider.css" type="text/css" media="screen"/>
+        <script type="text/javascript" src="/bundles/letim/js/jquery.nivo.slider.pack.js"></script>
+        <script type="text/javascript">
+            $(window).load(function () {
+                $('#slider').nivoSlider();
+            });
+        </script>
+
+    </head>
+    <body>
+    <div id="conteiner">
+        <div id="conteiner_main">
+
+            <!--header-->
+            <div id="header2">
+
+                <div id="logo"><a href="/" title=""><img src="/bundles/letim/images/logo.png" alt=""/></a></div>
+                    {% set menuItem = knp_menu_get('LetimMenuBundle:MenuBuilder:getMenu', [], {'menu': 'main_menu'}) %}
+                    {{ knp_menu_render(menuItem,{ 'currentClass': 'active'}) }}
+                {#</ul>#}
+            </div>
+            <!--/header-->
+
+
+            <!--start main-->
+            <div id="wrapper">
+
+                <!--start left_bar-->
+                <div id="left_bar">
+
+
+                    <ul class="left_nav">
+                        <li><a href="" title=""><img src="/bundles/letim/images/plashka1.png" alt=""/></a></li>
+                        <li><a href="" title=""><img src="/bundles/letim/images/plashka2.png" alt=""/></a></li>
+                        <li><a href="" title=""><img src="/bundles/letim/images/plashka3.png" alt=""/></a></li>
+                    </ul>
+
+                    <div class="baner"><a href="" title=""><img src="/bundles/letim/images/baner.jpg" alt=""/></a></div>
+
+                    <br/>
+
+                    <div class="zagolovok">Отзывы</div>
+
+
+                    <div class="otziv">
+                        <div class="otziv2">
+
+                            <p>Доброжелательность ВСЕГО персонала – это то, что начинается с самого порога этого необычного
+                                места развлечения. А дальше ждет небольшой инструктаж, переодевание в костюм телепузика и
+                                сам полет</p>
+                            <strong>Игорь Иванов</strong>
+                        </div>
+                    </div>
+
+
+                    <div class="otziv">
+                        <div class="otziv2">
+
+                            <p>Доброжелательность ВСЕГО персонала – это то, что начинается с самого порога этого необычного
+                                места развлечения. А дальше ждет небольшой инструктаж, переодевание в костюм телепузика и
+                                сам полет</p>
+                            <strong>Игорь Иванов</strong>
+                        </div>
+                    </div>
+
+
+                </div>
+                <!--end left_bar-->
+                <!--start content-->
+
+                {% block content %}
+                {% endblock %}
+                {% block news %}
+                    {% if page is defined %}
+                        {% render controller("LetimNewsBundle:Default:news",{'id': page.id})%}
+                    {% endif %}
+                {% endblock %}
+                {#{% include 'LetimNewsBundle:News:news.html.twig' with {'article': article} %}#}
+                <!--end content-->
+
+                <!--start bottom_bar-->
+                <div id="bottom_bar">
+
+                    <div class="form">
+                        <input name="" type="text" class="pole" value="Ваше имя"
+                               onfocus="if(this.value=='Ваше имя'){this.value='';}"
+                               onblur="if(this.value==''){this.value='Ваше имя';}"/>
+
+                        <input name="" type="text" class="pole" value="Ваш телефон"
+                               onfocus="if(this.value=='Ваш телефон'){this.value='';}"
+                               onblur="if(this.value==''){this.value='Ваш телефон';}"/>
+
+                        <input name="" type="text" class="pole" value="Ваш email"
+                               onfocus="if(this.value=='Ваш email'){this.value='';}"
+                               onblur="if(this.value==''){this.value='Ваш email';}"/>
+
+                        <input name="" class="buton" value="Забронировать полет" type="submit"/>
+                    </div>
+
+
+                    <div class="map">
+                        <img src="/bundles/letim/images/map.jpg" alt=""/>
+                    </div>
+                </div>
+                <!--end bottom_bar-->
+            </div>
+            <!--end main-->
+        </div>
+    </div>
+
+    <div id="footer">
+        <div id="foot">
+
+            <div class="soc">
+                Социальные сети:
+                <ul>
+                    <li><a href="" title=""><img src="/bundles/letim/images/soc1.png" alt=""/></a></li>
+                    <li><a href="" title=""><img src="/bundles/letim/images/soc2.png" alt=""/></a></li>
+                    <li><a href="" title=""><img src="/bundles/letim/images/soc3.png" alt=""/></a></li>
+                </ul>
+                Copyring © 2014
+            </div>
+
+            <div id="logo2"><a href="" title=""><img src="/bundles/letim/images/logo2.png" alt=""/></a></div>
+
+            <ul class="nav">
+                <li><span>О трубе</span></li>
+                <li><a href="" title="">Фото</a></li>
+                <li><a href="" title="">Отзывы</a></li>
+                <li><a href="" title="">Вопрос-ответ</a></li>
+
+            </ul>
+
+
+            <ul class="nav">
+                <li><span>Тарифы</span></li>
+
+
+            </ul>
+
+
+            <ul class="nav">
+                <li><span>Контакты</span></li>
+
+            </ul>
+
+
+        </div>
+    </div>
+    {% block body %}{% endblock %}
+    {% block javascripts %}{% endblock %}
+    </body>
+</html>

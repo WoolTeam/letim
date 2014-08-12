@@ -1,0 +1,7 @@
+parameters:
+#    letim_hello.example.class: Letim\HelloBundle\Example
+
+services:
+#    letim_hello.example:
+#        class: %letim_hello.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

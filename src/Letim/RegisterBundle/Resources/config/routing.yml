@@ -1,0 +1,6 @@
+letim_register_homepage:
+    path:     /app/register
+    defaults: { _controller: LetimRegisterBundle:Default:index }
+new_user:
+      path:     /app/new_user
+      defaults: { _controller: LetimRegisterBundle:Default:newUser}

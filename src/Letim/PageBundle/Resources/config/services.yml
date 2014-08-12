@@ -1,0 +1,17 @@
+parameters:
+#    letim_page.example.class: Letim\PageBundle\Example
+
+services:
+    sonata.admin.page:
+        class: Letim\PageBundle\Admin\PageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Страници", label: "Page" }
+        arguments:
+            - ~
+            - Letim\PageBundle\Entity\Page
+            - ~
+#        calls:
+#            - [ setTranslationDomain, [LetimPageBundle]]
+    page.manager:
+        class: Letim\PageBundle\Model\PageManager
+        arguments: [ @doctrine.orm.entity_manager , @security.context]

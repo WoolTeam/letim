@@ -1,0 +1,3 @@
+letim_photo_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: LetimPhotoBundle:Default:index }

@@ -1,0 +1,7 @@
+letim_secure_login:
+    path:     /app/login
+    defaults: { _controller: LetimSecureBundle:Default:login }
+letim_secure_check:
+    pattern:  /app/login_check
+letim_secure_logout:
+    pattern:  /app/logout

@@ -1,0 +1,39 @@
+{% for article in articles %}
+    {#<div>#}
+        {#<a href="/article/{{ article.id }}">#}
+            {#{{ article.title }}#}
+
+        {#</a>#}
+        {#<p>{{ article.teaser }}</p>#}
+    {#</div>#}
+    <div class="news">
+
+        {% if article.imageUrl %}
+            <img src="{{asset(article.imageUrl, absolute=true)}}" alt=""/>
+        {% endif %}
+        <div class="text">
+            {#{{article.imageUrl}}#}
+            <p>{{ article.teaser }}</p>
+            <a href="{{ 'article/'~article.id}}" title="">Подробнее</a>
+        </div>
+    </div>
+{% endfor %}
+
+
+{#<div class="news">#}
+    {#<img src="/bundles/letim/images/pic.png" alt=""/>#}
+
+    {#<div class="text">#}
+        {#<p>Аэродинамический тренажер (Аэротруба в Москве)</p>#}
+        {#<a href="" title="">Подробнее</a>#}
+    {#</div>#}
+{#</div>#}
+
+{#<div class="news">#}
+    {#<img src="/bundles/letim/images/pic.png" alt=""/>#}
+
+    {#<div class="text">#}
+        {#<p>Аэродинамический тренажер (Аэротруба в Москве)</p>#}
+        {#<a href="" title="">Подробнее</a>#}
+    {#</div>#}
+{#</div>#}

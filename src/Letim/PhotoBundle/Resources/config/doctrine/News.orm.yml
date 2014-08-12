@@ -1,0 +1,53 @@
+Letim\PhotoBundle\Entity\News:
+    type: entity
+    table: news
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        title:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        teaser:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+        text:
+            type: string
+            nullable: true
+            length: 4000
+            fixed: false
+            comment: ''
+        image:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+        active:
+            type: boolean
+            nullable: true
+            comment: ''
+        createdAt:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            comment: ''
+            default: CURRENT_TIMESTAMP
+            column: updated_at
+    lifecycleCallbacks: {  }

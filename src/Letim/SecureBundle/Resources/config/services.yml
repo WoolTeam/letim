@@ -1,0 +1,7 @@
+parameters:
+#    letim_secure.example.class: Letim\SecureBundle\Example
+
+services:
+#    letim_secure.example:
+#        class: %letim_secure.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

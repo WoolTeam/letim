@@ -1,0 +1,53 @@
+Letim\SecureBundle\Entity\User:
+    type: entity
+    table: user
+    indexes:
+        Roles:
+            columns:
+                - userRoles
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+        username:
+            type: string
+            nullable: false
+            length: 60
+            fixed: false
+            comment: ''
+            id: true
+        email:
+            type: string
+            nullable: false
+            length: 60
+            fixed: false
+            comment: ''
+            default: ''
+            id: true
+    fields:
+        pass:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        salt:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+    manyToOne:
+        userroles:
+            targetEntity: Roles
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                userRoles:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
