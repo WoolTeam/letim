@@ -29,10 +29,11 @@ class Plan
     private $name;
 
     /**
-     * @var boolean
+     * @var smallint
      *
-     * @ORM\Column(name="duration", type="boolean", nullable=false)
+     * @ORM\Column(name="duration", type="smallint", nullable=false)
      */
+    
     private $duration;
 
     /**
@@ -43,9 +44,9 @@ class Plan
     private $cost;
 
     /**
-     * @var boolean
+     * @var smallint
      *
-     * @ORM\Column(name="max_people", type="boolean", nullable=false)
+     * @ORM\Column(name="max_people", type="smallint", nullable=false)
      */
     private $maxPeople;
 
@@ -101,7 +102,7 @@ class Plan
     /**
      * Set duration
      *
-     * @param boolean $duration
+     * @param smallint $duration
      * @return Plan
      */
     public function setDuration($duration)
@@ -114,7 +115,7 @@ class Plan
     /**
      * Get duration
      *
-     * @return boolean 
+     * @return smallint
      */
     public function getDuration()
     {
@@ -147,7 +148,7 @@ class Plan
     /**
      * Set maxPeople
      *
-     * @param boolean $maxPeople
+     * @param smallint $maxPeople
      * @return Plan
      */
     public function setMaxPeople($maxPeople)
@@ -160,7 +161,7 @@ class Plan
     /**
      * Get maxPeople
      *
-     * @return boolean 
+     * @return smallint 
      */
     public function getMaxPeople()
     {

@@ -3,6 +3,7 @@
 namespace Letim\CalenderBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Tunel
@@ -58,8 +59,17 @@ class Tunel
      * })
      */
     private $plan;
+    
+    /**
+     * @var ArrayCollection
+     * 
+     * @ORM\OneToMany(targetEntity="ClientTunel", mappedBy="tunel")
+     */
+    private $clients;
 
-
+    public function __construct() {
+        $this->clients = new ArrayCollection();
+    }
 
     /**
      * Set active
@@ -184,5 +194,15 @@ class Tunel
     public function getPlan()
     {
         return $this->plan;
+    }
+    
+    /*
+     * Get clients
+     * 
+     * @return ArrayCollection
+     */
+    public function getClients()
+    {
+        return $this->clients;
     }
 }

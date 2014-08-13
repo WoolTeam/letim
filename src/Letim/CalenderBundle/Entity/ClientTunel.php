@@ -34,7 +34,7 @@ class ClientTunel
     /**
      * @var \Tunel
      *
-     * @ORM\ManyToOne(targetEntity="Tunel")
+     * @ORM\ManyToOne(targetEntity="Tunel", inversedBy="clients")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="tunel_id", referencedColumnName="id")
      * })
