@@ -1,0 +1,8 @@
+{% for review in reviews %}
+<div class="otziv">
+    <div class="otziv2">
+        {{ review.text | raw }}
+        <strong>{{ review.author }}</strong>
+    </div>
+</div>
+{% endfor %}

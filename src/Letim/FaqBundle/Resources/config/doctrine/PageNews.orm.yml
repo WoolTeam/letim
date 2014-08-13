@@ -1,0 +1,27 @@
+Letim\FaqBundle\Entity\PageNews:
+    type: entity
+    table: page_news
+    indexes:
+        news_page:
+            columns:
+                - page
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        page:
+            targetEntity: Page
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                page:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,3 @@
+letim_faq_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: LetimFaqBundle:Default:index }

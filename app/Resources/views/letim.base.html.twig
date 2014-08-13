@@ -54,30 +54,7 @@
                     <br/>
 
                     <div class="zagolovok">Отзывы</div>
-
-
-                    <div class="otziv">
-                        <div class="otziv2">
-
-                            <p>Доброжелательность ВСЕГО персонала – это то, что начинается с самого порога этого необычного
-                                места развлечения. А дальше ждет небольшой инструктаж, переодевание в костюм телепузика и
-                                сам полет</p>
-                            <strong>Игорь Иванов</strong>
-                        </div>
-                    </div>
-
-
-                    <div class="otziv">
-                        <div class="otziv2">
-
-                            <p>Доброжелательность ВСЕГО персонала – это то, что начинается с самого порога этого необычного
-                                места развлечения. А дальше ждет небольшой инструктаж, переодевание в костюм телепузика и
-                                сам полет</p>
-                            <strong>Игорь Иванов</strong>
-                        </div>
-                    </div>
-
-
+                    {% render controller("LetimReviewBundle:Default:list", {'tpl': 'small', 'limit': 2})%}
                 </div>
                 <!--end left_bar-->
                 <!--start content-->
@@ -87,6 +64,11 @@
                 {% block news %}
                     {% if page is defined %}
                         {% render controller("LetimNewsBundle:Default:news",{'id': page.id})%}
+                    {% endif %}
+                {% endblock %}
+                {% block fac %}
+                    {% if page is defined %}
+                        {% render controller("LetimFaqBundle:Default:faq",{'id': page.id})%}
                     {% endif %}
                 {% endblock %}
                 {#{% include 'LetimNewsBundle:News:news.html.twig' with {'article': article} %}#}
@@ -108,7 +90,7 @@
                                onfocus="if(this.value=='Ваш email'){this.value='';}"
                                onblur="if(this.value==''){this.value='Ваш email';}"/>
 
-                        <input name="" class="buton" value="Забронировать полет" type="submit"/>
+                        <input name="" class="buton" id="sendMail" value="Забронировать полет" type="submit"/>
                     </div>
 
 
@@ -140,7 +122,7 @@
             <ul class="nav">
                 <li><span>О трубе</span></li>
                 <li><a href="" title="">Фото</a></li>
-                <li><a href="" title="">Отзывы</a></li>
+                <li><a href="{{ path('letim_review_page') }}" title="">Отзывы</a></li>
                 <li><a href="" title="">Вопрос-ответ</a></li>
 
             </ul>

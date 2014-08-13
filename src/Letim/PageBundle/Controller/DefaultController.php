@@ -3,6 +3,7 @@
 namespace Letim\PageBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
@@ -24,5 +25,9 @@ class DefaultController extends Controller
             //404
         }
         return $this->render('LetimPageBundle:Default:index.html.twig', array('page' => $page));
+    }
+
+    public function mailsendAction (Request $request) {
+        print_r($request);
     }
 }

@@ -1,0 +1,11 @@
+services:
+    admin.faq:
+         class: Letim\FaqBundle\Admin\FaqAdmin
+         tags:
+         - { name:  sonata.admin, manager_type: orm, group: Вопросы и ответы, label: Добавить вопрос}
+         arguments: [null, Letim\FaqBundle\Entity\Faq, SonataAdminBundle:CRUD]
+    admin.faq.page:
+                 class: Letim\FaqBundle\Admin\FaqPagesAdmin
+                 tags:
+                 - { name:  sonata.admin, manager_type: orm, group: Страницы отображения вопросов, label: Добавить}
+                 arguments: [null, Letim\FaqBundle\Entity\PageFaq, SonataAdminBundle:CRUD]

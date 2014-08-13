@@ -1,0 +1,13 @@
+{% extends "::letim.base.html.twig" %}
+{% block content %}
+    <div id="content">
+    <div class="zagolovok2">Отзывы</div>
+    <div id="reviewFrom">
+        <form action="{{ path('letim_review_page') }}" method="post" {{ form_enctype(form) }}>
+            {{ form_widget(form) }}
+
+            <input type="submit" name="review_button"/>
+        </form>
+    </div>
+    {% render controller("LetimReviewBundle:Default:list", {'tpl': 'big', 'limit': 0})%}
+{% endblock %}
