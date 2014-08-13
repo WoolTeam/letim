@@ -1,0 +1,7 @@
+parameters:
+#    letim_calender.example.class: Letim\CalenderBundle\Example
+
+services:
+#    letim_calender.example:
+#        class: %letim_calender.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

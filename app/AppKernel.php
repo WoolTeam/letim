@@ -40,6 +40,7 @@ class AppKernel extends Kernel
             new Iphp\FileStoreBundle\IphpFileStoreBundle(),
             new Letim\PhotoBundle\LetimPhotoBundle(),
             new Letim\FaqBundle\LetimFaqBundle(),
+            new Letim\CalenderBundle\LetimCalenderBundle(),
             new Letim\ReviewBundle\LetimReviewBundle(),
         );
 

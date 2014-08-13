@@ -1,5 +1,7 @@
 letim_review:
     resource: "@LetimReviewBundle/Resources/config/routing.yml"
+letim_calender:
+    resource: "@LetimCalenderBundle/Resources/config/routing.yml"
     prefix:   /
 
 letim_faq:
