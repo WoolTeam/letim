@@ -2,7 +2,7 @@
  * Created by Колюха on 12.08.14.
  */
 var app = angular.module('calendarApp', [])
-    .controller('CalendarController', ['$scope', '$filter', function($scope, $filter) {
+    .controller('CalendarController', ['$scope', '$filter', '$http', function($scope, $filter, $http) {
         var date = new Date(),
             start = startDayInWeek(date);
         $scope.thisDate = "";
@@ -48,11 +48,44 @@ var app = angular.module('calendarApp', [])
             var start = startDayInWeek(date);
             return fillWeek(start);
         }
-        $scope.a = function(e) {
-            console.log(e);
+        function setMinutsOfWeek(week, data) {
+            var i = 0, j = 0;
+            while(i < 23) {
+                if(data[i]) {
+                    week.hoursArray[j].first = data[i];
+                }
+                i += 1;
+                if(data[i]) {
+                    week.hoursArray[j].last = data[i];
+                    //console.log(week.hoursArray[j].last);
+                }
+                //console.log(week.hoursArray[j]);
+                i += 1;
+                j += 1;
+            }
+        }
+        $scope.getDuration = function (arr) {
+            var i, result = 0;
+            if(arr) {
+                for(i = 0; i < arr.length; i += 1) {
+                    result = result + arr[i].duration;
+                }
+            }
+            return result;
+        }
+
+        function setMinutes (data) {
+            var i = 0;
+            while(i <= 6) {
+                if(data[i]) {
+                    console.log(data[i]);
+                    setMinutsOfWeek($scope.weekArray[i], data[i]);
+                }
+                i += 1;
+            }
         }
         $scope.weekArray = fillWeek(start);
-        console.log($scope.weekArray[0].hoursArray);
+        mins();
         $scope.$watch('thisDate', function () {
             console.log($scope.thisDate);
         });
@@ -63,5 +96,21 @@ var app = angular.module('calendarApp', [])
                     $scope.weekArray = init(str);
                 }
             )
+            mins(dArray[2] + '-' + dArray[1] + '-' + dArray[0]);
         });
+        function mins (from) {
+            $http({method: "POST",
+                data: {from: from},
+                url: 'http://letim/app_dev.php/calender/gettunels'}).
+                success(function(data, status) {
+                    $scope.status = status;
+                    $scope.data = data;
+                    setMinutes(data['data']);
+                    console.log(data);
+                }).
+                error(function(data, status) {
+                    $scope.data = data || "Request failed";
+                    $scope.status = status;
+                });
+        }
     }]);

@@ -632,3 +632,6 @@ p.copyring {
       left:50%;
       margin:0 0 0 -510px;
       opacity: 0.5;}
+.cal_table td {
+    width: 120px;
+}

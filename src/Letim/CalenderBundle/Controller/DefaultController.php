@@ -20,15 +20,15 @@ class DefaultController extends Controller
         if(!array_key_exists('from', $params)) {
             $params['from'] = new \DateTime();           
         } else {
-            $params['from'] = new \DateTime('from');
+            $params['from'] = new \DateTime($params['from']);
         }
         if(!array_key_exists('offset', $params)) {
             $params['to'] = new \DateTime();
             $params['to']->add(new \DateInterval('P7D'));
         } else {
-            $params['to'] = new \DateTime('to');
+            $params['to'] = new \DateTime($params['to']);
         }
-        
+        //print_r($params['from']);
         $week = 1;
         if($week == 1) {
             $params['from'] = $this->getWeek($params['from']);
@@ -68,7 +68,7 @@ class DefaultController extends Controller
                     $curfrom->add($half);
                     $tot = $curfrom->getTimestamp();
                     foreach($result as $res) {
-                        if(($res->getStartedAt()->getTimestamp() <= $tot) && ($res->getStartedAt()->getTimestamp() > $fromt) ) {
+                        if(($res->getStartedAt()->getTimestamp() < $tot) && ($res->getStartedAt()->getTimestamp() >= $fromt) ) {
                             $clients = $res->getClients()->toArray();
                             foreach ($clients as $client) {
                                 $cl[] = $client->getClient()->getId();
@@ -123,5 +123,9 @@ class DefaultController extends Controller
         $output['messages'] = $messages;
         $output['data'] = $data;
         return $output;
+    }
+
+    public function calendarAction() {
+        return $this->render('LetimCalenderBundle:Default:calendar.html.twig');
     }
 }
