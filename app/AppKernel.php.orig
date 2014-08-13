@@ -39,9 +39,12 @@ class AppKernel extends Kernel
             new Letim\NewsBundle\LetimNewsBundle(),
             new Iphp\FileStoreBundle\IphpFileStoreBundle(),
             new Letim\PhotoBundle\LetimPhotoBundle(),
+<<<<<<< HEAD
             new Letim\FaqBundle\LetimFaqBundle(),
+            new Letim\ReviewBundle\LetimReviewBundle(),
+=======
             new Letim\CalenderBundle\LetimCalenderBundle(),
-            new Letim\ReviewBundle\LetimReviewBundle()
+>>>>>>> e9336e9110a67de5b60fb59abe2ed61585dcbe63
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -1,0 +1,10 @@
+letim_review_page:
+    path:     /review
+    defaults: { _controller: LetimReviewBundle:Default:index, state: 'work' }
+letim_review_page_success:
+        path:     /review/success
+        defaults: { _controller: LetimReviewBundle:Default:index, state: 'success' }
+letim_review_list:
+    path:     /review/list/{tpl}
+    defaults: { _controller: LetimReviewBundle:Default:list, tpl: 'small', limit: 2}
+    methods:  [GET]

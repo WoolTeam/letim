@@ -1,0 +1,9 @@
+{% extends "::letim.base.html.twig" %}
+{% block content %}
+    <div id="content">
+    <div class="zagolovok2">Спасибо за ваш отзыв</div>
+    <div class="success">{{ success }}</div>
+    <hr />
+    <a href="{{ path('letim_review_page') }}">Вернуться на страницу отзывов</a>
+
+{% endblock %}

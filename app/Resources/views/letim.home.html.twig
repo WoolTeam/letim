@@ -14,6 +14,7 @@
         <script type="text/javascript" src="/letim/js/jquery-1.5.2.min.js"></script>
         <link rel="stylesheet" href="/letim/css/nivo-slider.css" type="text/css" media="screen"/>
         <script type="text/javascript" src="/letim/js/jquery.nivo.slider.pack.js"></script>
+        <script type="text/javascript" src="/letim/js/main.js"></script>
         <script type="text/javascript">
             $(window).load(function () {
                 $('#slider').nivoSlider();
@@ -84,30 +85,7 @@
                 <div id="left_bar">
 
                     <div class="zagolovok">Отзывы</div>
-
-
-                    <div class="otziv">
-                        <div class="otziv2">
-
-                            <p>Доброжелательность ВСЕГО персонала – это то, что начинается с самого порога этого необычного
-                                места развлечения. А дальше ждет небольшой инструктаж, переодевание в костюм телепузика и
-                                сам полет</p>
-                            <strong>Игорь Иванов</strong>
-                        </div>
-                    </div>
-
-
-                    <div class="otziv">
-                        <div class="otziv2">
-
-                            <p>Доброжелательность ВСЕГО персонала – это то, что начинается с самого порога этого необычного
-                                места развлечения. А дальше ждет небольшой инструктаж, переодевание в костюм телепузика и
-                                сам полет</p>
-                            <strong>Игорь Иванов</strong>
-                        </div>
-                    </div>
-
-
+                    {% render controller("LetimReviewBundle:Default:list", {'tpl': 'small', 'limit': 2}) %}
                 </div>
                 <!--end left_bar-->
                 <!--start content-->
@@ -120,19 +98,22 @@
                 <div id="bottom_bar">
 
                     <div class="form">
-                        <input name="" type="text" class="pole" value="Ваше имя"
-                               onfocus="if(this.value=='Ваше имя'){this.value='';}"
-                               onblur="if(this.value==''){this.value='Ваше имя';}"/>
+                        <form id="sendMail">
+                            <div class="error" id="name"></div>
+                            <input name="name" type="text" class="pole" value="Ваше имя"
+                                   onfocus="if(this.value=='Ваше имя'){this.value='';}"
+                                   onblur="if(this.value==''){this.value='Ваше имя';}"/>
+                            <div class="error" id="phone"></div>
+                            <input name="phone" type="text" class="pole" value="Ваш телефон"
+                                   onfocus="if(this.value=='Ваш телефон'){this.value='';}"
+                                   onblur="if(this.value==''){this.value='Ваш телефон';}"/>
+                            <div class="error" id="email"></div>
+                            <input name="email" type="text" class="pole" value="Ваш email"
+                                   onfocus="if(this.value=='Ваш email'){this.value='';}"
+                                   onblur="if(this.value==''){this.value='Ваш email';}"/>
 
-                        <input name="" type="text" class="pole" value="Ваша фамилия"
-                               onfocus="if(this.value=='Ваша фамилия'){this.value='';}"
-                               onblur="if(this.value==''){this.value='Ваша фамилия';}"/>
-
-                        <input name="" type="text" class="pole" value="Ваш email"
-                               onfocus="if(this.value=='Ваш email'){this.value='';}"
-                               onblur="if(this.value==''){this.value='Ваш email';}"/>
-
-                        <input name="" class="buton" value="Забронировать полет" type="submit"/>
+                            <input name="" class="buton" value="Забронировать полет" type="submit"/>
+                        </form>
                     </div>
 
 

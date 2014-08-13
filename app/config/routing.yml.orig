@@ -1,11 +1,14 @@
+<<<<<<< HEAD
 letim_review:
     resource: "@LetimReviewBundle/Resources/config/routing.yml"
-letim_calender:
-    resource: "@LetimCalenderBundle/Resources/config/routing.yml"
     prefix:   /
 
 letim_faq:
     resource: "@LetimFaqBundle/Resources/config/routing.yml"
+=======
+letim_calender:
+    resource: "@LetimCalenderBundle/Resources/config/routing.yml"
+>>>>>>> e9336e9110a67de5b60fb59abe2ed61585dcbe63
     prefix:   /
 
 letim_photo:

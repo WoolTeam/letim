@@ -632,9 +632,10 @@ p.copyring {
       left:50%;
       margin:0 0 0 -510px;
       opacity: 0.5;}
+<<<<<<< HEAD
 .cal_table td {
     width: 120px;
-}
+=======
 
 #reviewFrom input[type=text] {
     height: 25px;
@@ -674,4 +675,5 @@ p.copyring {
 .success {
     color: green;
     font-weight: 700;
+>>>>>>> letim/master
 }

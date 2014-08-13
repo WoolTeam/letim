@@ -1,0 +1,41 @@
+Letim\FaqBundle\Entity\Faq:
+    type: entity
+    table: faq
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        question:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        answer:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+        active:
+            type: boolean
+            nullable: false
+            comment: ''
+            default: '0'
+        createdAt:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: updated_at
+    lifecycleCallbacks: {  }

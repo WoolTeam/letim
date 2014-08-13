@@ -1,0 +1,6 @@
+Letim\ReviewBundle\Entity\Review:
+    properties:
+        author:
+            - NotBlank: ~
+        text:
+            - NotBlank: ~

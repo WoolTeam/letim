@@ -4,3 +4,7 @@ letim_page_homepage:
 letim_get_page:
     path:     /{url}
     defaults: { _controller: LetimPageBundle:Default:index, url:get_home_page}
+letim_send_mail:
+    path:     /send/mail
+    defaults: { _controller: LetimPageBundle:Default:mailsend}
+    methods:  [POST]

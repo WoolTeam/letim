@@ -1,0 +1,9 @@
+<ol>
+{% for question in questions %}
+    <li>
+        <b>{{ question.question | raw }}</b>
+        <hr />
+        {{ question.answer | raw}}
+    </li>
+{% endfor %}
+</ol>
