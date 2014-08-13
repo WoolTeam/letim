@@ -1,0 +1,48 @@
+<<<<<<< HEAD
+letim_review:
+    resource: "@LetimReviewBundle/Resources/config/routing.yml"
+    prefix:   /
+
+letim_faq:
+    resource: "@LetimFaqBundle/Resources/config/routing.yml"
+=======
+letim_calender:
+    resource: "@LetimCalenderBundle/Resources/config/routing.yml"
+>>>>>>> e9336e9110a67de5b60fb59abe2ed61585dcbe63
+    prefix:   /
+
+letim_photo:
+    resource: "@LetimPhotoBundle/Resources/config/routing.yml"
+    prefix:   /
+
+letim_news:
+    resource: "@LetimNewsBundle/Resources/config/routing.yml"
+    prefix:   /
+
+letim_menu:
+    resource: "@LetimMenuBundle/Resources/config/routing.yml"
+    prefix:   /
+
+letim_register:
+    resource: "@LetimRegisterBundle/Resources/config/routing.yml"
+    prefix:   /
+
+letim_secure:
+    resource: "@LetimSecureBundle/Resources/config/routing.yml"
+    prefix:   /
+
+letim_page:
+    resource: "@LetimPageBundle/Resources/config/routing.yml"
+    prefix:   /
+
+letim_hello:
+    resource: "@LetimHelloBundle/Resources/config/routing.yml"
+    prefix:   /
+admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /admin
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /admin
+
