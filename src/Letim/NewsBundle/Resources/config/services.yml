@@ -5,10 +5,10 @@ services:
     admin.news:
          class: Letim\NewsBundle\Admin\NewsAdmin
          tags:
-         - { name:  sonata.admin, manager_type: orm, group: Новости, label: Добавуить статью}
+         - { name:  sonata.admin, manager_type: orm, group: Новости, label: Добавить статью}
          arguments: [null, Letim\NewsBundle\Entity\News, SonataAdminBundle:CRUD]
     admin.news.page:
              class: Letim\NewsBundle\Admin\NewsPageAdmin
              tags:
-             - { name:  sonata.admin, manager_type: orm, group: Страници отображения новости, label: Добавить}
+             - { name:  sonata.admin, manager_type: orm, group: Страницы отображения новости, label: Добавить}
              arguments: [null, Letim\NewsBundle\Entity\PageNews, SonataAdminBundle:CRUD]

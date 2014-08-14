@@ -30,6 +30,7 @@
         <div id="header2">
 
             <div id="logo"><a href="/" title=""><img src="/letim/images/logo.png" alt=""/></a></div>
+            <a href="" class="buton_top" title=""><img src="/letim/images/but2.png" alt="" /></a>
             {% set menuItem = knp_menu_get('LetimMenuBundle:MenuBuilder:getMenu', [], {'menu': 'main_menu'}) %}
             {{ knp_menu_render(menuItem,{ 'currentClass': 'active'}) }}
             {#</ul>#}
@@ -54,7 +55,7 @@
 
                 <br/>
 
-                <div class="zagolovok">Отзывы</div>
+                <div class="zagolovok"><a href="{{ path('letim_review_page') }}">Отзывы</a></div>
                 {% render controller("LetimReviewBundle:Default:list", {'tpl': 'small', 'limit': 2}) %}
             </div>
             <!--end left_bar-->
@@ -117,30 +118,39 @@
                 <li><a href="" title=""><img src="/letim/images/soc2.png" alt=""/></a></li>
                 <li><a href="" title=""><img src="/letim/images/soc3.png" alt=""/></a></li>
             </ul>
-            Copyring © 2014
+            Copyright © 2014
         </div>
 
-        <div id="logo2"><a href="" title=""><img src="/letim/images/logo2.png" alt=""/></a></div>
+        <div id="logo2"><a href=/"" title=""><img src="/letim/images/logo2.png" alt=""/></a></div>
 
         <ul class="nav">
-            <li><span>О трубе</span></li>
-            <li><a href="" title="">Фото</a></li>
-            <li><a href="{{ path('letim_review_page') }}" title="">Отзывы</a></li>
-            <li><a href="" title="">Вопрос-ответ</a></li>
+            <li><a href="/o_trube" title="О трубе" ><span>О трубе</span></a></li>
+            <li><a href="" title="Команда" >Команда</a></li>
+            <li><a href="" title="Контакты" >Контакты</a></li>
+            <li><a href="/news" title="Новости" >Новости</a></li>
+
+
+
 
         </ul>
 
 
         <ul class="nav">
-            <li><span>Тарифы</span></li>
+            <li><a href="" title="Тарифы" ><span>Тарифы</span></a></li>
+            <li><a href="" title="Календарь" >Календарь</a></li>
+            <li><a href="" title="Акции" >Акции</a></li>
+            <li><a href="" title="Сертификаты" >Сертификаты</a></li>
+
 
 
         </ul>
 
 
         <ul class="nav">
-            <li><span>Контакты</span></li>
-
+            <li><span>Как проехать</span></li>
+            <li><a href="{{ path('letim_review_page') }}" title="">Оставить отзыв</a></li>
+            <li><a href="" title="Найти напарника" >Найти напарника</a></li>
+            <li><a href="/question" title="">Вопрос-ответ</a></li>
         </ul>
 
 

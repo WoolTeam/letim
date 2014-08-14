@@ -17,7 +17,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 class PageAdmin extends Admin{
     protected function configureFormFields(FormMapper $formMapper) {
         $formMapper
-            ->add('title', 'text', array('label' => 'Тайтл'))
+            ->add('title', 'text', array('label' => 'Заголовок'))
             ->add('url', 'text', array('label' => 'URL'))
             ->add('active', null, array('label' => 'Опубликовать'))
             ->add('createdAt', null, array('label' => 'Дата создания'))

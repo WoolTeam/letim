@@ -5,7 +5,7 @@ services:
     sonata.admin.page:
         class: Letim\PageBundle\Admin\PageAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Страници", label: "Page" }
+            - { name: sonata.admin, manager_type: orm, group: "Страницы", label: "Page" }
         arguments:
             - ~
             - Letim\PageBundle\Entity\Page
