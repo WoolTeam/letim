@@ -329,7 +329,9 @@ p {padding:0 0 14px 0;}
     background: #ffc15f;
     border:1px solid #f2ac3d;
     height: 38px;
-    line-height:38px;}
+    line-height:38px;
+    font-size: 12px;
+}
 
 .calendar .buton {
     background:  url(../images/but2.png) no-repeat 0 0;
