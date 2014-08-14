@@ -633,7 +633,7 @@ p.copyring {
       margin:0 0 0 -510px;
       opacity: 0.5;}
 
-#reviewFrom input[type=text] {
+#reviewFrom input[type=text], #reviewFrom input[type=email]{
     height: 25px;
     padding: 5px;
     display: block;

@@ -23,6 +23,12 @@ Letim\ReviewBundle\Entity\Review:
             length: 255
             fixed: false
             comment: ''
+        email:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
         active:
             type: boolean
             nullable: false

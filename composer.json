@@ -23,7 +23,8 @@
         "sonata-project/core-bundle": "2.2.*@dev",
         "genemu/form-bundle": "2.2.*",
         "knplabs/knp-menu": "~2.0",
-        "iphp/filestore-bundle":"dev-master"
+        "iphp/filestore-bundle":"dev-master",
+        "genemu/form-bundle": "2.2.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

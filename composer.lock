@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "4c610e898f56879ebe5cd94547f8931b",
+    "hash": "c19556235963b962f26ef8c621c76428",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1365,12 +1365,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "373c60f38543f580659b777659d2d32ec621146a"
+                "reference": "11f8a60cf5cf64531c3d97ee2a3a2dc4eeb2e354"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/373c60f38543f580659b777659d2d32ec621146a",
-                "reference": "373c60f38543f580659b777659d2d32ec621146a",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/11f8a60cf5cf64531c3d97ee2a3a2dc4eeb2e354",
+                "reference": "11f8a60cf5cf64531c3d97ee2a3a2dc4eeb2e354",
                 "shasum": ""
             },
             "require": {
@@ -1436,7 +1436,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2014-08-11 22:16:13"
+            "time": "2014-08-13 07:49:21"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -1568,12 +1568,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataCoreBundle.git",
-                "reference": "e781255d0b6ab661f9e041b01ff8d943ae70ebc0"
+                "reference": "c93d8ec92687ec4efe0d981737bfa2dbeb76c4be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/e781255d0b6ab661f9e041b01ff8d943ae70ebc0",
-                "reference": "e781255d0b6ab661f9e041b01ff8d943ae70ebc0",
+                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/c93d8ec92687ec4efe0d981737bfa2dbeb76c4be",
+                "reference": "c93d8ec92687ec4efe0d981737bfa2dbeb76c4be",
                 "shasum": ""
             },
             "require": {
@@ -1622,7 +1622,7 @@
             "keywords": [
                 "sonata"
             ],
-            "time": "2014-08-01 09:50:50"
+            "time": "2014-08-13 17:27:05"
         },
         {
             "name": "sonata-project/doctrine-orm-admin-bundle",

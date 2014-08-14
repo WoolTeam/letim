@@ -10,20 +10,33 @@ class DefaultController extends Controller
 {
     public function indexAction(Request $request, $state)
     {
+        $settings = array(
+            'width' => 206,
+            'height' => 57,
+            'font_size' => 22,
+            'length' => 7,
+            'border_color' => "cccccc",
+            'label' => 'Проверочный код'
+        );
         $review = new Review();
-        $form = $this->createFormBuilder($review)
+        $form = $this->createFormBuilder()
             ->add('author', 'text', array('label' => 'Ваше имя', 'required' => true))
+            ->add('email', 'email', array('label' => 'Email', 'required' => true))
             ->add('text', 'textarea', array('label' => 'Отзыв', 'required' => true))
-            ->getForm();
+            ->add('securitycod', 'genemu_captcha', $settings)
+        ->getForm();
         $success = '';
         if ($request->getMethod() == 'POST') {
             $form->bind($request);
-
+            $param = $request->request->get('form');
             if ($form->isValid()) {
                 $time = new \DateTime();
                 $review->setCreatedAt($time);
                 $review->setUpdatedAt($time);
                 $review->setActive(0);
+                $review->setAuthor($param['author']);
+                $review->setEmail($param['email']);
+                $review->setText($param['text']);
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($review);
                 $em->flush();
