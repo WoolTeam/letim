@@ -1,5 +1,7 @@
 /* datepicker */
-.datepicker {
+
+
+.calendar1 .datepicker {
         background: url(../images/bcg-dp.gif) no-repeat 0 0; 
         padding:0 14px 0 30px; 
         margin:19px 18px 0 0;
@@ -10,8 +12,24 @@
         color:#335985;
         border:none;
         float:right;}
+ 
+.two {float: right;margin: -54px 0 -5px 0;}        
+        
+.two .datepicker {
+        background: url(../images/bcg-dp2.gif) no-repeat 0 0; 
+ 
+        padding:0 40px 0 14px; 
+        margin: 0;
+        width:258px;
+        height:45px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        color:#335985;
+        border:none;
+        float:right;
+        }        
 
-#datepicker {position:absolute; top:0; left:30px; width:201px; border:1px solid #333; border:1px solid 000;background:#FFF;}
+#datepicker {position:absolute; top:0; left:30px; width:201px; border:1px solid #333; border:1px solid 000;background:#FFF;z-index:99999;}
 #datepicker {font-family:Tahoma, Geneva, sans-serif; font-size:14px; padding:3px 3px 0;}
 
 #dateheader {height:22px; background:#999; position:relative; margin:0 0 3px;}

@@ -5,18 +5,19 @@
         {% block stylesheets %}
         {% endblock %}
     </head>
-        <body id="bg2" >
+        <body id="bg3" >
         <div id="conteiner">
             <div id="conteiner_main">
 
             <!--header-->
-            <div id="header2">
+            <div id="header4">
 
                 <div id="logo"><a href="/" title=""><img src="/letim/images/logo.png" alt=""/></a></div>
                     {% set menuItem = knp_menu_get('LetimMenuBundle:MenuBuilder:getMenu', [], {'menu': 'main_menu'}) %}
                     {{ knp_menu_render(menuItem,{ 'currentClass': 'active'}) }}
                 {#</ul>#}
             </div>
+                <div class="big_zagolovok">Ваш кабинет</div>
             <!--/header-->
 
 

@@ -1,0 +1,136 @@
+{% extends "::letim.bron.html.twig" %}
+{% block stylesheets %}
+    <script type="text/javascript" src="/letim/js/datepicker-cp.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
+    <script type="text/javascript" src="/letim/js/calendar.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="/letim/css/datepicker.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/letim/css/select.css"/>
+    <script type="text/javascript" src="/letim/js/jquery.selectBox.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("select").selectBox();
+
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+<!--start content-->
+{% verbatim %}
+    <div id="wrapper" ng-app="calendarApp">
+
+
+        <!--start content-->
+        <div id="content" ng-controller='CalendarController'>
+
+
+
+            <div class="cols_left2">
+
+                <h6>Участники:</h6>
+
+                <div class="form_user2">
+                    <p><label>Ваш телефон</label><input name="" type="text" class="pole" value="" /></p>
+                    <p><label>Ваше имя</label><input name="" type="text" class="pole" value="" /></p>
+                    <p><label>Ваша фамилия</label><input name="" type="text" class="pole" value="" /></p>
+                </div>
+            </div>
+
+
+                {{ currentDate }}
+            <div class="cols_right2">
+
+                <h6>Детали полета:</h6>
+
+                <div class="form_user2">
+                    <p><label>Дата</label>
+                    <div class="calendar1 two"><input type="text" class="datepicker" id="anyID" /></div>
+                    </p>
+                    <div class="clear"></div>
+                    {{ myOption }}
+                    <p><label>Во сколько</label><div class="form1">
+                        <select class="select1" ng-model="myOption">
+                            {% endverbatim %}
+                            {% for i in range(11, 22) %}
+                                <option data-houri="i" data-hour='first'>{{ i }}:00</option>
+                                <option data-houri="i" data-hour='last'>{{ i }}:30</option>
+                            {% endfor %}
+                            {% verbatim %}
+                        </select>
+                    </div></p>
+                    <p>
+                        <label>Вид белета</label>
+                    <div class="form1">
+                        <select class="select1">
+                            <option>Взрослый</option>
+                            <option>Детский</option>
+                        </select>
+                    </div>
+                    </p>
+                    <p>
+                        <label>Количество</label>
+                    <div class="form1">
+                        <select class="select1">
+                            <option>2 человека</option>
+                            <option>1 человек</option>
+                            <option>3 человека</option>
+                        </select>
+                    </div>
+                    </p>
+                    <p>
+                        <label>Время полета</label>
+                    <div class="form1">
+                        <select class="select1">
+                            <option>30 минут</option>
+                            <option>1 час</option>
+                            <option>2 часа</option>
+                        </select>
+                    </div>
+                    </p>
+                    <p class="itog">Итого: <span>15 000</span> руб</p>
+                    <input name="" class="buton" value="Заказать" type="submit" />
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class="clear"></div>
+
+            <br /><br />
+
+
+
+
+
+
+
+
+
+        </div>
+        <!--end content-->
+
+        <!--start bottom_bar-->
+        <div id="bottom_bar">
+
+            <div class="form">
+                <input name="" type="text" class="pole" value="Ваше имя" onfocus="if(this.value=='Ваше имя'){this.value='';}" onblur="if(this.value==''){this.value='Ваше имя';}" />
+
+                <input name="" type="text" class="pole" value="Ваша фамилия" onfocus="if(this.value=='Ваша фамилия'){this.value='';}" onblur="if(this.value==''){this.value='Ваша фамилия';}" />
+
+                <input name="" type="text" class="pole" value="Ваш email" onfocus="if(this.value=='Ваш email'){this.value='';}" onblur="if(this.value==''){this.value='Ваш email';}" />
+
+                <input name="" class="buton" value="Забронировать полет" type="submit" />
+            </div>
+
+
+            <div class="map">
+                <img src="/letim/images/map.jpg" alt="" />
+            </div>
+        </div>
+        <!--end bottom_bar-->
+    </div>
+    {% endverbatim %}
+{% endblock %}

@@ -9,3 +9,6 @@ letim_calender_test:
 letim_calender_page:
     path:     /calendar/page
     defaults: { _controller: LetimCalenderBundle:Default:calendar }
+letim_bron_page:
+    path:     /bronirovanie
+    defaults: { _controller: LetimCalenderBundle:Default:bronirovanie }
