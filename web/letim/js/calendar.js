@@ -67,20 +67,7 @@ var app = angular.module('calendarApp', [])
                 j += 1;
             }
         }
-        function select (week) {
-            var selects = [],
-                i,
-                j;
-            for(i = 0; week.length > i; i += 1) {
-                //selects[i][] = week[i].hoursArray
-                selects[i] = [];
-                for(j = 0; j < week[i].hoursArray.length; j += 1) {
-                    selects[i][selects[i].length] = week[i].hoursArray[j].first;
-                    selects[i][selects[i].length] = week[i].hoursArray[j].last;
-                }
-            }
-            return selects;
-        }
+
         $scope.getDuration = function (arr) {
             var i, result = 0;
             if(arr) {
