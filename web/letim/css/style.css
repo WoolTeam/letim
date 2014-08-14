@@ -175,6 +175,15 @@ ul.top_menu a:hover, ul.top_menu a.active {
     font-weight: bold;
     color:#5a626a;
     line-height: 43px;}
+#left_bar .zagolovok a {
+    color:#5a626a;
+    text-decoration: none;
+}
+
+#left_bar .zagolovok a:hover {
+    color:#5a626a;
+    text-decoration: underline;
+}
 
 .otziv {
     background: url(../images/ot1.png) no-repeat 0 0;
@@ -302,9 +311,9 @@ p {padding:0 0 14px 0;}
 .calendar table th.one_td, .calendar table td.one_td {
     width: 71px;
     font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
-    padding:0 0 0 25px;
+    padding:0 15px 0 15px;
     text-align: left;
     color:#000;}
 
@@ -364,7 +373,7 @@ h6 {
     line-height:24px;}
 
 
-.cols_right2 p.itog {
+.cols_left2 p.itog {
     font-family: 'Open Sans', sans-serif;
     font-size: 17px;
     font-weight: 600;
@@ -373,10 +382,10 @@ h6 {
     text-align: right;
     line-height:24px;}
 
-.cols_right2 p.itog span {
+.cols_left2 p.itog span {
     font-size: 30px;}
 
-.cols_right2 .buton {
+.cols_left2 .buton {
     background:  url(../images/buton2.png) no-repeat 0 0;
     display:block;
     float:right;
@@ -765,8 +774,6 @@ ul.top_menu a:hover, ul.top_menu a.active {
     border-bottom: 6px solid #fc8300;
     line-height: 67px;}
 .calendar td {
-    width: 120px;
-}
 .select1 {
     max-height: 280px;
     overflow-y: auto;

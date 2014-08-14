@@ -1,9 +1,6 @@
-<ol>
 {% for review in reviews %}
-<li class="review">
+
     <strong>{{ review.author }}</strong>
         {{ review.text | raw }}
     <hr />
-</li>
 {% endfor %}
-    </ol>
