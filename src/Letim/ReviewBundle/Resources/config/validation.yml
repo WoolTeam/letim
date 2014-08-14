@@ -4,3 +4,7 @@ Letim\ReviewBundle\Entity\Review:
             - NotBlank: ~
         text:
             - NotBlank: ~
+        email:
+            - Email:
+                message: Email не является валидным "{{ value }}".
+                checkMX: false
