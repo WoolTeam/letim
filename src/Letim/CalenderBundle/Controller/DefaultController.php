@@ -5,6 +5,7 @@ namespace Letim\CalenderBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
@@ -130,6 +131,53 @@ class DefaultController extends Controller
     }
 
     public function bronirovanieAction () {
-        return $this->render('LetimCalenderBundle:Default:bron.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            'SELECT
+            typ.name name,
+            typ.id id
+            FROM LetimCalenderBundle:Plan p
+            LEFT JOIN p.type typ'
+        );
+        $result = $query->getArrayResult();
+        //print_r($result->getName());
+//        foreach($result as $plan) {
+//            $arr['name'] = $plan['typename'];
+//            $arr['id'] = $plan['typeid'];
+//        }
+        return $this->render('LetimCalenderBundle:Default:bron.html.twig', array(
+            'plan' => $result
+        ));
+    }
+    public function bronformAction (Request $request) {
+        $param = $request->getContent();
+        if ($param) {
+            $params = json_decode($param, true);
+        }
+        //print_r($params);
+        if($params['typeid'] !== null) {
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            'SELECT p
+            FROM LetimCalenderBundle:Plan p
+            LEFT JOIN p.type typ
+            WHERE typ.id =:typeid AND p.maxPeople >= :maxpeople'
+        );
+        $query->setParameter('typeid', $params['typeid']);
+        if($params['maxpeople']) {
+            $query->setParameter('maxpeople', $params['maxpeople']);
+        }
+//        if($params['maxpeople']) {
+//            $query->setParameter('maxpeople', $params['maxpeople']);
+//        }
+        $result = $query->getArrayResult();
+
+        //print_r($result->getName());
+//        foreach($result as $plan) {
+//            $arr['name'] = $plan['typename'];
+//            $arr['id'] = $plan['typeid'];
+//        }
+        }
+        return new Response(json_encode($result));
     }
 }

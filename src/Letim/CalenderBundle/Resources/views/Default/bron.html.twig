@@ -21,74 +21,92 @@
 
 
         <!--start content-->
+
         <div id="content" ng-controller='CalendarController'>
-
-
-
             <div class="cols_left2">
-
-                <h6>Участники:</h6>
-
-                <div class="form_user2">
-                    <p><label>Ваш телефон</label><input name="" type="text" class="pole" value="" /></p>
-                    <p><label>Ваше имя</label><input name="" type="text" class="pole" value="" /></p>
-                    <p><label>Ваша фамилия</label><input name="" type="text" class="pole" value="" /></p>
-                </div>
-            </div>
-
-
-                {{ currentDate }}
-            <div class="cols_right2">
 
                 <h6>Детали полета:</h6>
 
                 <div class="form_user2">
-                    <p><label>Дата</label>
-                    <div class="calendar1 two"><input type="text" class="datepicker" id="anyID" /></div>
-                    </p>
-                    <div class="clear"></div>
-                    {{ myOption }}
-                    <p><label>Во сколько</label><div class="form1">
-                        <select class="select1" ng-model="myOption">
-                            {% endverbatim %}
-                            {% for i in range(11, 22) %}
-                                <option data-houri="i" data-hour='first'>{{ i }}:00</option>
-                                <option data-houri="i" data-hour='last'>{{ i }}:30</option>
-                            {% endfor %}
-                            {% verbatim %}
-                        </select>
-                    </div></p>
+
                     <p>
                         <label>Вид белета</label>
                     <div class="form1">
-                        <select class="select1">
-                            <option>Взрослый</option>
-                            <option>Детский</option>
+                        <select class="select1" ng-model="typeid">
+
+                            {% endverbatim %}
+                            {% for type in plan %}
+                                <option value="{{type.id}}">{{  type.name }} </option>
+                            {% endfor %}
+                            {% verbatim %}
+
                         </select>
                     </div>
                     </p>
                     <p>
                         <label>Количество</label>
                     <div class="form1">
-                        <select class="select1">
-                            <option>2 человека</option>
-                            <option>1 человек</option>
-                            <option>3 человека</option>
+                        <select class="select1" ng-model="maxpeople">
+                            <option value='1'>1 человека</option>
+                            <option value='2'>2 человек</option>
+                            <option value='3'>3 человека</option>
                         </select>
                     </div>
+
+                    </p>
+
+                    <p>
+
+                        <div class="wrapper-dropdown">
+                        <label>Время полета</label>
+                            <span ng-click="toggle()">{{ polet.name|| '' }}</span>
+                            <ul class="dropdown" ng-hide="hideList">
+                                <li ng-repeat="p in plan" ng-click="setPolet(p)">{{ p.name }}</li>
+                            </ul>
+                        </div>
+                    </p>
+
+
+                    <p><label>Дата</label>
+                    <div class="calendar1 two"><input type="text" class="datepicker" id="anyID" /></div>
                     </p>
                     <p>
+                    <p>
+
+                    <div class="wrapper-dropdown">
                         <label>Время полета</label>
-                    <div class="form1">
-                        <select class="select1">
-                            <option>30 минут</option>
-                            <option>1 час</option>
-                            <option>2 часа</option>
-                        </select>
+                        <span ng-click="toggleH()">{{ ''|| '' }}</span>
+                        <ul class="dropdown" ng-hide="hideListH || !plan">
+                            <hour ng-repeat="h in weekArray[currentDate].hoursArray">
+                                <li ng-show="(getDuration(h.first) + polet.duration <= 25)">{{ h.hour + ':00' }}|{{ getDuration(h.first) }}</li>
+                                <li ng-show="(getDuration(h.last) + polet.duration <=  25)">{{ h.hour + ':30' }}|{{ getDuration(h.last) }}</li>
+                            </hour>
+                        </ul>
                     </div>
                     </p>
-                    <p class="itog">Итого: <span>15 000</span> руб</p>
+
+                    <span ng-show="notPlan">Нет подходящего тарифа</span>
+                    <div class="clear"></div>
+
+                    <p class="itog">Итого: <span>{{ polet.duration * polet.cost || 0}}</span> руб</p>
                     <input name="" class="buton" value="Заказать" type="submit" />
+                </div>
+
+
+            </div>
+
+            <div class="cols_right2">
+
+                <h6>Участники:</h6>
+                <div ng-repeat="n in getUsers()">
+                    <div style="clear: both; width: 450px; text-align:  center;"><span >Участник {{ n }}</span></div>
+                    <div class="form_user2">
+                        <p><label>Телефон</label><input name="" type="text" class="pole" value="" /></p>
+                        <p><label>E-mail</label><input name="" type="text" class="pole" value="" /></p>
+                        <p><label>Имя</label><input name="" type="text" class="pole" value="" /></p>
+                        <p><label>Фамилия</label><input name="" type="text" class="pole" value="" /></p>
+                    </div>
+                    <hr>
                 </div>
 
 
@@ -110,10 +128,11 @@
 
 
         </div>
+
         <!--end content-->
 
         <!--start bottom_bar-->
-        <div id="bottom_bar">
+        <div id="bottom_bar" >
 
             <div class="form">
                 <input name="" type="text" class="pole" value="Ваше имя" onfocus="if(this.value=='Ваше имя'){this.value='';}" onblur="if(this.value==''){this.value='Ваше имя';}" />

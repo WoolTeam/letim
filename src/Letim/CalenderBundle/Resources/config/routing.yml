@@ -12,3 +12,7 @@ letim_calender_page:
 letim_bron_page:
     path:     /bronirovanie
     defaults: { _controller: LetimCalenderBundle:Default:bronirovanie }
+letim_bron_get_plan:
+    path: /bronirovanie/plan
+    defaults: { _controller: LetimCalenderBundle:Default:bronform }
+#    methods:  [POST]

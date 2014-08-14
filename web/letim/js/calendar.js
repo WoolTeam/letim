@@ -2,7 +2,7 @@
  * Created by Колюха on 12.08.14.
  */
 var app = angular.module('calendarApp', [])
-    .controller('CalendarController', ['$scope', '$filter', '$http', function($scope, $filter, $http) {
+    .controller('CalendarController', ['$scope', '$filter', '$http', '$timeout', function($scope, $filter, $http, $timeout) {
         var date = new Date(),
             start = startDayInWeek(date);
         $scope.thisDate = "";
@@ -107,7 +107,7 @@ var app = angular.module('calendarApp', [])
         function mins (from) {
             $http({method: "POST",
                 data: {from: from},
-                url: 'http://letim/app_dev.php/calender/gettunels'}).
+                url: '/calender/gettunels'}).
                 success(function(data, status) {
                     $scope.status = status;
                     $scope.data = data;
@@ -119,8 +119,67 @@ var app = angular.module('calendarApp', [])
                     $scope.status = status;
                 });
         }
-        function getCurrentDay() {
 
+        function getPlan(typeid, maxpeople) {
+            var obj = {
+                typeid: typeid,
+                maxpeople: maxpeople  || 1
+            };
+            if(typeid) {
+                $http({method: "POST",
+                    data: obj,
+                    url: 'http://letim/app_dev.php/bronirovanie/plan'}).
+                    success(function(data, status) {
+                        if(data) {
+                            $scope.plan = data;
+                            $scope.notPlan = "false";
+                        }
+                    }).
+                    error(function(data, status) {
+                        $scope.data = data || "Request failed";
+                        $scope.status = status;
+                    });
+            }
+        }
+        $scope.$watch('plan', function (val,old) {
+            $scope.polet = '';
+            if(val.length === 0) {
+                $scope.notPlan = "true";
+            }
+        });
+        $scope.$watch('maxpeople', function () {
+            getPlan($scope.typeid, $scope.maxpeople);
+        });
+        $scope.$watch('typeid', function (val) {
+            getPlan($scope.typeid, $scope.maxpeople);
+        });
+        $scope.setPolet = function (p) {
+            $scope.polet = p;
+            $scope.hideList = true;
+        };
+        $scope.hideList = true;
+        $scope.toggle = function () {
+            $scope.hideList = !$scope.hideList;
+        };
+        $scope.hideListH = true;
+        $scope.toggleH = function () {
+            $scope.hideListH = !$scope.hideListH;
+        };
+        $scope.filterFn = function (item) {
+//            if() {
+//
+//            }
+        }
+        $scope.getUsers = function (){
+            var i = 0,
+                result = [];
+            if($scope.maxpeople) {
+                while(i < $scope.maxpeople) {
+                    i += 1;
+                    result.push(i);
+                }
+            }
+            return result;
         }
     }])
     .controller('BronController', ['$scope', '$filter', '$http', function($scope, $filter, $http) {
