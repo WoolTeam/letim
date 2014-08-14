@@ -62,16 +62,16 @@
 
             {% block content %}
             {% endblock %}
-            {% block news %}
-                {% if page is defined %}
-                    {% render controller("LetimNewsBundle:Default:news",{'id': page.id}) %}
-                {% endif %}
-            {% endblock %}
-            {% block fac %}
-                {% if page is defined %}
-                    {% render controller("LetimFaqBundle:Default:faq",{'id': page.id}) %}
-                {% endif %}
-            {% endblock %}
+            {#{% block news %}#}
+                {#{% if page is defined %}#}
+                    {#{% render controller("LetimNewsBundle:Default:news",{'id': page.id}) %}#}
+                {#{% endif %}#}
+            {#{% endblock %}#}
+            {#{% block fac %}#}
+                {#{% if page is defined %}#}
+                    {#{% render controller("LetimFaqBundle:Default:faq",{'id': page.id}) %}#}
+                {#{% endif %}#}
+            {#{% endblock %}#}
             {#{% include 'LetimNewsBundle:News:news.html.twig' with {'article': article} %}#}
             <!--end content-->
 
