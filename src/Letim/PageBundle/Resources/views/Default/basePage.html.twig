@@ -5,5 +5,15 @@
         {% autoescape false %}
             {{page.text}}
         {% endautoescape %}
+        {% block news %}
+            {% if page is defined %}
+                {% render controller("LetimNewsBundle:Default:news",{'id': page.id}) %}
+            {% endif %}
+        {% endblock %}
+        {% block fac %}
+            {% if page is defined %}
+                {% render controller("LetimFaqBundle:Default:faq",{'id': page.id}) %}
+            {% endif %}
+        {% endblock %}
     </div>
 {% endblock %}

@@ -8,6 +8,7 @@ var app = angular.module('calendarApp', [])
         $scope.thisDate = "";
         function dayInWeek(date) {
             var day = date.getDay();
+            $scope.currentDate = day === 0 ? 6: day - 1;
             console.log(day);
             return day;
         }
@@ -41,7 +42,9 @@ var app = angular.module('calendarApp', [])
                 });
                 i += 1;
             }
-            console.log(startMonday.getDate());
+
+            //$scope.selets = select(weekArray);
+            //console.log($scope.selets);
             return weekArray;
         }
         function init(date) {
@@ -64,6 +67,7 @@ var app = angular.module('calendarApp', [])
                 j += 1;
             }
         }
+
         $scope.getDuration = function (arr) {
             var i, result = 0;
             if(arr) {
@@ -89,11 +93,13 @@ var app = angular.module('calendarApp', [])
         $scope.$watch('thisDate', function () {
             console.log($scope.thisDate);
         });
+
         $scope.$on('date', function (e, date) {
             var dArray = date.split('.'),
                 str = new Date(dArray[2] + '-' + dArray[1] + '-' + dArray[0]);
             $scope.$apply(function () {
                     $scope.weekArray = init(str);
+                    //$scope.currentDate = dayInWeek(str);
                 }
             )
             mins(dArray[2] + '-' + dArray[1] + '-' + dArray[0]);
@@ -113,4 +119,12 @@ var app = angular.module('calendarApp', [])
                     $scope.status = status;
                 });
         }
+        function getCurrentDay() {
+
+        }
+    }])
+    .controller('BronController', ['$scope', '$filter', '$http', function($scope, $filter, $http) {
+        $scope.$on('date', function (e, date) {
+            console.log(date);
+        });
     }]);

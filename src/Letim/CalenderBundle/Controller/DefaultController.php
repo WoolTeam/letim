@@ -128,4 +128,8 @@ class DefaultController extends Controller
     public function calendarAction() {
         return $this->render('LetimCalenderBundle:Default:calendar.html.twig');
     }
+
+    public function bronirovanieAction () {
+        return $this->render('LetimCalenderBundle:Default:bron.html.twig');
+    }
 }

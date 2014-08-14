@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
+Source Server         : local
 Source Server Version : 50525
 Source Host           : localhost:3306
 Source Database       : letim
@@ -10,10 +10,50 @@ Target Server Type    : MYSQL
 Target Server Version : 50525
 File Encoding         : 65001
 
-Date: 2014-08-11 09:57:31
+Date: 2014-08-13 17:48:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+-- ----------------------------
+-- Table structure for `client_tunel`
+-- ----------------------------
+DROP TABLE IF EXISTS `client_tunel`;
+CREATE TABLE `client_tunel` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `tunel_id` int(10) unsigned NOT NULL,
+  `client_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `client_tunel_to_tunel` (`tunel_id`),
+  KEY `client_tunel_to_user` (`client_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Участники полёта';
+
+-- ----------------------------
+-- Records of client_tunel
+-- ----------------------------
+INSERT INTO `client_tunel` VALUES ('1', '1', '13');
+INSERT INTO `client_tunel` VALUES ('2', '2', '13');
+INSERT INTO `client_tunel` VALUES ('3', '2', '14');
+
+-- ----------------------------
+-- Table structure for `faq`
+-- ----------------------------
+DROP TABLE IF EXISTS `faq`;
+CREATE TABLE `faq` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `question` text NOT NULL,
+  `answer` text NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '0',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of faq
+-- ----------------------------
+INSERT INTO `faq` VALUES ('1', '<p>Есть ли жизнь на марсе?</p>', '<p>Еще какая, пол лица за раз голануть может.</p>', '1', '2009-01-01 00:00:00', '2014-08-13 11:18:54');
+INSERT INTO `faq` VALUES ('2', '<p>По чем нынче килограм меди то?</p>', '<p>230 как с куста!</p>', '1', '2009-01-01 00:00:00', '2009-01-01 00:00:00');
+INSERT INTO `faq` VALUES ('3', '<p>Проффесор, а не долбанет?</p>', '<p>Да вы что батенька, все будет в лучшем виде!</p>', '1', '2014-08-13 11:27:00', '2014-08-13 11:28:40');
 
 -- ----------------------------
 -- Table structure for `menu`
@@ -104,6 +144,23 @@ INSERT INTO `page` VALUES ('8', 'Вопрос Ответ', 'question', '<p>fghfg
 INSERT INTO `page` VALUES ('9', 'Новости', 'news', '<p>Добро пожаловать на страницу новостей</p>', '1', '2014-08-10 20:17:00', '2014-08-10 20:18:03', '0');
 
 -- ----------------------------
+-- Table structure for `page_faq`
+-- ----------------------------
+DROP TABLE IF EXISTS `page_faq`;
+CREATE TABLE `page_faq` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `page` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `page` (`page`),
+  CONSTRAINT `page_faq_ibfk_1` FOREIGN KEY (`page`) REFERENCES `page` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of page_faq
+-- ----------------------------
+INSERT INTO `page_faq` VALUES ('2', '8');
+
+-- ----------------------------
 -- Table structure for `page_news`
 -- ----------------------------
 DROP TABLE IF EXISTS `page_news`;
@@ -139,6 +196,65 @@ INSERT INTO `photo` VALUES ('2', 'Фоточка в колготочках', '20
 INSERT INTO `photo` VALUES ('3', 'Тюльпаны', '2009-01-01 00:00:00', 'a:7:{s:8:\"fileName\";s:19:\"/2009/01/tulips.jpg\";s:12:\"originalName\";s:10:\"Tulips.jpg\";s:8:\"mimeType\";s:10:\"image/jpeg\";s:4:\"size\";i:620888;s:4:\"path\";s:25:\"/photo/2009/01/tulips.jpg\";s:5:\"width\";i:1024;s:6:\"height\";i:768;}');
 
 -- ----------------------------
+-- Table structure for `plan`
+-- ----------------------------
+DROP TABLE IF EXISTS `plan`;
+CREATE TABLE `plan` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `type_id` int(10) unsigned NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `duration` smallint(5) unsigned NOT NULL,
+  `cost` int(10) unsigned NOT NULL,
+  `max_people` smallint(6) unsigned NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `plan_to_plan_type` (`type_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Тарифные планы';
+
+-- ----------------------------
+-- Records of plan
+-- ----------------------------
+INSERT INTO `plan` VALUES ('1', '1', '5 минут', '5', '1000', '3', '2014-08-12 00:00:00', '2014-08-12 00:00:00');
+
+-- ----------------------------
+-- Table structure for `plan_type`
+-- ----------------------------
+DROP TABLE IF EXISTS `plan_type`;
+CREATE TABLE `plan_type` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Типы тарифных планов';
+
+-- ----------------------------
+-- Records of plan_type
+-- ----------------------------
+INSERT INTO `plan_type` VALUES ('1', 'Обычный');
+
+-- ----------------------------
+-- Table structure for `review`
+-- ----------------------------
+DROP TABLE IF EXISTS `review`;
+CREATE TABLE `review` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `text` text NOT NULL,
+  `author` varchar(255) NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '0',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of review
+-- ----------------------------
+INSERT INTO `review` VALUES ('1', '<p>Ну просто шикардос, всем советую попробовать!</p>', 'Степан', '1', '2014-08-13 13:14:29', '2014-08-13 13:14:29');
+INSERT INTO `review` VALUES ('2', '<p><span style=\"font-family: Arial, Helvetica, sans; font-size: 11px; line-height: 14px; text-align: justify;\">orem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consequat pretium felis sed mattis. Quisque id nibh gravida, posuere ante vitae, imperdiet erat. Aliquam ultricies id ipsum ac viverra. Suspendisse felis nisi, pharetra in suscipit quis, pulvinar suscipit dui. Proin sit amet luctus nibh. Ut nec pretium diam. Integer odio diam, tincidunt ac libero quis, dapibus molestie risus. Donec imperdiet metus quis sapien sollicitudin blandit. Quisque bibendum quis lorem in posuere. Sed tincidunt ullamcorper</span></p>', 'Vangog', '1', '2014-08-13 14:27:48', '2014-08-13 14:27:48');
+INSERT INTO `review` VALUES ('3', '<p>Чумавая штука. прям как заново родился.</p>', 'Мартын', '1', '2014-08-13 15:17:00', '2014-08-13 15:47:57');
+INSERT INTO `review` VALUES ('12', 'mi viverra lobortis in interdum enim. Morbi arcu augue, aliquam eget auctor laoreet, ornare sed felis. Morbi pulvinar porta imperdiet. Aliquam et varius metus. Aliquam semper auctor augue in fringilla. Vestibulum ante ipsum primis in faucibus orci luctus', 'Василий', '0', '2014-08-13 15:41:47', '2014-08-13 15:41:47');
+
+-- ----------------------------
 -- Table structure for `roles`
 -- ----------------------------
 DROP TABLE IF EXISTS `roles`;
@@ -153,6 +269,27 @@ CREATE TABLE `roles` (
 -- ----------------------------
 INSERT INTO `roles` VALUES ('1', 'ROLE_ADMIN');
 INSERT INTO `roles` VALUES ('2', 'ROLE_USER');
+
+-- ----------------------------
+-- Table structure for `tunel`
+-- ----------------------------
+DROP TABLE IF EXISTS `tunel`;
+CREATE TABLE `tunel` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `plan_id` int(10) unsigned NOT NULL,
+  `active` tinyint(3) unsigned NOT NULL,
+  `started_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `tunel_to_plan` (`plan_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Полёты';
+
+-- ----------------------------
+-- Records of tunel
+-- ----------------------------
+INSERT INTO `tunel` VALUES ('1', '1', '1', '2014-08-12 12:00:00', '2014-08-12 00:00:00', '2014-08-12 00:00:00');
+INSERT INTO `tunel` VALUES ('2', '1', '1', '2014-08-13 14:00:00', '2014-08-12 00:00:00', '2014-08-12 00:00:00');
 
 -- ----------------------------
 -- Table structure for `user`
