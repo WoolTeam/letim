@@ -1,0 +1,102 @@
+{% extends "::letim.calendar.html.twig" %}
+{% block stylesheets %}
+    <script type="text/javascript" src="/letim/js/datepicker-cp.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
+    <script type="text/javascript" src="/letim/js/calendar.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="/letim/css/datepicker.css"/>
+{% endblock %}
+
+{% block content %}
+<!--start content-->
+{% verbatim %}
+<div id="wrapper" ng-app="calendarApp">
+    <!--start content-->
+    <div id="content" ng-controller="CalendarController">
+        <div class="calendar_top" >
+            <div class="calendar1">
+                <input type="text" current-date data-curent  ng-model="test" class="datepicker" id="anyID"/>
+            </div>
+        </div>
+        <div class="calendar" >
+            <table>
+                <tr>
+                    <th class="one_td">Время </th>
+                    <th>Понедельник <br>{{weekArray[0].date| date:'MM-dd'}}</th>
+                    <th>Вторник <br>{{weekArray[1].date| date:'MM-dd'}}</th>
+                    <th>Среда <br>{{weekArray[2].date| date:'MM-dd'}}</th>
+                    <th>Четверг <br>{{weekArray[3].date| date:'MM-dd'}}</th>
+                    <th>Пятница <br>{{weekArray[4].date| date:'MM-dd'}}</th>
+                    <th>Субота <br>{{weekArray[5].date| date:'MM-dd'}}</th>
+                    <th>Воскресенье <br>{{weekArray[6].date| date:'MM-dd'}}</th>
+                </tr>
+                <!--{{weekArray[0].hoursArray.length}}-->
+                <table class="cal_table" ng-repeat="week in weekArray[0].hoursArray">
+                    <tr>
+                        <td class="one_td">{{weekArray[0].hoursArray[$index].hour}}:00-{{weekArray[0].hoursArray[$index].hour}}:30</td>
+                        <td>
+                            <span ng-show='(getDuration(weekArray[0].hoursArray[$index].first) >= 25)' class="busy"></span>
+                            <span ng-show='(getDuration(weekArray[0].hoursArray[$index].first) > 0 && getDuration(weekArray[0].hoursArray[$index].first) <= 25)' class="Booked">{{ getDuration(weekArray[0].hoursArray[$index].first) }} минут</span>
+                        </td>
+                        <td>
+                            <span ng-show='(getDuration(weekArray[1].hoursArray[$index].first) >= 25)' class="busy"></span>
+                            <span ng-show='(getDuration(weekArray[1].hoursArray[$index].first) > 0 && getDuration(weekArray[1].hoursArray[$index].first) <= 25)' class="Booked">{{ getDuration(weekArray[1].hoursArray[$index].first) }} минут</span>
+                        </td>
+                        <td><span ng-show='(getDuration(weekArray[2].hoursArray[$index].first) >= 25)' class="busy"></span>
+                            <span ng-show='(getDuration(weekArray[2].hoursArray[$index].first) > 0 && getDuration(weekArray[2].hoursArray[$index].first) <= 25)' class="Booked">{{ getDuration(weekArray[2].hoursArray[$index].first) }} минут</span>
+                        </td>
+                        <td>
+                            <span ng-show='(getDuration(weekArray[3].hoursArray[$index].first) >= 25)' class="busy"></span>
+                            <span ng-show='(getDuration(weekArray[3].hoursArray[$index].first) > 0 && getDuration(weekArray[3].hoursArray[$index].first) <= 25)' class="Booked">{{ getDuration(weekArray[3].hoursArray[$index].first) }} минут</span>
+                        </td>
+                        <td>
+                            <span ng-show='(getDuration(weekArray[4].hoursArray[$index].first) >= 25)' class="busy"></span>
+                            <span ng-show='(getDuration(weekArray[4].hoursArray[$index].first) > 0 && getDuration(weekArray[4].hoursArray[$index].first) <= 25)' class="Booked">{{ getDuration(weekArray[4].hoursArray[$index].first) }} минут</span>
+                        </td>
+                        <td>
+                            <span ng-show='(getDuration(weekArray[5].hoursArray[$index].first) >= 25)' class="busy"></span>
+                            <span ng-show='(getDuration(weekArray[5].hoursArray[$index].first) > 0 && getDuration(weekArray[5].hoursArray[$index].first) <= 25)' class="Booked">{{ getDuration(weekArray[5].hoursArray[$index].first) }} минут</span>
+                        </td>
+                        <td>
+                            <span ng-show='(getDuration(weekArray[6].hoursArray[$index].first) >= 25)' class="busy"></span>
+                            <span ng-show='(getDuration(weekArray[6].hoursArray[$index].first) > 0 && getDuration(weekArray[6].hoursArray[$index].first) <= 25)' class="Booked">{{ getDuration(weekArray[6].hoursArray[$index].first) }} минут</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="one_td">{{weekArray[0].hoursArray[$index].hour}}:00-{{weekArray[0].hoursArray[$index].hour}}:30</td>
+                        <td>
+                            <span ng-show='(getDuration(weekArray[0].hoursArray[$index].last) >= 25)' class="busy"></span>
+                            <span ng-show='(getDuration(weekArray[0].hoursArray[$index].last) > 0 && getDuration(weekArray[0].hoursArray[$index].last) <= 25)' class="Booked">{{ getDuration(weekArray[0].hoursArray[$index].last) }} минут</span>
+                        </td>
+                        <td>
+                            <span ng-show='(getDuration(weekArray[1].hoursArray[$index].last) >= 25)' class="busy"></span>
+                            <span ng-show='(getDuration(weekArray[1].hoursArray[$index].last) > 0 && getDuration(weekArray[1].hoursArray[$index].last) <= 25)' class="Booked">{{ getDuration(weekArray[1].hoursArray[$index].last) }} минут</span>
+                        </td>
+                        <td><span ng-show='(getDuration(weekArray[2].hoursArray[$index].last) >= 25)' class="busy"></span>
+                            <span ng-show='(getDuration(weekArray[2].hoursArray[$index].last) > 0 && getDuration(weekArray[2].hoursArray[$index].last) <= 25)' class="Booked">{{ getDuration(weekArray[2].hoursArray[$index].last) }} минут</span>
+                        </td>
+                        <td>
+                            <span ng-show='(getDuration(weekArray[3].hoursArray[$index].last) >= 25)' class="busy"></span>
+                            <span ng-show='(getDuration(weekArray[3].hoursArray[$index].last) > 0 && getDuration(weekArray[3].hoursArray[$index].last) <= 25)' class="Booked">{{ getDuration(weekArray[3].hoursArray[$index].last) }} минут</span>
+                        </td>
+                        <td>
+                            <span ng-show='(getDuration(weekArray[4].hoursArray[$index].last) >= 25)' class="busy"></span>
+                            <span ng-show='(getDuration(weekArray[4].hoursArray[$index].last) > 0 && getDuration(weekArray[4].hoursArray[$index].last) <= 25)' class="Booked">{{ getDuration(weekArray[4].hoursArray[$index].last) }} минут</span>
+                        </td>
+                        <td>
+                            <span ng-show='(getDuration(weekArray[5].hoursArray[$index].last) >= 25)' class="busy"></span>
+                            <span ng-show='(getDuration(weekArray[5].hoursArray[$index].last) > 0 && getDuration(weekArray[5].hoursArray[$index].last) <= 25)' class="Booked">{{ getDuration(weekArray[5].hoursArray[$index].last) }} минут</span>
+                        </td>
+                        <td>
+                            <span ng-show='(getDuration(weekArray[6].hoursArray[$index].last) >= 25)' class="busy"></span>
+                            <span ng-show='(getDuration(weekArray[6].hoursArray[$index].last) > 0 && getDuration(weekArray[6].hoursArray[$index].last) <= 25)' class="Booked">{{ getDuration(weekArray[6].hoursArray[$index].last) }} минут</span>
+                        </td>
+                    </tr>
+                </table>
+            </table>
+            <input name="" class="buton" value="" type="submit"/>
+        </div>
+    </div>
+    <!--end content-->
+</div>
+{% endverbatim %}
+{% endblock %}

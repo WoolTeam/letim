@@ -84,6 +84,10 @@ $(document).ready(function(){
 			if(selectedDay < 10) {selectedDay = "0" + selectedDay};
 			if(month < 10) {month = "0" + (month - 0 + 1)};
 			$("#changeTime").attr("value", selectedDay + "." + month + "." + year);
+			//пробрасываю в ангул€р
+            scope = angular.element($("#changeTime")).scope();
+            scope.$emit('date', selectedDay + "." + month + "." + year);
+			
 			$("#changeTime").removeAttr("id").attr("id",tempID);
 			$("#datepicker").hide(100);
 		});
