@@ -178,8 +178,17 @@ ul.top_menu .active a {
       font-size: 18px;
       font-weight: bold;
       color:#5a626a;
-      line-height: 43px;}  
-      
+      line-height: 43px;}
+
+#left_bar .zagolovok a {
+    color:#5a626a;
+    text-decoration: none;
+}
+
+#left_bar .zagolovok a:hover {
+    color:#5a626a;
+    text-decoration: underline;
+}
 .otziv {
       background: url(../images/ot1.png) no-repeat 0 0;
       padding:0;
