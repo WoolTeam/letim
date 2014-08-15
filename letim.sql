@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50525
 File Encoding         : 65001
 
-Date: 2014-08-13 17:48:30
+Date: 2014-08-15 17:29:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,7 +25,7 @@ CREATE TABLE `client_tunel` (
   PRIMARY KEY (`id`),
   KEY `client_tunel_to_tunel` (`tunel_id`),
   KEY `client_tunel_to_user` (`client_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Участники полёта';
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COMMENT='Участники полёта';
 
 -- ----------------------------
 -- Records of client_tunel
@@ -33,6 +33,24 @@ CREATE TABLE `client_tunel` (
 INSERT INTO `client_tunel` VALUES ('1', '1', '13');
 INSERT INTO `client_tunel` VALUES ('2', '2', '13');
 INSERT INTO `client_tunel` VALUES ('3', '2', '14');
+INSERT INTO `client_tunel` VALUES ('4', '5', '15');
+INSERT INTO `client_tunel` VALUES ('5', '6', '16');
+INSERT INTO `client_tunel` VALUES ('6', '7', '17');
+INSERT INTO `client_tunel` VALUES ('7', '8', '17');
+INSERT INTO `client_tunel` VALUES ('8', '9', '17');
+INSERT INTO `client_tunel` VALUES ('9', '10', '17');
+INSERT INTO `client_tunel` VALUES ('10', '11', '17');
+INSERT INTO `client_tunel` VALUES ('11', '12', '17');
+INSERT INTO `client_tunel` VALUES ('12', '13', '17');
+INSERT INTO `client_tunel` VALUES ('13', '14', '17');
+INSERT INTO `client_tunel` VALUES ('14', '15', '17');
+INSERT INTO `client_tunel` VALUES ('15', '16', '17');
+INSERT INTO `client_tunel` VALUES ('16', '17', '17');
+INSERT INTO `client_tunel` VALUES ('17', '18', '18');
+INSERT INTO `client_tunel` VALUES ('18', '19', '18');
+INSERT INTO `client_tunel` VALUES ('19', '20', '17');
+INSERT INTO `client_tunel` VALUES ('20', '21', '17');
+INSERT INTO `client_tunel` VALUES ('21', '22', '17');
 
 -- ----------------------------
 -- Table structure for `faq`
@@ -131,7 +149,7 @@ CREATE TABLE `page` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `home_page` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of page
@@ -142,6 +160,7 @@ INSERT INTO `page` VALUES ('6', 'Тайтл3', 'uwer', '<p>sdfsdfsdfsdfsdfsdffgh
 INSERT INTO `page` VALUES ('7', 'Nfsdfs', 'sdfsdfs', '<p>sdfsdfsdf</p>', '1', '2014-08-09 14:24:00', '2014-08-10 13:15:58', '0');
 INSERT INTO `page` VALUES ('8', 'Вопрос Ответ', 'question', '<p>fghfghfgh</p>\r\n<p>{{1}}</p>', '1', '2014-08-09 14:26:00', '2014-08-10 15:41:04', '0');
 INSERT INTO `page` VALUES ('9', 'Новости', 'news', '<p>Добро пожаловать на страницу новостей</p>', '1', '2014-08-10 20:17:00', '2014-08-10 20:18:03', '0');
+INSERT INTO `page` VALUES ('10', 'Спасибо за заявку', 'save_succes', '<p>Спасибо за заявку наш менеджер свяжется с вами в ближайшее время. Как то так.</p>', '1', '2014-08-15 17:21:00', '2014-08-15 17:22:27', '0');
 
 -- ----------------------------
 -- Table structure for `page_faq`
@@ -209,13 +228,15 @@ CREATE TABLE `plan` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `plan_to_plan_type` (`type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Тарифные планы';
+  KEY `plan_to_plan_type` (`type_id`),
+  CONSTRAINT `plan_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `plan_type` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Тарифные планы';
 
 -- ----------------------------
 -- Records of plan
 -- ----------------------------
 INSERT INTO `plan` VALUES ('1', '1', '5 минут', '5', '1000', '3', '2014-08-12 00:00:00', '2014-08-12 00:00:00');
+INSERT INTO `plan` VALUES ('2', '2', '10 минут', '10', '350', '5', '2014-08-15 12:26:00', '2014-08-15 14:36:26');
 
 -- ----------------------------
 -- Table structure for `plan_type`
@@ -224,12 +245,14 @@ DROP TABLE IF EXISTS `plan_type`;
 CREATE TABLE `plan_type` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Типы тарифных планов';
+  PRIMARY KEY (`id`),
+  KEY `name` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Типы тарифных планов';
 
 -- ----------------------------
 -- Records of plan_type
 -- ----------------------------
+INSERT INTO `plan_type` VALUES ('2', 'Корпоротивный');
 INSERT INTO `plan_type` VALUES ('1', 'Обычный');
 
 -- ----------------------------
@@ -283,13 +306,31 @@ CREATE TABLE `tunel` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `tunel_to_plan` (`plan_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Полёты';
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COMMENT='Полёты';
 
 -- ----------------------------
 -- Records of tunel
 -- ----------------------------
 INSERT INTO `tunel` VALUES ('1', '1', '1', '2014-08-12 12:00:00', '2014-08-12 00:00:00', '2014-08-12 00:00:00');
 INSERT INTO `tunel` VALUES ('2', '1', '1', '2014-08-13 14:00:00', '2014-08-12 00:00:00', '2014-08-12 00:00:00');
+INSERT INTO `tunel` VALUES ('5', '1', '1', '2014-08-16 14:30:00', '2014-08-15 16:34:15', '2014-08-15 16:34:15');
+INSERT INTO `tunel` VALUES ('6', '2', '1', '2014-08-16 14:35:00', '2014-08-15 16:43:39', '2014-08-15 16:43:39');
+INSERT INTO `tunel` VALUES ('7', '2', '1', '2014-08-16 14:45:00', '2014-08-15 16:55:04', '2014-08-15 16:55:04');
+INSERT INTO `tunel` VALUES ('8', '2', '1', '2014-08-16 14:45:00', '2014-08-15 16:55:12', '2014-08-15 16:55:12');
+INSERT INTO `tunel` VALUES ('9', '2', '1', '2014-08-17 15:30:00', '2014-08-15 16:59:58', '2014-08-15 16:59:58');
+INSERT INTO `tunel` VALUES ('10', '1', '1', '2014-08-17 15:00:00', '2014-08-15 17:09:33', '2014-08-15 17:09:33');
+INSERT INTO `tunel` VALUES ('11', '2', '1', '2014-08-17 15:00:00', '2014-08-15 17:09:59', '2014-08-15 17:09:59');
+INSERT INTO `tunel` VALUES ('12', '2', '1', '2014-08-18 13:30:00', '2014-08-15 17:11:04', '2014-08-15 17:11:04');
+INSERT INTO `tunel` VALUES ('13', '2', '1', '2014-08-18 13:30:00', '2014-08-15 17:11:48', '2014-08-15 17:11:48');
+INSERT INTO `tunel` VALUES ('14', '2', '1', '2014-08-20 13:00:00', '2014-08-15 17:12:53', '2014-08-15 17:12:53');
+INSERT INTO `tunel` VALUES ('15', '2', '1', '2014-08-28 17:00:00', '2014-08-15 17:14:27', '2014-08-15 17:14:27');
+INSERT INTO `tunel` VALUES ('16', '1', '1', '2014-08-09 13:00:00', '2014-08-15 17:14:54', '2014-08-15 17:14:54');
+INSERT INTO `tunel` VALUES ('17', '1', '1', '2014-08-23 13:30:00', '2014-08-15 17:16:40', '2014-08-15 17:16:40');
+INSERT INTO `tunel` VALUES ('18', '1', '1', '2014-08-15 13:30:00', '2014-08-15 17:18:05', '2014-08-15 17:18:05');
+INSERT INTO `tunel` VALUES ('19', '1', '1', '2014-08-15 13:30:00', '2014-08-15 17:18:12', '2014-08-15 17:18:12');
+INSERT INTO `tunel` VALUES ('20', '1', '1', '2014-08-20 13:30:00', '2014-08-15 17:24:07', '2014-08-15 17:24:07');
+INSERT INTO `tunel` VALUES ('21', '1', '1', '2014-08-20 13:30:00', '2014-08-15 17:24:15', '2014-08-15 17:24:15');
+INSERT INTO `tunel` VALUES ('22', '2', '1', '2014-08-28 14:30:00', '2014-08-15 17:25:19', '2014-08-15 17:25:19');
 
 -- ----------------------------
 -- Table structure for `user`
@@ -297,18 +338,25 @@ INSERT INTO `tunel` VALUES ('2', '1', '1', '2014-08-13 14:00:00', '2014-08-12 00
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `username` varchar(60) NOT NULL,
+  `username` varchar(60) DEFAULT NULL,
   `email` varchar(60) NOT NULL DEFAULT '',
   `pass` varchar(255) NOT NULL,
-  `salt` varchar(255) DEFAULT NULL,
+  `salt` varchar(255) NOT NULL,
   `userRoles` int(10) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `surname` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `Roles` (`userRoles`),
   CONSTRAINT `Roles` FOREIGN KEY (`userRoles`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('13', 'zabuto', 'zabutok@mail.ru', 'An+Tas5lVQsDmHF/1o12F5HhqkHAo+LzkWmn5ITM1cSC8y6xG8panL/JtGH2yXfv3lOvotApn+LNBhYFeR0PZg==', '4f782cb1eb2dccc5c17a3058653fc552', '1');
-INSERT INTO `user` VALUES ('14', 'zabutok', 'zabutok@mail.ru', '1jHyg4nEYGS+lcG76XHQozNNigZQtX/aJThck+BXPxh0CJ4lyeeF8NrANwEFOYmdd/FZal+b6dgGOyQnt+JILg==', 'd0744b89839df5202913ed78cc5d2900', '2');
+INSERT INTO `user` VALUES ('13', 'zabuto', 'zabutok@mail.ru', 'An+Tas5lVQsDmHF/1o12F5HhqkHAo+LzkWmn5ITM1cSC8y6xG8panL/JtGH2yXfv3lOvotApn+LNBhYFeR0PZg==', '4f782cb1eb2dccc5c17a3058653fc552', '1', null, null, null);
+INSERT INTO `user` VALUES ('14', 'zabutok', 'zabutok@mail.ru', '1jHyg4nEYGS+lcG76XHQozNNigZQtX/aJThck+BXPxh0CJ4lyeeF8NrANwEFOYmdd/FZal+b6dgGOyQnt+JILg==', 'd0744b89839df5202913ed78cc5d2900', '2', null, null, null);
+INSERT INTO `user` VALUES ('15', null, 'za@ya.ru', 'za@ya.ru', 'za@ya.ru', null, 'Николай', null, '435345345');
+INSERT INTO `user` VALUES ('16', null, 'n@mail.ru', 'n@mail.ru', 'n@mail.ru', null, 'николай', null, '89606663317');
+INSERT INTO `user` VALUES ('17', null, 'zabutok@yandex.ru', 'zabutok@yandex.ru', 'zabutok@yandex.ru', null, 'Ниrколай', null, '89606633317');
+INSERT INTO `user` VALUES ('18', null, 'ghj', 'ghj', 'ghj', null, 'ghj', null, 'hj');

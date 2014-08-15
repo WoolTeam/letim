@@ -24,7 +24,7 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="username", type="string", length=60, nullable=false)
+     * @ORM\Column(name="username", type="string", length=60, nullable=true)
      */
     private $username;
 
@@ -45,9 +45,30 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="salt", type="string", length=255, nullable=true)
+     * @ORM\Column(name="salt", type="string", length=255, nullable=false)
      */
     private $salt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="surname", type="string", length=255, nullable=true)
+     */
+    private $surname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone", type="string", length=255, nullable=true)
+     */
+    private $phone;
 
     /**
      * @var \Roles
@@ -60,6 +81,16 @@ class User
     private $userroles;
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set username
@@ -154,13 +185,72 @@ class User
     }
 
     /**
-     * Get id
+     * Set name
      *
-     * @return integer 
+     * @param string $name
+     * @return User
      */
-    public function getId()
+    public function setName($name)
     {
-        return $this->id;
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set surname
+     *
+     * @param string $surname
+     * @return User
+     */
+    public function setSurname($surname)
+    {
+        $this->surname = $surname;
+
+        return $this;
+    }
+
+    /**
+     * Get surname
+     *
+     * @return string 
+     */
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     * @return User
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string 
+     */
+    public function getPhone()
+    {
+        return $this->phone;
     }
 
     /**

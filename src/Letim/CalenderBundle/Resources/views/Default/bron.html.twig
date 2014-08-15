@@ -89,7 +89,7 @@
                     <div class="clear"></div>
 
                     <p class="itog">Итого: <span>{{ polet.duration * polet.cost || 0}}</span> руб</p>
-                    <input ng-hide="!timePolet || !clientValid" name="" class="buton" value="Заказать" type="submit" />
+                    <input ng-hide="!timePolet || !clientValid" name="" ng-click="sendBronForm()" class="buton" value="Заказать" type="submit" />
                 </div>
 
 
@@ -104,7 +104,7 @@
                         <p><label>Телефон</label><input ng-model="c.phone" name="" type="text" class="pole" value="" /></p>
                         <p><label>E-mail</label><input ng-model="c.email"  name="" type="text" class="pole" value="" /></p>
                         <p><label>Имя</label><input ng-model="c.name" name="" type="text" class="pole" value="" /></p>
-                        <p><label>Фамилия</label><input name="" type="text" class="pole" value="" /></p>
+                        <p><label>Фамилия</label><input ng-model="c.surname" name="" type="text" class="pole" value="" /></p>
                     </div>
                     <hr>
                 </div>

@@ -5,12 +5,12 @@ namespace Letim\CalenderBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * PlanType
+ * Roles
  *
- * @ORM\Table(name="plan_type", indexes={@ORM\Index(name="name", columns={"name"})})
+ * @ORM\Table(name="roles")
  * @ORM\Entity
  */
-class PlanType
+class Roles
 {
     /**
      * @var integer
@@ -24,27 +24,17 @@ class PlanType
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
      */
     private $name;
 
 
 
     /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
      * Set name
      *
      * @param string $name
-     * @return PlanType
+     * @return Roles
      */
     public function setName($name)
     {
@@ -61,5 +51,15 @@ class PlanType
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

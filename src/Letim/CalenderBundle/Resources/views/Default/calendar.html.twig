@@ -35,60 +35,60 @@
                         <td class="one_td">{{weekArray[0].hoursArray[$index].hour}}:00-{{weekArray[0].hoursArray[$index].hour}}:30</td>
                         <td>
                             <span ng-show='(getDuration(weekArray[0].hoursArray[$index].first) >= 25)' class="busy"></span>
-                            <span ng-show='(getDuration(weekArray[0].hoursArray[$index].first) > 0 && getDuration(weekArray[0].hoursArray[$index].first) <= 25)' class="Booked">Свободно {{ getDuration(weekArray[0].hoursArray[$index].first) }} минут</span>
+                            <span ng-show='(getDuration(weekArray[0].hoursArray[$index].first) > 0 && getDuration(weekArray[0].hoursArray[$index].first) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[0].hoursArray[$index].first) }} минут</span>
                         </td>
                         <td>
                             <span ng-show='(getDuration(weekArray[1].hoursArray[$index].first) >= 25)' class="busy"></span>
-                            <span ng-show='(getDuration(weekArray[1].hoursArray[$index].first) > 0 && getDuration(weekArray[1].hoursArray[$index].first) <= 25)' class="Booked">Свободно {{ getDuration(weekArray[1].hoursArray[$index].first) }} минут</span>
+                            <span ng-show='(getDuration(weekArray[1].hoursArray[$index].first) > 0 && getDuration(weekArray[1].hoursArray[$index].first) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[1].hoursArray[$index].first) }} минут</span>
                         </td>
                         <td><span ng-show='(getDuration(weekArray[2].hoursArray[$index].first) >= 25)' class="busy"></span>
-                            <span ng-show='(getDuration(weekArray[2].hoursArray[$index].first) > 0 && getDuration(weekArray[2].hoursArray[$index].first) <= 25)' class="Booked">Свободно {{ getDuration(weekArray[2].hoursArray[$index].first) }} минут</span>
+                            <span ng-show='(getDuration(weekArray[2].hoursArray[$index].first) > 0 && getDuration(weekArray[2].hoursArray[$index].first) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[2].hoursArray[$index].first) }} минут</span>
                         </td>
                         <td>
                             <span ng-show='(getDuration(weekArray[3].hoursArray[$index].first) >= 25)' class="busy"></span>
-                            <span ng-show='(getDuration(weekArray[3].hoursArray[$index].first) > 0 && getDuration(weekArray[3].hoursArray[$index].first) <= 25)' class="Booked">Свободно {{ getDuration(weekArray[3].hoursArray[$index].first) }} минут</span>
+                            <span ng-show='(getDuration(weekArray[3].hoursArray[$index].first) > 0 && getDuration(weekArray[3].hoursArray[$index].first) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[3].hoursArray[$index].first) }} минут</span>
                         </td>
                         <td>
                             <span ng-show='(getDuration(weekArray[4].hoursArray[$index].first) >= 25)' class="busy"></span>
-                            <span ng-show='(getDuration(weekArray[4].hoursArray[$index].first) > 0 && getDuration(weekArray[4].hoursArray[$index].first) <= 25)' class="Booked">Свободно {{ getDuration(weekArray[4].hoursArray[$index].first) }} минут</span>
+                            <span ng-show='(getDuration(weekArray[4].hoursArray[$index].first) > 0 && getDuration(weekArray[4].hoursArray[$index].first) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[4].hoursArray[$index].first) }} минут</span>
                         </td>
                         <td>
                             <span ng-show='(getDuration(weekArray[5].hoursArray[$index].first) >= 25)' class="busy"></span>
-                            <span ng-show='(getDuration(weekArray[5].hoursArray[$index].first) > 0 && getDuration(weekArray[5].hoursArray[$index].first) <= 25)' class="Booked">Свободно {{ getDuration(weekArray[5].hoursArray[$index].first) }} минут</span>
+                            <span ng-show='(getDuration(weekArray[5].hoursArray[$index].first) > 0 && getDuration(weekArray[5].hoursArray[$index].first) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[5].hoursArray[$index].first) }} минут</span>
                         </td>
                         <td>
                             <span ng-show='(getDuration(weekArray[6].hoursArray[$index].first) >= 25)' class="busy"></span>
-                            <span ng-show='(getDuration(weekArray[6].hoursArray[$index].first) > 0 && getDuration(weekArray[6].hoursArray[$index].first) <= 25)' class="Booked">Свободно {{ getDuration(weekArray[6].hoursArray[$index].first) }} минут</span>
+                            <span ng-show='(getDuration(weekArray[6].hoursArray[$index].first) > 0 && getDuration(weekArray[6].hoursArray[$index].first) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[6].hoursArray[$index].first) }} минут</span>
                         </td>
                     </tr>
                     <tr>
-                        <td class="one_td">{{weekArray[0].hoursArray[$index].hour}}:00-{{weekArray[0].hoursArray[$index].hour}}:30</td>
+                        <td class="one_td">{{weekArray[0].hoursArray[$index].hour}}:30-{{weekArray[0].hoursArray[$index].hour + 1}}:00</td>
                         <td>
                             <span ng-show='(getDuration(weekArray[0].hoursArray[$index].last) >= 25)' class="busy"></span>
-                            <span ng-show='(getDuration(weekArray[0].hoursArray[$index].last) > 0 && getDuration(weekArray[0].hoursArray[$index].last) <= 25)' class="Booked">Свободно {{ getDuration(weekArray[0].hoursArray[$index].last) }} минут</span>
+                            <span ng-show='(getDuration(weekArray[0].hoursArray[$index].last) > 0 && getDuration(weekArray[0].hoursArray[$index].last) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[0].hoursArray[$index].last) }} минут</span>
                         </td>
                         <td>
                             <span ng-show='(getDuration(weekArray[1].hoursArray[$index].last) >= 25)' class="busy"></span>
-                            <span ng-show='(getDuration(weekArray[1].hoursArray[$index].last) > 0 && getDuration(weekArray[1].hoursArray[$index].last) <= 25)' class="Booked">Свободно {{ getDuration(weekArray[1].hoursArray[$index].last) }} минут</span>
+                            <span ng-show='(getDuration(weekArray[1].hoursArray[$index].last) > 0 && getDuration(weekArray[1].hoursArray[$index].last) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[1].hoursArray[$index].last) }} минут</span>
                         </td>
                         <td><span ng-show='(getDuration(weekArray[2].hoursArray[$index].last) >= 25)' class="busy"></span>
-                            <span ng-show='(getDuration(weekArray[2].hoursArray[$index].last) > 0 && getDuration(weekArray[2].hoursArray[$index].last) <= 25)' class="Booked">Свободно {{ getDuration(weekArray[2].hoursArray[$index].last) }} минут</span>
+                            <span ng-show='(getDuration(weekArray[2].hoursArray[$index].last) > 0 && getDuration(weekArray[2].hoursArray[$index].last) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[2].hoursArray[$index].last) }} минут</span>
                         </td>
                         <td>
                             <span ng-show='(getDuration(weekArray[3].hoursArray[$index].last) >= 25)' class="busy"></span>
-                            <span ng-show='(getDuration(weekArray[3].hoursArray[$index].last) > 0 && getDuration(weekArray[3].hoursArray[$index].last) <= 25)' class="Booked">Свободно {{ getDuration(weekArray[3].hoursArray[$index].last) }} минут</span>
+                            <span ng-show='(getDuration(weekArray[3].hoursArray[$index].last) > 0 && getDuration(weekArray[3].hoursArray[$index].last) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[3].hoursArray[$index].last) }} минут</span>
                         </td>
                         <td>
                             <span ng-show='(getDuration(weekArray[4].hoursArray[$index].last) >= 25)' class="busy"></span>
-                            <span ng-show='(getDuration(weekArray[4].hoursArray[$index].last) > 0 && getDuration(weekArray[4].hoursArray[$index].last) <= 25)' class="Booked">Свободно {{ getDuration(weekArray[4].hoursArray[$index].last) }} минут</span>
+                            <span ng-show='(getDuration(weekArray[4].hoursArray[$index].last) > 0 && getDuration(weekArray[4].hoursArray[$index].last) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[4].hoursArray[$index].last) }} минут</span>
                         </td>
                         <td>
                             <span ng-show='(getDuration(weekArray[5].hoursArray[$index].last) >= 25)' class="busy"></span>
-                            <span ng-show='(getDuration(weekArray[5].hoursArray[$index].last) > 0 && getDuration(weekArray[5].hoursArray[$index].last) <= 25)' class="Booked">Свободно {{ getDuration(weekArray[5].hoursArray[$index].last) }} минут</span>
+                            <span ng-show='(getDuration(weekArray[5].hoursArray[$index].last) > 0 && getDuration(weekArray[5].hoursArray[$index].last) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[5].hoursArray[$index].last) }} минут</span>
                         </td>
                         <td>
                             <span ng-show='(getDuration(weekArray[6].hoursArray[$index].last) >= 25)' class="busy"></span>
-                            <span ng-show='(getDuration(weekArray[6].hoursArray[$index].last) > 0 && getDuration(weekArray[6].hoursArray[$index].last) <= 25)' class="Booked">Свободно {{ getDuration(weekArray[6].hoursArray[$index].last) }} минут</span>
+                            <span ng-show='(getDuration(weekArray[6].hoursArray[$index].last) > 0 && getDuration(weekArray[6].hoursArray[$index].last) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[6].hoursArray[$index].last) }} минут</span>
                         </td>
                     </tr>
                 </table>

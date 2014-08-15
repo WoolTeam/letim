@@ -6,7 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
-
+use Letim\CalenderBundle\Entity\Tunel;
+use Letim\CalenderBundle\Entity\ClientTunel;
+use Letim\CalenderBundle\Entity\User;
 class DefaultController extends Controller
 {
     public function getTunelsAction(Request $request)
@@ -179,5 +181,53 @@ class DefaultController extends Controller
 //        }
         }
         return new Response(json_encode($result));
+    }
+
+    public function newBronAction (Request $request) {
+        $param = $request->getContent();
+        if ($param) {
+            $params = json_decode($param, true);
+        }
+        $em = $this->getDoctrine()->getManager();
+        $tunel = new Tunel();
+        $create = new \DateTime();
+        $tunel->setPlan($em->getRepository('LetimCalenderBundle:Plan')->findOneBy(array(
+            'id' =>  $params['plan_id']
+        )));
+        $start = new \DateTime($params['date']);
+        $tunel->setStartedAt($start);
+        $tunel->setCreatedAt($create);
+        $tunel->setUpdatedAt($create);
+        $tunel->setActive(true);
+
+        foreach($params['client'] as $user) {
+            $Ctoonel = new ClientTunel();
+            if(array_key_exists('email', $user) && array_key_exists('name', $user) && array_key_exists('phone', $user)) {
+                $u = $em->getRepository('LetimCalenderBundle:User')->findOneByEmail(array(
+                    'email' =>$user['email']
+                ));
+                if(!$u) {
+                    $u = new User();
+                    $u->setName($user['name']);
+                    if(array_key_exists('surname', $user)) {
+                        $u->setSurname($user['surname']);
+                    }
+                    $u->setEmail($user['email']);
+                    $u->setPhone($user['phone']);
+                    $u->setPass($user['email']);
+                    $u->setSalt($user['email']);
+                }
+                $Ctoonel->setTunel($tunel);
+                $em->persist($u);
+                $Ctoonel->setClient($u);
+                $em->persist($Ctoonel);
+            }
+
+        }
+        $em->persist($tunel);
+        $em->flush();
+
+        return new Response(json_encode(array('sucses' => true)));
+//        $em->getRepository('LetimCalenderBundle')->
     }
 }

@@ -2,7 +2,7 @@
  * Created by Колюха on 12.08.14.
  */
 var app = angular.module('calendarApp', [])
-    .controller('CalendarController', ['$scope', '$filter', '$http', '$timeout', function($scope, $filter, $http, $timeout) {
+    .controller('CalendarController', ['$scope', '$filter', '$http', '$timeout', '$location', function($scope, $filter, $http, $timeout, $location) {
         var date = new Date(),
             start = startDayInWeek(date);
         $scope.thisDate = "";
@@ -151,6 +151,10 @@ var app = angular.module('calendarApp', [])
         });
         $scope.$watch('maxpeople', function () {
             getPlan($scope.typeid, $scope.maxpeople);
+            if($scope.client) {
+                $scope.client.splice($scope.maxpeople, $scope.client.length);
+            }
+
             $scope.getUsers();
         });
         $scope.$watch('typeid', function (val) {
@@ -175,12 +179,14 @@ var app = angular.module('calendarApp', [])
         }
         $scope.getUsers = function (){
             var i = 0,
-                result = [];
+                result = $scope.client || [];
             if($scope.maxpeople) {
                 while(i < $scope.maxpeople) {
-                    i += 1;
-                    result.push({});
+                    if(!result[i]) {
+                        result[i] = {};
+                    }
                     $scope.client = result;
+                    i += 1;
                 }
             }
             return result;
@@ -203,6 +209,28 @@ var app = angular.module('calendarApp', [])
             $scope.timePolet = d;
             $scope.hideListH = true;
         };
+        $scope.sendBronForm = function () {
+            var obj = {};
+            obj.date = $filter('date')($scope.timePolet, "yyyy-MM-d HH:mm");
+            obj.plan_id = $scope.polet.id;
+            obj.client = $scope.client;
+            $http({method: "POST",
+                data: obj,
+                url: 'http://letim/app_dev.php/bronirovanie/save'}).
+                success(function(data, status) {
+                    if(data && data.sucses) {
+                        window.location.href = '/save_succes';
+                    }
+//                    window.location.href = "/";
+                }).
+                error(function(data, status) {
+                    $scope.data = data || "Request failed";
+                    $scope.status = status;
+                });
+        };
+//        $scope.red = function () {
+//            //window.location.href = "/";
+//        }
     }])
     .controller('BronController', ['$scope', '$filter', '$http', function($scope, $filter, $http) {
         $scope.$on('date', function (e, date) {
