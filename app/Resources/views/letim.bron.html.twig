@@ -1,72 +1,10 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        {% include "letim.header.html.twig" %}
-        {% block stylesheets %}
-        {% endblock %}
-    </head>
-        <body id="bg3" >
-        <div id="conteiner">
-            <div id="conteiner_main">
+{% extends "template.html.twig" %}
 
-            <!--header-->
-            <div id="header4">
-
-                <div id="logo"><a href="/" title=""><img src="/letim/images/logo.png" alt=""/></a></div>
-                    {% set menuItem = knp_menu_get('LetimMenuBundle:MenuBuilder:getMenu', [], {'menu': 'main_menu'}) %}
-                    {{ knp_menu_render(menuItem,{ 'currentClass': 'active'}) }}
-                {#</ul>#}
-            </div>
-                <div class="big_zagolovok">Ваш кабинет</div>
-            <!--/header-->
-
-
-            <!--start main-->
-                {% block content %}
-                {% endblock %}
-        </div>
+{% block template %}
+    <!--start main-->
+    {% block content %}
+    {% endblock %}
+    </div>
     </div>
 
-    <div id="footer">
-        <div id="foot">
-
-            <div class="soc">
-                Социальные сети:
-                <ul>
-                    <li><a href="" title=""><img src="/letim/images/soc1.png" alt=""/></a></li>
-                    <li><a href="" title=""><img src="/letim/images/soc2.png" alt=""/></a></li>
-                    <li><a href="" title=""><img src="/letim/images/soc3.png" alt=""/></a></li>
-                </ul>
-                Copyring © 2014
-            </div>
-
-            <div id="logo2"><a href="" title=""><img src="/letim/images/logo2.png" alt=""/></a></div>
-
-            <ul class="nav">
-                <li><span>О трубе</span></li>
-                <li><a href="" title="">Фото</a></li>
-                <li><a href="" title="">Отзывы</a></li>
-                <li><a href="" title="">Вопрос-ответ</a></li>
-
-            </ul>
-
-
-            <ul class="nav">
-                <li><span>Тарифы</span></li>
-
-
-            </ul>
-
-
-            <ul class="nav">
-                <li><span>Контакты</span></li>
-
-            </ul>
-
-
-        </div>
-    </div>
-    {% block body %}{% endblock %}
-    {% block javascripts %}{% endblock %}
-    </body>
-</html>
+{% endblock %}

@@ -21,7 +21,7 @@ $(document).ready(function(){
 		goTime();
 	});
 	
-	var months = ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
+	var months = ["РЇРЅРІР°СЂСЊ","Р¤РµРІСЂР°Р»СЊ","РњР°СЂС‚","РђРїСЂРµР»СЊ","РњР°Р№","РСЋРЅСЊ","РСЋР»СЊ","РђРІРіСѓСЃС‚","РЎРµРЅС‚СЏР±СЂСЊ","РћРєС‚СЏР±СЂСЊ","РќРѕСЏР±СЂСЊ","Р”РµРєР°Р±СЂСЊ"];
     var date = new Date();
 	var year = date.getFullYear();
 	var month = date.getMonth();
@@ -45,7 +45,7 @@ $(document).ready(function(){
 		allHTML += '<span>' + months[month] + ' ' + year + '</span>';
 		allHTML += '<a href="#" id="dpLeft"><b>&larr;</b></a><a href="#" id="dpRight"><b>&rarr;</b></a>';
 		allHTML += '</div>';
-		allHTML += '<div id="dateweek"><div><b><span>пн</span></b><b><span>вт</span></b><b><span>ср</span></b><b><span>чт</span></b><b><span>пт</span></b><b><span>сб</span></b><b><span>вс</span></b></div></div><div id="dates"><div>';
+		allHTML += '<div id="dateweek"><div><b><span>РїРЅ</span></b><b><span>РІС‚</span></b><b><span>СЃСЂ</span></b><b><span>С‡С‚</span></b><b><span>РїС‚</span></b><b><span>СЃР±</span></b><b><span>РІСЃ</span></b></div></div><div id="dates"><div>';
 		allHTML += spacer;
 		allHTML += days;
 		allHTML += '</div></div><div id="dateSp"></div></div>';
@@ -84,7 +84,7 @@ $(document).ready(function(){
 			if(selectedDay < 10) {selectedDay = "0" + selectedDay};
 			if(month < 10) {month = "0" + (month - 0 + 1)};
 			$("#changeTime").attr("value", selectedDay + "." + month + "." + year);
-			//пробрасываю в ангуляр
+			//РїСЂРѕР±СЂР°СЃС‹РІР°СЋ РІ Р°РЅРіСѓР»СЏСЂ
             scope = angular.element($("#changeTime")).scope();
             scope.$emit('date', selectedDay + "." + month + "." + year);
 			

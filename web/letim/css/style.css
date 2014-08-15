@@ -863,7 +863,7 @@ h6 {
     position: absolute;
     /*top: 0;*/
     left: 1px;
-    width: 312px;
+    width: 295px;
     display: block;
     list-style: none;
     font-family: 'Open Sans', sans-serif;
@@ -871,24 +871,26 @@ h6 {
     color: #5a626a;
     line-height: 24px;
     background: url(../images/select1.png) 0 100% no-repeat;
-    margin: -7px 2px 0 1px;
+    margin: -7px 2px 0 136px;;
     padding: 5px 0;
     border: 0;
     z-index: 2;
-    margin-left: 136px;
     padding-left: 17px;
+    max-height: 217px;
+    overflow-y: auto;
 }
 /*.wrapper-dropdown span:hover + ul{*/
     /*display: block;*/
 /*}*/
 .wrapper-dropdown ul li {
     cursor: pointer;
+    width: 200px;
 }
 /*.wrapper-dropdown ul:hover {*/
     /*display: block;*/
 /*}*/
 .wrapper-dropdown hour {
-    display: list-item;;
+    display: block;
     list-style: none;
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
@@ -898,7 +900,7 @@ h6 {
     margin: -7px 2px 0 -17px;
     padding: 5px 0;
     border: 0;
-    padding-left: 17px;
+    /*padding-left: 17px;*/
     z-index: 2;
 }
 .wrapper-dropdown label{
