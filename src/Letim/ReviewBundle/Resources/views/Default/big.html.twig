@@ -1,6 +1,6 @@
 {% for review in reviews %}
 
     <strong>{{ review.author }}</strong>
-        {{ review.text | raw }}
+        {{ review.text |striptags| raw }}
     <hr />
 {% endfor %}
