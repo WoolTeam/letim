@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    {% include "letim.header.html.twig" %}
-</head>
-<body>
-<div id="conteiner">
-    <div id="conteiner_main">
+{% extends "template.html.twig" %}
 
-        <!--header-->
-        <div id="header2">
-
-            <div id="logo"><a href="/" title=""><img src="/letim/images/logo.png" alt=""/></a></div>
-            <a href="" class="buton_top" title=""><img src="/letim/images/but2.png" alt="" /></a>
-            {% set menuItem = knp_menu_get('LetimMenuBundle:MenuBuilder:getMenu', [], {'menu': 'main_menu'}) %}
-            {{ knp_menu_render(menuItem,{ 'currentClass': 'active'}) }}
-            {#</ul>#}
-        </div>
-        <!--/header-->
+{% block template %}
 
 
         <!--start main-->
@@ -58,86 +42,11 @@
             <!--end content-->
 
             <!--start bottom_bar-->
-            <div id="bottom_bar">
-                <div class="form">
-                    <form id="sendMail">
-                        <div class="error" id="name"></div>
-                        <input name="name" type="text" class="pole" value="Ваше имя"
-                               onfocus="if(this.value=='Ваше имя'){this.value='';}"
-                               onblur="if(this.value==''){this.value='Ваше имя';}"/>
-                        <div class="error" id="phone"></div>
-                        <input name="phone" type="text" class="pole" value="Ваш телефон"
-                               onfocus="if(this.value=='Ваш телефон'){this.value='';}"
-                               onblur="if(this.value==''){this.value='Ваш телефон';}"/>
-                        <div class="error" id="email"></div>
-                        <input name="email" type="text" class="pole" value="Ваш email"
-                               onfocus="if(this.value=='Ваш email'){this.value='';}"
-                               onblur="if(this.value==''){this.value='Ваш email';}"/>
 
-                        <input name="" class="buton" value="Забронировать полет" type="submit"/>
-                    </form>
-                </div>
+            {% include "sendForm.html.twig" %}
 
 
-                <div class="map">
-                    <img src="/letim/images/map.jpg" alt=""/>
-                </div>
-            </div>
+
             <!--end bottom_bar-->
         </div>
-        <!--end main-->
-    </div>
-</div>
-
-<div id="footer">
-    <div id="foot">
-
-        <div class="soc">
-            Социальные сети:
-            <ul>
-                <li><a href="" title=""><img src="/letim/images/soc1.png" alt=""/></a></li>
-                <li><a href="" title=""><img src="/letim/images/soc2.png" alt=""/></a></li>
-                <li><a href="" title=""><img src="/letim/images/soc3.png" alt=""/></a></li>
-            </ul>
-            Copyright © 2014
-        </div>
-
-        <div id="logo2"><a href=/"" title=""><img src="/letim/images/logo2.png" alt=""/></a></div>
-
-        <ul class="nav">
-            <li><a href="/o_trube" title="О трубе" ><span>О трубе</span></a></li>
-            <li><a href="" title="Команда" >Команда</a></li>
-            <li><a href="" title="Контакты" >Контакты</a></li>
-            <li><a href="/news" title="Новости" >Новости</a></li>
-
-
-
-
-        </ul>
-
-
-        <ul class="nav">
-            <li><a href="" title="Тарифы" ><span>Тарифы</span></a></li>
-            <li><a href="" title="Календарь" >Календарь</a></li>
-            <li><a href="" title="Акции" >Акции</a></li>
-            <li><a href="" title="Сертификаты" >Сертификаты</a></li>
-
-
-
-        </ul>
-
-
-        <ul class="nav">
-            <li><span>Как проехать</span></li>
-            <li><a href="{{ path('letim_review_page') }}" title="">Оставить отзыв</a></li>
-            <li><a href="" title="Найти напарника" >Найти напарника</a></li>
-            <li><a href="/question" title="">Вопрос-ответ</a></li>
-        </ul>
-
-
-    </div>
-</div>
-{% block body %}{% endblock %}
-{% block javascripts %}{% endblock %}
-</body>
-</html>
+   {% endblock %}

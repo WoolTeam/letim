@@ -1,0 +1,28 @@
+<div id="bottom_bar">
+
+    <div class="form">
+        <form id="sendMail">
+            <div class="error" id="name"></div>
+            <input name="name" type="text" class="pole" value="Ваше имя"
+                   onfocus="if(this.value=='Ваше имя'){this.value='';}"
+                   onblur="if(this.value==''){this.value='Ваше имя';}"/>
+
+            <div class="error" id="phone"></div>
+            <input name="phone" type="text" class="pole" value="Ваш телефон"
+                   onfocus="if(this.value=='Ваш телефон'){this.value='';}"
+                   onblur="if(this.value==''){this.value='Ваш телефон';}"/>
+
+            <div class="error" id="email"></div>
+            <input name="email" type="text" class="pole" value="Ваш email"
+                   onfocus="if(this.value=='Ваш email'){this.value='';}"
+                   onblur="if(this.value==''){this.value='Ваш email';}"/>
+
+            <input name="" class="buton" value="Забронировать полет" type="submit"/>
+        </form>
+    </div>
+
+
+    <div class="map">
+        <img src="/letim/images/map.jpg" alt=""/>
+    </div>
+</div>

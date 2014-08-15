@@ -1,162 +1,65 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        {% include "letim.header.html.twig" %}
-    </head>
-    <body>
-    <div id="conteiner">
-        <div id="conteiner_main">
+{% extends "template.html.twig" %}
 
-            <!--header-->
-            <div id="header">
-
-                <div id="logo"><a href="/" title=""><img src="/letim/images/logo.png" alt=""/></a></div>
-                <a href="" class="buton_top" title=""><img src="/letim/images/but2.png" alt="" /></a>
-                {% set menuItem = knp_menu_get('LetimMenuBundle:MenuBuilder:getMenu', [], {'menu': 'main_menu'}) %}
-
-                {{ knp_menu_render(menuItem,{ 'currentClass': 'active'}) }}
-            </div>
-            <!--/header-->
-
-
-            <div class="top_news">
-                {% block lastnews %}
-                    {% render controller("LetimNewsBundle:Default:lastNews")  %}
-                {% endblock %}
-
-
-            </div>
-
-
-            <div id="slider-wrapper">
-                <div id="slider" class="nivoSlider">
-                    <img src="/letim/images/slide1.jpg" alt="" title="#htmlcaption1"/>
-                    <img src="/letim/images/slide2.jpg" alt="" title="#htmlcaption2"/>
-                    <img src="/letim/images/slide3.jpg" alt="" title="#htmlcaption3"/>
-                    <img src="/letim/images/slide4.jpg" alt="" title="#htmlcaption4"/>
-                </div>
-                <div id="htmlcaption1" class="nivo-html-caption"><a href="" class="but1" title="">Заказать сертификат</a>
-                </div>
-
-                <div id="htmlcaption2" class="nivo-html-caption"><a href="" class="but2" title="">Перейти к календарю</a>
-                </div>
-
-                <div id="htmlcaption3" class="nivo-html-caption"><a href="" class="but3" title="">Заказать сертификат</a>
-                </div>
-
-                <div id="htmlcaption4" class="nivo-html-caption"></div>
-            </div>
-
-
-            <!--start main-->
-            <div id="wrapper">
-                <!--start right_bar-->
-                <div id="right_bar">
-
-
-                    <div class="zagolovok">Галерея</div>
-
-                    <ul class="gallery">
-                        <li><a href="" title=""><img src="/letim/images/pic2.jpg" alt=""/></a></li>
-                        <li><a href="" title=""><img src="/letim/images/pic3.jpg" alt=""/></a></li>
-                    </ul>
-                </div>
-                <!--end right_bar-->
-                <!--start left_bar-->
-                <div id="left_bar">
-
-                    <div class="zagolovok">Отзывы</div>
-                    {% render controller("LetimReviewBundle:Default:list", {'tpl': 'small', 'limit': 2}) %}
-                </div>
-                <!--end left_bar-->
-                <!--start content-->
-                {% block content %}
-
-                {% endblock %}
-                <!--end content-->
-
-                <!--start bottom_bar-->
-                <div id="bottom_bar">
-
-                    <div class="form">
-                        <form id="sendMail">
-                            <div class="error" id="name"></div>
-                            <input name="name" type="text" class="pole" value="Ваше имя"
-                                   onfocus="if(this.value=='Ваше имя'){this.value='';}"
-                                   onblur="if(this.value==''){this.value='Ваше имя';}"/>
-                            <div class="error" id="phone"></div>
-                            <input name="phone" type="text" class="pole" value="Ваш телефон"
-                                   onfocus="if(this.value=='Ваш телефон'){this.value='';}"
-                                   onblur="if(this.value==''){this.value='Ваш телефон';}"/>
-                            <div class="error" id="email"></div>
-                            <input name="email" type="text" class="pole" value="Ваш email"
-                                   onfocus="if(this.value=='Ваш email'){this.value='';}"
-                                   onblur="if(this.value==''){this.value='Ваш email';}"/>
-
-                            <input name="" class="buton" value="Забронировать полет" type="submit"/>
-                        </form>
-                    </div>
-
-
-                    <div class="map">
-                        <img src="/letim/images/map.jpg" alt=""/>
-                    </div>
-                </div>
-                <!--end bottom_bar-->
-            </div>
-            <!--end main-->
-        </div>
+{% block template %}
+    <div class="top_news">
+        {% block lastnews %}
+            {% render controller("LetimNewsBundle:Default:lastNews") %}
+        {% endblock %}
     </div>
 
-    <div id="footer">
-        <div id="foot">
 
-            <div class="soc">
-                Социальные сети:
-                <ul>
-                    <li><a href="" title=""><img src="/letim/images/soc1.png" alt=""/></a></li>
-                    <li><a href="" title=""><img src="/letim/images/soc2.png" alt=""/></a></li>
-                    <li><a href="" title=""><img src="/letim/images/soc3.png" alt=""/></a></li>
-                </ul>
-                Copyright © 2014
-            </div>
-
-            <div id="logo2"><a href="/" title=""><img src="/letim/images/logo2.png" alt=""/></a></div>
-
-            <ul class="nav">
-                <li><a href="/o_trube" title="О трубе" ><span>О трубе</span></a></li>
-                <li><a href="" title="Команда" >Команда</a></li>
-                <li><a href="" title="Контакты" >Контакты</a></li>
-                <li><a href="/news" title="Новости" >Новости</a></li>
-
-
-
-
-            </ul>
-
-
-            <ul class="nav">
-                <li><a href="" title="Тарифы" ><span>Тарифы</span></a></li>
-                <li><a href="" title="Календарь" >Календарь</a></li>
-                <li><a href="" title="Акции" >Акции</a></li>
-                <li><a href="" title="Сертификаты" >Сертификаты</a></li>
-
-
-
-            </ul>
-
-
-            <ul class="nav">
-                <li><span>Как проехать</span></li>
-                <li><a href="{{ path('letim_review_page') }}" title="">Оставить отзыв</a></li>
-                <li><a href="" title="Найти напарника" >Найти напарника</a></li>
-                <li><a href="/question" title="">Вопрос-ответ</a></li>
-            </ul>
-
-
+    <div id="slider-wrapper">
+        <div id="slider" class="nivoSlider">
+            <img src="/letim/images/slide1.jpg" alt="" title="#htmlcaption1"/>
+            <img src="/letim/images/slide2.jpg" alt="" title="#htmlcaption2"/>
+            <img src="/letim/images/slide3.jpg" alt="" title="#htmlcaption3"/>
+            <img src="/letim/images/slide4.jpg" alt="" title="#htmlcaption4"/>
         </div>
+        <div id="htmlcaption1" class="nivo-html-caption"><a href="" class="but1" title="">Заказать сертификат</a>
+        </div>
+
+        <div id="htmlcaption2" class="nivo-html-caption"><a href="" class="but2" title="">Перейти к календарю</a>
+        </div>
+
+        <div id="htmlcaption3" class="nivo-html-caption"><a href="" class="but3" title="">Заказать сертификат</a>
+        </div>
+
+        <div id="htmlcaption4" class="nivo-html-caption"></div>
     </div>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+
+
+    <!--start main-->
+    <div id="wrapper">
+        <!--start right_bar-->
+        <div id="right_bar">
+
+
+            <div class="zagolovok">Галерея</div>
+
+            <ul class="gallery">
+                <li><a href="" title=""><img src="/letim/images/pic2.jpg" alt=""/></a></li>
+                <li><a href="" title=""><img src="/letim/images/pic3.jpg" alt=""/></a></li>
+            </ul>
+        </div>
+        <!--end right_bar-->
+        <!--start left_bar-->
+        <div id="left_bar">
+
+            <div class="zagolovok">Отзывы</div>
+            {% render controller("LetimReviewBundle:Default:list", {'tpl': 'small', 'limit': 2}) %}
+        </div>
+        <!--end left_bar-->
+        <!--start content-->
+        {% block content %}
+
+        {% endblock %}
+        <!--end content-->
+
+        <!--start bottom_bar-->
+        {% include "sendForm.html.twig" %}
+        <!--end bottom_bar-->
+    </div>
+
+
+{% endblock %}
+
