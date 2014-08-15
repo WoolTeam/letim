@@ -180,7 +180,13 @@ var app = angular.module('calendarApp', [])
                 }
             }
             return result;
-        }
+        };
+        $scope.setTimePolet = function (t, first) {
+            var minutes = first :l;
+            $scope.timePolet = $scope.weekArray[$scope.currentDate].date;
+            $scope.timePolet.setHours(t.hour);
+            $scope.timePolet.setMinutes();
+        };
     }])
     .controller('BronController', ['$scope', '$filter', '$http', function($scope, $filter, $http) {
         $scope.$on('date', function (e, date) {

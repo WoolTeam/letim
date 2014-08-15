@@ -17,12 +17,12 @@
 {% block content %}
 <!--start content-->
 {% verbatim %}
-    <div id="wrapper" ng-app="calendarApp">
+    <div id="wrapper" ng-app="calendarApp" style="overflow: initial;">
 
 
         <!--start content-->
 
-        <div id="content" ng-controller='CalendarController'>
+        <div id="content" ng-controller='CalendarController' style="overflow: initial;">
             <div class="cols_left2">
 
                 <h6>Детали полета:</h6>
@@ -75,10 +75,10 @@
 
                     <div class="wrapper-dropdown">
                         <label>Время полета</label>
-                        <span ng-click="toggleH()">{{ ''|| '' }}</span>
+                        <span ng-click="toggleH()">{{weekArray[currentDate].date|date:'MMM d, y h:mm'}}</span>
                         <ul class="dropdown" ng-hide="hideListH || !plan">
                             <hour ng-repeat="h in weekArray[currentDate].hoursArray">
-                                <li ng-show="(getDuration(h.first) + polet.duration <= 25)">{{ h.hour + ':00' }}|{{ getDuration(h.first) }}</li>
+                                <li ng-show="(getDuration(h.first) + polet.duration <= 25)" ng-click=setTimePolet(h)>{{ h.hour + ':00' }}|{{ getDuration(h.first) }}</li>
                                 <li ng-show="(getDuration(h.last) + polet.duration <=  25)">{{ h.hour + ':30' }}|{{ getDuration(h.last) }}</li>
                             </hour>
                         </ul>
