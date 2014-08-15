@@ -75,11 +75,11 @@
 
                     <div class="wrapper-dropdown">
                         <label>Время полета</label>
-                        <span ng-click="toggleH()">{{weekArray[currentDate].date|date:'MMM d, y h:mm'}}</span>
-                        <ul class="dropdown" ng-hide="hideListH || !plan">
+                        <span ng-click="toggleH()">{{(timePolet|date:'dd.MM, HH:mm')||''}}</span>
+                        <ul class="dropdown" ng-hide="hideListH || !plan || !dataArr">
                             <hour ng-repeat="h in weekArray[currentDate].hoursArray">
-                                <li ng-show="(getDuration(h.first) + polet.duration <= 25)" ng-click=setTimePolet(h)>{{ h.hour + ':00' }}|{{ getDuration(h.first) }}</li>
-                                <li ng-show="(getDuration(h.last) + polet.duration <=  25)">{{ h.hour + ':30' }}|{{ getDuration(h.last) }}</li>
+                                <li ng-show="(getDuration(h.first) + polet.duration <= 25)" ng-click="setTimePolet(h,0,getDuration(h.first))">{{ h.hour + ':00' }}<i>{{ getDuration(h.first) ?' занято '+getDuration(h.first)+' минут':'' }}</i></li>
+                                <li ng-show="(getDuration(h.last) + polet.duration <=  25)" ng-click="setTimePolet(h,30,getDuration(h.last))">{{ h.hour + ':30' }}<i>{{ getDuration(h.last) ?' занято '+getDuration(h.last)+' минут':'' }}</i></li>
                             </hour>
                         </ul>
                     </div>
@@ -89,7 +89,7 @@
                     <div class="clear"></div>
 
                     <p class="itog">Итого: <span>{{ polet.duration * polet.cost || 0}}</span> руб</p>
-                    <input name="" class="buton" value="Заказать" type="submit" />
+                    <input ng-hide="!timePolet || !clientValid" name="" class="buton" value="Заказать" type="submit" />
                 </div>
 
 
@@ -98,12 +98,12 @@
             <div class="cols_right2">
 
                 <h6>Участники:</h6>
-                <div ng-repeat="n in getUsers()">
-                    <div style="clear: both; width: 450px; text-align:  center;"><span >Участник {{ n }}</span></div>
+                <div ng-repeat="c in client">
+                    <div style="clear: both; width: 450px; text-align:  center;"><span >Участник {{ $index + 1}}</span></div>
                     <div class="form_user2">
-                        <p><label>Телефон</label><input name="" type="text" class="pole" value="" /></p>
-                        <p><label>E-mail</label><input name="" type="text" class="pole" value="" /></p>
-                        <p><label>Имя</label><input name="" type="text" class="pole" value="" /></p>
+                        <p><label>Телефон</label><input ng-model="c.phone" name="" type="text" class="pole" value="" /></p>
+                        <p><label>E-mail</label><input ng-model="c.email"  name="" type="text" class="pole" value="" /></p>
+                        <p><label>Имя</label><input ng-model="c.name" name="" type="text" class="pole" value="" /></p>
                         <p><label>Фамилия</label><input name="" type="text" class="pole" value="" /></p>
                     </div>
                     <hr>

@@ -97,6 +97,8 @@ var app = angular.module('calendarApp', [])
         $scope.$on('date', function (e, date) {
             var dArray = date.split('.'),
                 str = new Date(dArray[2] + '-' + dArray[1] + '-' + dArray[0]);
+            $scope.dataArr = dArray;
+            $scope.timePolet = false;
             $scope.$apply(function () {
                     $scope.weekArray = init(str);
                     //$scope.currentDate = dayInWeek(str);
@@ -143,12 +145,13 @@ var app = angular.module('calendarApp', [])
         }
         $scope.$watch('plan', function (val,old) {
             $scope.polet = '';
-            if(val.length === 0) {
+            if(val && val.length === 0) {
                 $scope.notPlan = "true";
             }
         });
         $scope.$watch('maxpeople', function () {
             getPlan($scope.typeid, $scope.maxpeople);
+            $scope.getUsers();
         });
         $scope.$watch('typeid', function (val) {
             getPlan($scope.typeid, $scope.maxpeople);
@@ -176,16 +179,29 @@ var app = angular.module('calendarApp', [])
             if($scope.maxpeople) {
                 while(i < $scope.maxpeople) {
                     i += 1;
-                    result.push(i);
+                    result.push({});
+                    $scope.client = result;
                 }
             }
             return result;
         };
-        $scope.setTimePolet = function (t, first) {
+        $scope.clientValid = false;
+        $scope.$watch('client', function (val, old) {
+            $scope.clientValid = false;
+            if($scope.client && $scope.client[0].name && $scope.client[0].email && $scope.client[0].phone) {
+                $scope.clientValid = true;
+            }
+        },true);
+        $scope.setTimePolet = function (t, min, duration) {
             //var minutes = first :l;
-            $scope.timePolet = $scope.weekArray[$scope.currentDate].date;
-            $scope.timePolet.setHours(t.hour);
-            $scope.timePolet.setMinutes();
+            //$scope.weekArray[$scope.currentDate].date
+            min = min || 0;
+            duration = parseInt(duration) ||0;
+            console.log(duration);
+            var d = new Date($scope.dataArr[2], $scope.dataArr[1]-1, $scope.dataArr[0], t.hour, min + duration);
+            //console.log($scope.dataArr);
+            $scope.timePolet = d;
+            $scope.hideListH = true;
         };
     }])
     .controller('BronController', ['$scope', '$filter', '$http', function($scope, $filter, $http) {
