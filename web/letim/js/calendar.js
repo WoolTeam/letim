@@ -216,7 +216,7 @@ var app = angular.module('calendarApp', [])
             obj.client = $scope.client;
             $http({method: "POST",
                 data: obj,
-                url: 'http://letim/app_dev.php/bronirovanie/save'}).
+                url: '/bronirovanie/save'}).
                 success(function(data, status) {
                     if(data && data.sucses) {
                         window.location.href = '/save_succes';
