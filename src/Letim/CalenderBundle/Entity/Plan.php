@@ -29,11 +29,10 @@ class Plan
     private $name;
 
     /**
-     * @var smallint
+     * @var integer
      *
      * @ORM\Column(name="duration", type="smallint", nullable=false)
      */
-    
     private $duration;
 
     /**
@@ -44,7 +43,7 @@ class Plan
     private $cost;
 
     /**
-     * @var smallint
+     * @var integer
      *
      * @ORM\Column(name="max_people", type="smallint", nullable=false)
      */
@@ -77,6 +76,16 @@ class Plan
 
 
     /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * Set name
      *
      * @param string $name
@@ -102,7 +111,7 @@ class Plan
     /**
      * Set duration
      *
-     * @param smallint $duration
+     * @param integer $duration
      * @return Plan
      */
     public function setDuration($duration)
@@ -115,7 +124,7 @@ class Plan
     /**
      * Get duration
      *
-     * @return smallint
+     * @return integer 
      */
     public function getDuration()
     {
@@ -148,7 +157,7 @@ class Plan
     /**
      * Set maxPeople
      *
-     * @param smallint $maxPeople
+     * @param integer $maxPeople
      * @return Plan
      */
     public function setMaxPeople($maxPeople)
@@ -161,7 +170,7 @@ class Plan
     /**
      * Get maxPeople
      *
-     * @return smallint 
+     * @return integer 
      */
     public function getMaxPeople()
     {
@@ -212,16 +221,6 @@ class Plan
     public function getUpdatedAt()
     {
         return $this->updatedAt;
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**

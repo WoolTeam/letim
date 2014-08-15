@@ -5,3 +5,13 @@ services:
 #    letim_calender.example:
 #        class: %letim_calender.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+      admin.plan:
+               class: Letim\CalenderBundle\Admin\PlanAdmin
+               tags:
+               - { name:  sonata.admin, manager_type: orm, group: Тарифные планы, label: Добавить тарифный план}
+               arguments: [null, Letim\CalenderBundle\Entity\Plan, SonataAdminBundle:CRUD]
+      admin.plan.type:
+               class: Letim\CalenderBundle\Admin\PlanTypeAdmin
+               tags:
+               - { name:  sonata.admin, manager_type: orm, group: Типы тарифных планов, label: Добавить тип}
+               arguments: [null, Letim\CalenderBundle\Entity\PlanType, SonataAdminBundle:CRUD]
