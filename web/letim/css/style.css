@@ -1129,3 +1129,8 @@ h6 {
     color: #9d9d9d;
     margin: 0 0 20px 25px
 }
+*{
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing:content-box;
+    box-sizing: content-box;
+}

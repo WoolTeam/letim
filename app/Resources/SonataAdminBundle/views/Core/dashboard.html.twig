@@ -27,10 +27,11 @@ file that was distributed with this source code.
         </div>
     {% endif %}
 
-    <div class="row">
+    {% render controller("LetimCalenderBundle:Default:bronirovanieA") %}
+    <div class="row" style="min-height: 100%;margin: 0 auto;width: 1020px;">
         {% set has_center = false %}
 
-        <div class="{% if blocks.center|length > 0 %}col-md-4{% else %}col-md-6{% endif %}">
+        <div class="{% if blocks.center|length > 0 %}col-md-4{% else %}col-md-12{% endif %}">
             {% for block in blocks.left %}
                 {{ sonata_block_render({ 'type': block.type, 'settings': block.settings}) }}
             {% endfor %}
@@ -61,7 +62,7 @@ file that was distributed with this source code.
         </div>
     {% endif %}
 
-    {#{% render controller("LetimCalenderBundle:Default:bronirovanieA") %}#}
+
     {{ sonata_block_render_event('sonata.admin.dashboard.bottom', { 'admin_pool': admin_pool }) }}
 
 {% endblock %}
