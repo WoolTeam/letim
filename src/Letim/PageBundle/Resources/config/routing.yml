@@ -1,6 +1,10 @@
 letim_page_homepage:
     path:     /
     defaults: { _controller: LetimPageBundle:Default:homePage}
+letim_rate_mail:
+    path:     /rate
+    defaults: { _controller: LetimPageBundle:Rate:index}
+    methods:  [GET]
 letim_get_page:
     path:     /{url}
     defaults: { _controller: LetimPageBundle:Default:index, url:get_home_page}
@@ -8,3 +12,7 @@ letim_send_mail:
     path:     /send/mail
     defaults: { _controller: LetimPageBundle:Default:mailsend}
     methods:  [POST]
+letim_rate_mail:
+    path:     /rate
+    defaults: { _controller: LetimPageBundle:Rate:index}
+    methods:  [GET]

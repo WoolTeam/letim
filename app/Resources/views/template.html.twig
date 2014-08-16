@@ -5,7 +5,7 @@
     <meta name="robots" content="all"/>
     <meta name="description" content=" "/>
     <meta name="keywords" content=" "/>
-
+    <title>{% if page.title is defined %}{{ page.title }}{% endif %}</title>
     <link rel="stylesheet" type="text/css" href="/letim/css/style.css" media="screen"/>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,700,700italic&subset=latin,cyrillic-ext,cyrillic'
           rel='stylesheet' type='text/css'/>
@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/letim/css/nivo-slider.css" type="text/css" media="screen"/>
     <script type="text/javascript" src="/letim/js/jquery.nivo.slider.pack.js"></script>
     <script type="text/javascript" src="/letim/js/main.js"></script>
+    <script type="text/javascript" src="/letim/js/angular-locale_ru-ru.js"></script>
     <script type="text/javascript">
         $(window).load(function () {
             $('#slider').nivoSlider();

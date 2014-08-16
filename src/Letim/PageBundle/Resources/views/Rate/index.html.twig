@@ -1,0 +1,92 @@
+{% extends "::letim.base.html.twig" %}
+{% block content %}
+    <div id="content">
+
+        <div class="zagolovok3">Тарифы</div>
+        {% for key, item in rate %}
+            <div class="plaha">{{ key }}</div>
+        <table class="tabl2">
+            <tr>
+                <th>Время полета</th>
+                <th>Цена</th>
+                <th>Примечание</th>
+            </tr>
+
+            {% for r in item %}
+                <tr>
+                    <td>{{ r.duration }} минуты</td>
+                    <td>{{ r.cost }} руб.</td>
+                    <td>До {{ r.maxPeople }} человек</td>
+                </tr>
+            {% endfor %}
+        </table>
+        {% endfor %}
+    </div>
+{% endblock %}
+{#<div id="content">#}
+
+
+    {#<div class="zagolovok3">О трубе</div>#}
+
+
+
+    {#<div class="plaha">Детский (от 4 до 14 лет )</div>#}
+
+    {#<table class="tabl2">#}
+        {#<tr>#}
+            {#<th>Время полета</th>#}
+            {#<th>Цена</th>#}
+            {#<th>Примечание</th>#}
+        {#</tr>#}
+        {#<tr>#}
+            {#<td>2 минуты</td>#}
+            {#<td>800 руб.</td>#}
+            {#<td>До 2 человек</td>#}
+        {#</tr>#}
+        {#<tr>#}
+            {#<td>2 минуты</td>#}
+            {#<td>800 руб.</td>#}
+            {#<td>До 2 человек</td>#}
+        {#</tr>#}
+        {#<tr>#}
+            {#<td>2 минуты</td>#}
+            {#<td>800 руб.</td>#}
+            {#<td>До 2 человек</td>#}
+        {#</tr>#}
+        {#<tr>#}
+            {#<td colspan="3"><input name="" class="buton" value="" type="submit" /></td>#}
+        {#</tr>#}
+    {#</table>#}
+
+
+    {#<div class="plaha">Детский (от 4 до 14 лет )</div>#}
+
+    {#<table class="tabl2">#}
+        {#<tr>#}
+            {#<th>Время полета</th>#}
+            {#<th>Цена</th>#}
+            {#<th>Примечание</th>#}
+        {#</tr>#}
+        {#<tr>#}
+            {#<td>2 минуты</td>#}
+            {#<td>800 руб.</td>#}
+            {#<td>До 2 человек</td>#}
+        {#</tr>#}
+        {#<tr>#}
+            {#<td>2 минуты</td>#}
+            {#<td>800 руб.</td>#}
+            {#<td>До 2 человек</td>#}
+        {#</tr>#}
+        {#<tr>#}
+            {#<td>2 минуты</td>#}
+            {#<td>800 руб.</td>#}
+            {#<td>До 2 человек</td>#}
+        {#</tr>#}
+        {#<tr>#}
+            {#<td colspan="3"><input name="" class="buton" value="" type="submit" /></td>#}
+        {#</tr>#}
+    {#</table>#}
+
+
+
+{#</div>#}
