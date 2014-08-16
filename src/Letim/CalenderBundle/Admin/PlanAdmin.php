@@ -15,6 +15,13 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class PlanAdmin extends Admin
 {
+
+    protected $datagridValues = array(
+        '_sort_order' => 'DESC',
+        '_sort_by' => 'id'
+    );
+
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
