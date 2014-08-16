@@ -16,15 +16,20 @@ class DefaultController extends Controller
             'font_size' => 22,
             'length' => 7,
             'border_color' => "cccccc",
-            'label' => 'Проверочный код'
+            'label' => ' ',
+            'attr' => array('class' => 'pole'),
         );
         $review = new Review();
         $form = $this->createFormBuilder()
-            ->add('author', 'text', array('label' => 'Ваше имя', 'required' => true))
-            ->add('email', 'email', array('label' => 'Email', 'required' => true))
-            ->add('text', 'textarea', array('label' => 'Отзыв', 'required' => true))
+            ->add(
+                'author',
+                'text',
+                array('label' => 'Ваше имя', 'required' => true, 'attr' => array('class' => 'pole'))
+            )
+            ->add('email', 'email', array('label' => 'Email', 'required' => true, 'attr' => array('class' => 'pole')))
+            ->add('text', 'textarea', array('label' => 'Отзыв', 'required' => true, 'attr' => array('class' => 'poleArea')))
             ->add('securitycod', 'genemu_captcha', $settings)
-        ->getForm();
+            ->getForm();
         $success = '';
         if ($request->getMethod() == 'POST') {
             $form->bind($request);
@@ -41,11 +46,13 @@ class DefaultController extends Controller
                 $em->persist($review);
                 $em->flush();
                 $success = 'Ваш отзыв будет опубликован после премодерации. Спасибо';
+
                 return $this->redirect($this->generateUrl('letim_review_page_success'));
             }
         }
         if ($state == 'success') {
             $success = 'Ваш отзыв очень важен для нас. Он будет добавлен к общему списку после прохождения премодерации. Спасибо.';
+
             return $this->render('LetimReviewBundle:Default:success.html.twig', array('success' => $success));
         } else {
             return $this->render('LetimReviewBundle:Default:index.html.twig', array('form' => $form->createView()));
@@ -65,6 +72,7 @@ class DefaultController extends Controller
         }
         $query = $build->getQuery();
         $result = $query->getScalarResult();
+
         return $this->render('LetimReviewBundle:Default:' . $tpl . '.html.twig', array('reviews' => $result));
     }
 }

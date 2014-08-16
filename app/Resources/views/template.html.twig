@@ -29,7 +29,7 @@
         <div id="header">
 
             <div id="logo"><a href="/" title=""><img src="/letim/images/logo.png" alt=""/></a></div>
-            <a href="" class="buton_top" title=""><img src="/letim/images/but2.png" alt="" /></a>
+            <a href="/calendar/page" class="buton_top" title=""><img src="/letim/images/but2.png" alt="" /></a>
             {% set menuItem = knp_menu_get('LetimMenuBundle:MenuBuilder:getMenu', [], {'menu': 'main_menu'}) %}
 
             {{ knp_menu_render(menuItem,{ 'currentClass': 'active'}) }}
@@ -53,9 +53,9 @@
                 <div class="soc">
                     Социальные сети:
                     <ul>
-                        <li><a href="" title=""><img src="/letim/images/soc1.png" alt=""/></a></li>
-                        <li><a href="" title=""><img src="/letim/images/soc2.png" alt=""/></a></li>
-                        <li><a href="" title=""><img src="/letim/images/soc3.png" alt=""/></a></li>
+                        <li><a href="#" title=""><img src="/letim/images/soc1.png" alt=""/></a></li>
+                        <li><a href="http://vk.com/letimvl" target="_blank" title="Мы в Контакте"><img src="/letim/images/soc2.png" alt=""/></a></li>
+                        <li><a href="#" title=""><img src="/letim/images/soc3.png" alt=""/></a></li>
                     </ul>
                     Copyright © 2014
                 </div>
@@ -64,8 +64,8 @@
 
                 <ul class="nav">
                     <li><a href="/o_trube" title="О трубе" ><span>О трубе</span></a></li>
-                    <li><a href="" title="Команда" >Команда</a></li>
-                    <li><a href="" title="Контакты" >Контакты</a></li>
+                    <li><a href="/komanda" title="Команда" >Команда</a></li>
+                    <li><a href="/contacts" title="Контакты" >Контакты</a></li>
                     <li><a href="/news" title="Новости" >Новости</a></li>
 
 
@@ -76,9 +76,9 @@
 
                 <ul class="nav">
                     <li><a href="" title="Тарифы" ><span>Тарифы</span></a></li>
-                    <li><a href="" title="Календарь" >Календарь</a></li>
-                    <li><a href="" title="Акции" >Акции</a></li>
-                    <li><a href="" title="Сертификаты" >Сертификаты</a></li>
+                    <li><a href="/calendar/page" title="Календарь" >Календарь</a></li>
+                    <li><a href="/akcii" title="Акции" >Акции</a></li>
+                    <li><a href="/sertificat" title="Сертификаты" >Сертификаты</a></li>
 
 
 
@@ -86,9 +86,9 @@
 
 
                 <ul class="nav">
-                    <li><span>Как проехать</span></li>
+                    <li><span><a href="/kak_proexat">Как проехать</a></span></li>
                     <li><a href="{{ path('letim_review_page') }}" title="">Оставить отзыв</a></li>
-                    <li><a href="" title="Найти напарника" >Найти напарника</a></li>
+                    <li><a href="http://vk.com/letimvl" target="_blank" title="Найти напарника" >Найти напарника</a></li>
                     <li><a href="/question" title="">Вопрос-ответ</a></li>
                 </ul>
 

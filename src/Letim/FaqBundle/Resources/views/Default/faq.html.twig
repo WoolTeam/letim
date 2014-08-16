@@ -1,9 +1,16 @@
-<ol>
+<dl id="faqs">
 {% for question in questions %}
-    <li>
-        <b>{{ question.question | raw }}</b>
-        <hr />
-        {{ question.answer | raw}}
-    </li>
+     <dt>{{ question.question |striptags | raw }}</dt>
+    <dd>{{ question.answer |striptags | raw}}</dd>
 {% endfor %}
-</ol>
+</dl>
+
+{% block javascripts %}
+    <script type="text/javascript">
+        $("#faqs dd").hide();
+        $("#faqs dt").click(function () {
+            $(this).next("#faqs dd").slideToggle(500);
+            $(this).toggleClass("expanded");
+        });
+    </script>
+{% endblock %}
