@@ -88,6 +88,25 @@ class ClientTunel
 
         return $this;
     }
+    public function __toString()
+    {
+        return $this->client->getEmail();
+    }
+    public function getEmail() {
+        return $this->client->getEmail();
+    }
+//    public function setEmail(\Letim\CalenderBundle\Entity\User $client = null) {
+//        $n = new ClientTunel();
+//        $n->setTunel($this->getTunel());
+//        $n->setClient($client);
+//        return $this;
+//    }
+//    public function setEmail() {
+//        return $this->client->getEmail();
+//    }
+//    public function getEmail() {
+//        return $this->client->getEmail();
+//    }
 
     /**
      * Get client
@@ -97,5 +116,8 @@ class ClientTunel
     public function getClient()
     {
         return $this->client;
+    }
+    public  function  toString() {
+        return $this->getClient();
     }
 }

@@ -206,6 +206,12 @@ class Tunel
         return $this->clients;
     }
 
+//    public function getUsers()
+//    {
+//        $this->clients;
+//        return $this->clients;
+//    }
+
     /**
      * Add clients
      *
