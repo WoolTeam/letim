@@ -142,15 +142,26 @@ class DefaultController extends Controller
             LEFT JOIN p.type typ GROUP BY typ.id'
         );
         $result = $query->getArrayResult();
-        //print_r($result->getName());
-//        foreach($result as $plan) {
-//            $arr['name'] = $plan['typename'];
-//            $arr['id'] = $plan['typeid'];
-//        }
         return $this->render('LetimCalenderBundle:Default:bron.html.twig', array(
             'plan' => $result
         ));
     }
+
+    public function bronirovanieAAction () {
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            'SELECT
+            typ.name name,
+            typ.id id
+            FROM LetimCalenderBundle:Plan p
+            LEFT JOIN p.type typ GROUP BY typ.id'
+        );
+        $result = $query->getArrayResult();
+        return $this->render('LetimCalenderBundle:Default:bronA.html.twig', array(
+            'plan' => $result
+        ));
+    }
+
     public function bronformAction (Request $request) {
         $param = $request->getContent();
         if ($param) {

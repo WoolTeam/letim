@@ -245,4 +245,8 @@ class Plan
     {
         return $this->type;
     }
+
+    public function  getTypeplan() {
+        return $this->getType()->getName();
+    }
 }

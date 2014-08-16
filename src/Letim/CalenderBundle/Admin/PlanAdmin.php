@@ -76,6 +76,8 @@ class PlanAdmin extends Admin
             ->addIdentifier('name')
             ->add('duration')
             ->add('cost')
-            ->add('maxPeople');
+            ->add('maxPeople')
+            ->add('typeplan',null, array('label' => 'План'));
+
     }
 } 

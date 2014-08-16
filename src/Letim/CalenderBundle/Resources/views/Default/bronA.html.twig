@@ -1,0 +1,137 @@
+{% extends "::letim.bron.html.twig" %}
+{% block stylesheets %}
+    <script type="text/javascript" src="/letim/js/datepicker-cp.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
+    <script type="text/javascript" src="/letim/js/calendar.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="/letim/css/datepicker.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="/letim/css/select.css"/>
+    <script type="text/javascript" src="/letim/js/jquery.selectBox.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("select").selectBox();
+
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+<!--start content-->
+{% verbatim %}
+    <div id="wrapper" ng-app="calendarApp" style="overflow: initial;">
+
+
+        <!--start content-->
+
+        <div id="content" ng-controller='CalendarController' style="overflow: initial;">
+            <div class="cols_left2">
+
+                <h6>Детали полета:</h6>
+
+                <div class="form_user2">
+
+                    <p>
+                        <label>Тип тарифа</label>
+                    <div class="form1">
+                        <select class="select1" ng-model="typeid">
+
+                            {% endverbatim %}
+                            {% for type in plan %}
+                                <option value="{{type.id}}">{{  type.name }} </option>
+                            {% endfor %}
+                            {% verbatim %}
+
+                        </select>
+                    </div>
+                    </p>
+                    <p>
+                        <label>Количество</label>
+                    <div class="form1">
+                        <select class="select1" ng-model="maxpeople">
+                            <option value='1'>1 человека</option>
+                            <option value='2'>2 человек</option>
+                            <option value='3'>3 человека</option>
+                        </select>
+                    </div>
+
+                    </p>
+
+                    <p>
+
+                        <div class="wrapper-dropdown">
+                        <label>Время полета</label>
+                            <span ng-click="toggle()">{{ polet.name|| '' }}</span>
+                            <ul class="dropdown" ng-hide="hideList">
+                                <li ng-repeat="p in plan" ng-click="setPolet(p)">{{ p.name }}</li>
+                            </ul>
+                        </div>
+                    </p>
+
+
+                    <p><label>Дата</label>
+                    <div class="calendar1 two"><input type="text" class="datepicker" id="anyID" /></div>
+                    </p>
+                    <p>
+                    <p>
+
+                    <div class="wrapper-dropdown">
+                        <label>Время полета</label>
+                        <span ng-click="toggleH()">{{(timePolet|date:'dd.MM, HH:mm')||''}}</span>
+                        <ul class="dropdown" ng-hide="hideListH || !plan || !dataArr">
+                            <hour ng-repeat="h in weekArray[currentDate].hoursArray">
+                                <li ng-show="(getDuration(h.first) + polet.duration <= 25)" ng-click="setTimePolet(h,0,getDuration(h.first))">{{ h.hour + ':00' }}<i>{{ getDuration(h.first) ?' занято '+getDuration(h.first)+' минут':'' }}</i></li>
+                                <li ng-show="(getDuration(h.last) + polet.duration <=  25)" ng-click="setTimePolet(h,30,getDuration(h.last))">{{ h.hour + ':30' }}<i>{{ getDuration(h.last) ?' занято '+getDuration(h.last)+' минут':'' }}</i></li>
+                            </hour>
+                        </ul>
+                    </div>
+                    </p>
+
+                    <span ng-show="notPlan">Нет подходящего тарифа</span>
+                    <div class="clear"></div>
+
+                    <p class="itog">Итого: <span>{{ polet.cost || 0}}</span> руб</p>
+                    <input ng-hide="!timePolet || !clientValid" name="" ng-click="sendBronForm()" class="buton" value="Заказать" type="submit" />
+                </div>
+
+
+            </div>
+
+            <div class="cols_right2">
+
+                <h6>Участники:</h6>
+                <div ng-repeat="c in client">
+                    <div style="clear: both; width: 450px; text-align:  center;"><span >Участник {{ $index + 1}}</span></div>
+                    <div class="form_user2">
+                        <p><label>Телефон</label><input ng-model="c.phone" name="" type="text" class="pole" value="" /></p>
+                        <p><label>E-mail</label><input ng-model="c.email"  name="" type="text" class="pole" value="" /></p>
+                        <p><label>Имя</label><input ng-model="c.name" name="" type="text" class="pole" value="" /></p>
+                        <p><label>Фамилия</label><input ng-model="c.surname" name="" type="text" class="pole" value="" /></p>
+                    </div>
+                    <hr>
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class="clear"></div>
+
+            <br /><br />
+
+
+
+
+
+
+
+
+
+        </div>
+
+        <!--end content-->
+
+
+    </div>
+    {% endverbatim %}
+{% endblock %}
