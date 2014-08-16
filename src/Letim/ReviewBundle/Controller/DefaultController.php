@@ -66,6 +66,7 @@ class DefaultController extends Controller
         $build->select(array('r.text', 'r.author'));
         $build->from("LetimReviewBundle:Review", 'r');
         $build->where("r.active = 1");
+        $build->orderBy("r.createdAt", "DESC");
         if ($limit) {
             $build->setFirstResult(0);
             $build->setMaxResults($limit);
