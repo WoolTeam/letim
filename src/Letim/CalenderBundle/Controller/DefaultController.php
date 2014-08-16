@@ -139,7 +139,7 @@ class DefaultController extends Controller
             typ.name name,
             typ.id id
             FROM LetimCalenderBundle:Plan p
-            LEFT JOIN p.type typ'
+            LEFT JOIN p.type typ GROUP BY typ.id'
         );
         $result = $query->getArrayResult();
         //print_r($result->getName());
