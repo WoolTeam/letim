@@ -53,14 +53,13 @@ class DefaultController extends Controller
             $result['errors'] = $error;
         } else {
             $message = \Swift_Message::newInstance()
-                ->setSubject('Hello Email')
-                ->setFrom('send@example.com')
-                ->setTo('feedback@letim.pro')
+                ->setSubject('Заявка на полет')
+                ->setFrom($email)
+                ->setTo('info@letim.pro')
                 ->setBody(
                     $this->renderView(
                         'LetimPageBundle:Default:email.html.twig',
-                        array('name' => $name, 'email' => $email, 'phone' => $phone), 'text/html'
-                    )
+                        array('name' => $name, 'email' => $email, 'phone' => $phone)), 'text/html'
                 );
             $this->get('mailer')->send($message);
             $result['success'] = 'Ваша заявка отправлена! В ближайшее время наши менеджеры свяжутся с вами.';
