@@ -103,7 +103,7 @@ class ClientTunel
     }
     public function __toString()
     {
-        return $this->client->getEmail();
+        return $this->client->getName()." ".$this->client->getSurname();
     }
 //    public function getEmail() {
 //        return $this->client->getEmail();

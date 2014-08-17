@@ -185,6 +185,14 @@ class Tunel
 
         return $this;
     }
+    public function getPlanName()
+    {
+        return $this->plan->getName();
+    }
+    public function getPlanType()
+    {
+        return $this->plan->getType()->getName();
+    }
 
     /**
      * Get plan
