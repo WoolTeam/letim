@@ -210,7 +210,7 @@ class DefaultController extends Controller
         $tunel->setCreatedAt($create);
         $tunel->setUpdatedAt($create);
         $tunel->setActive(true);
-
+        $firstuser = $params['client'];
         foreach($params['client'] as $user) {
             $Ctoonel = new ClientTunel();
             if(array_key_exists('email', $user) && array_key_exists('name', $user) && array_key_exists('phone', $user)) {
@@ -240,8 +240,8 @@ class DefaultController extends Controller
         $em->flush();
         $message = \Swift_Message::newInstance()
             ->setSubject('Hello Email')
-            ->setFrom('send@example.com')
-            ->setTo('feedback@letim.pro')
+            ->setFrom($params['client'][0]['email'])
+            ->setTo('info@letim.pro')
             ->setBody(
                 $this->renderView(
                     'LetimPageBundle:Default:email.html.twig',
