@@ -14,9 +14,9 @@
 
             {% for r in item %}
                 <tr>
-                    <td>{{ r.duration }} минуты</td>
-                    <td>{{ r.cost }} руб.</td>
-                    <td>До {{ r.maxPeople }} человек</td>
+                    <td><a href="/calendar/page">{{ r.duration }} минуты</a></td>
+                    <td><a href="/calendar/page">{{ r.cost }} руб.</a></td>
+                    <td><a href="/calendar/page">До {{ r.maxPeople }} человек</a></td>
                 </tr>
             {% endfor %}
         </table>
