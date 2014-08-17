@@ -13,6 +13,11 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 class TunelAdmin extends Admin {
+    protected $datagridValues = array(
+        '_sort_order' => 'DESC',
+        '_sort_by' => 'startedAt'
+    );
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
@@ -34,17 +39,18 @@ class TunelAdmin extends Admin {
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('startedAt', null, array('label' => 'Тип тарифного плана'));
+            ->add('clients', null, array('label' => 'Клиент'));
     }
 
     // Fields to be shown on lists
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('startedAt','datetime',array('format' => 'H:i d m'))
-            ->addIdentifier('planName')
-            ->addIdentifier('clients')
-            ->addIdentifier('planType')
+            ->addIdentifier('startedAt','datetime',array('format' => 'H:i d.m'))
+            ->addIdentifier('planName', null, array('label' => 'Тариф'))
+            ->addIdentifier('planType', null, array('label' => 'Тип тарифа'))
+            ->addIdentifier('clients', null, array('label' => 'Клиент'));
+
         ;
 
     }
