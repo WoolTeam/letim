@@ -15,30 +15,9 @@ use Sonata\AdminBundle\Form\FormMapper;
 class TunelAdmin extends Admin {
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $em = $this->modelManager->getEntityManager('Letim\CalenderBundle\Entity\User');
-        $query = $em->createQuery(
-            'SELECT u
-            FROM LetimCalenderBundle:User u'
-        );
-//        $q = $em->createQueryBuilder('u')
-//            ->select('u')
-//            ->from('CalenderBundle:User', 'u');
-//
-//        $query = $query->getArrayResult();
-        //$b = $query->getArrayResult();
-        $arrayType = $query->getResult();
-        //$query = $q->getQuery();
-        //print_r($arrayType);
         $formMapper
             ->add('startedAt', null, array('label' => 'Дата'))
-            ->add('clients',null, array(
-                //'required' => true,
-                'class'=>'Letim\CalenderBundle\Entity\User',
-                //'property'=> 'email',
-                'expanded' => true ,
-                'multiple' => true ,
-                //'choices' => 'Letim\CalenderBundle\Entity\User'
-            ));
+            ->add('clients',null, array());
 //        $formMapper
 //            ->add('startedAt', null, array('label' => 'Дата'))
 //            ->add('clients',null, array('class' => 'Letim\DemoBundle\Entity\User'));
@@ -51,18 +30,6 @@ class TunelAdmin extends Admin {
         ;
     }
 
-    public function preUpdate($tunel)
-    {
-        if($tunel) {
-//            $em = $this->modelManager->getEntityManager('Letim\CalenderBundle\Entity\User');
-//            //print_r($tunel->getClients()->first()->getClient()->getEmail());
-//            $arr = $tunel->getClients()->toArray();
-//            foreach($arr as $key) {
-//
-//            }
-//             $em->persist($tunel->getClients());
-        }
-    }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
