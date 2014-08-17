@@ -373,6 +373,7 @@ p {
     color: #000;
     vertical-align: middle;
     text-align: center;
+    cursor: pointer;
 }
 
 .calendar table th.one_td, .calendar table td.one_td {
@@ -1118,7 +1119,7 @@ h6 {
 #faqs dt {
     color: black;
     padding-bottom: 25px;
-    cursor: pointer;
+        cursor: pointer;
 }
 
 #faqs dt:hover {
