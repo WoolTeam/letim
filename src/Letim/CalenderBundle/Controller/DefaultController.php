@@ -239,14 +239,14 @@ class DefaultController extends Controller
 
         $em->flush();
         $message = \Swift_Message::newInstance()
-            ->setSubject('Hello Email')
+            ->setSubject('Новая заявка на бронирование')
             ->setFrom($params['client'][0]['email'])
-            ->setTo('info@letim.pro')
+            ->setTo(array('info@letim.pro', $params['client'][0]['email']))
             ->setBody(
                 $this->renderView(
                     'LetimPageBundle:Default:email.html.twig',
-                    array('name' => $u->getName(), 'email' => $u->getEmail(), 'phone' => $u->getPhone()), 'text/html'
-                )
+                    array('name' => $u->getName(), 'email' => $u->getEmail(), 'phone' => $u->getPhone())
+                ), 'text/html'
             );
         $this->get('mailer')->send($message);
         return new Response(json_encode(array('sucses' => true)));
