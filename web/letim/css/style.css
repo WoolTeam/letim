@@ -740,8 +740,15 @@ h6 img {
     text-align: center;
 }
 
+.tabl2 td a {
+    color: #5c6b7b;
+    text-decoration: none;
+
+}
+
 .tabl2 tr:hover td{
     background-color: #E0E0DD;
+    cursor: pointer;
 }
 
 .tabl2 .buton {
