@@ -132,7 +132,7 @@ class DefaultController extends Controller
         return $this->render('LetimCalenderBundle:Default:calendar.html.twig');
     }
 
-    public function bronirovanieAction () {
+    public function bronirovanieAction ($date = '') {
         $em = $this->getDoctrine()->getManager();
         $query = $em->createQuery(
             'SELECT
@@ -143,7 +143,8 @@ class DefaultController extends Controller
         );
         $result = $query->getArrayResult();
         return $this->render('LetimCalenderBundle:Default:bron.html.twig', array(
-            'plan' => $result
+            'plan' => $result,
+            'date' => $date
         ));
     }
 

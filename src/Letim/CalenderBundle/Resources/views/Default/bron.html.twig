@@ -68,7 +68,11 @@
 
 
                     <p><label>Дата</label>
-                    <div class="calendar1 two"><input type="text" class="datepicker" id="anyID" /></div>
+                    <div class="calendar1 two">
+                        {% endverbatim %}
+                        <input type="text" class="datepicker" id="anyID" value="{{ date }}"/>
+                        {% verbatim %}
+                    </div>
                     </p>
                     <p>
                     <p>

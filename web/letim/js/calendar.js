@@ -228,6 +228,9 @@ var app = angular.module('calendarApp', [])
                     $scope.status = status;
                 });
         };
+        $scope.goTo = function (url) {
+            window.location.href = url;
+        }
         $scope.months = ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
 //        $scope.red = function () {
 //            //window.location.href = "/";

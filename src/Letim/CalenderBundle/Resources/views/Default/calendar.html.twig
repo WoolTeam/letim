@@ -33,60 +33,66 @@
                 <table class="cal_table" ng-repeat="week in weekArray[0].hoursArray">
                     <tr>
                         <td class="one_td">{{weekArray[0].hoursArray[$index].hour}}:00-{{weekArray[0].hoursArray[$index].hour}}:30</td>
-                        <td>
+                        <td ng-click="goTo('/bronirovanie/'+(weekArray[0].date| date:'dd.MM.yyyy'))">
+                            <a href="/bronirovanie/{{ weekArray[0].date| date:'dd.MM.yyyy' }}">
                             <span ng-show='(getDuration(weekArray[0].hoursArray[$index].first) >= 25)' class="busy"></span>
                             <span ng-show='(getDuration(weekArray[0].hoursArray[$index].first) > 0 && getDuration(weekArray[0].hoursArray[$index].first) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[0].hoursArray[$index].first) }}мин.</span>
+                            </a>
                         </td>
-                        <td>
+                        <td ng-click="goTo('/bronirovanie/'+(weekArray[1].date| date:'dd.MM.yyyy'))">
+
                             <span ng-show='(getDuration(weekArray[1].hoursArray[$index].first) >= 25)' class="busy"></span>
                             <span ng-show='(getDuration(weekArray[1].hoursArray[$index].first) > 0 && getDuration(weekArray[1].hoursArray[$index].first) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[1].hoursArray[$index].first) }}мин.</span>
+
                         </td>
-                        <td><span ng-show='(getDuration(weekArray[2].hoursArray[$index].first) >= 25)' class="busy"></span>
+                        <td ng-click="goTo('/bronirovanie/'+(weekArray[2].date| date:'dd.MM.yyyy'))">
+                            <span ng-show='(getDuration(weekArray[2].hoursArray[$index].first) >= 25)' class="busy"></span>
                             <span ng-show='(getDuration(weekArray[2].hoursArray[$index].first) > 0 && getDuration(weekArray[2].hoursArray[$index].first) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[2].hoursArray[$index].first) }}мин.</span>
                         </td>
-                        <td>
+                        <td ng-click="goTo('/bronirovanie/'+(weekArray[3].date| date:'dd.MM.yyyy'))">
                             <span ng-show='(getDuration(weekArray[3].hoursArray[$index].first) >= 25)' class="busy"></span>
                             <span ng-show='(getDuration(weekArray[3].hoursArray[$index].first) > 0 && getDuration(weekArray[3].hoursArray[$index].first) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[3].hoursArray[$index].first) }}мин.</span>
                         </td>
-                        <td>
+                        <td ng-click="goTo('/bronirovanie/'+(weekArray[4].date| date:'dd.MM.yyyy'))">
                             <span ng-show='(getDuration(weekArray[4].hoursArray[$index].first) >= 25)' class="busy"></span>
                             <span ng-show='(getDuration(weekArray[4].hoursArray[$index].first) > 0 && getDuration(weekArray[4].hoursArray[$index].first) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[4].hoursArray[$index].first) }}мин.</span>
                         </td>
-                        <td>
+                        <td ng-click="goTo('/bronirovanie/'+(weekArray[5].date| date:'dd.MM.yyyy'))">
                             <span ng-show='(getDuration(weekArray[5].hoursArray[$index].first) >= 25)' class="busy"></span>
                             <span ng-show='(getDuration(weekArray[5].hoursArray[$index].first) > 0 && getDuration(weekArray[5].hoursArray[$index].first) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[5].hoursArray[$index].first) }}мин.</span>
                         </td>
-                        <td>
+                        <td ng-click="goTo('/bronirovanie/'+(weekArray[6].date| date:'dd.MM.yyyy'))">
                             <span ng-show='(getDuration(weekArray[6].hoursArray[$index].first) >= 25)' class="busy"></span>
                             <span ng-show='(getDuration(weekArray[6].hoursArray[$index].first) > 0 && getDuration(weekArray[6].hoursArray[$index].first) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[6].hoursArray[$index].first) }}мин.</span>
                         </td>
                     </tr>
                     <tr>
                         <td class="one_td">{{weekArray[0].hoursArray[$index].hour}}:30-{{weekArray[0].hoursArray[$index].hour + 1}}:00</td>
-                        <td>
+                        <td ng-click="goTo('/bronirovanie/'+(weekArray[0].date| date:'dd.MM.yyyy'))">
                             <span ng-show='(getDuration(weekArray[0].hoursArray[$index].last) >= 25)' class="busy"></span>
                             <span ng-show='(getDuration(weekArray[0].hoursArray[$index].last) > 0 && getDuration(weekArray[0].hoursArray[$index].last) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[0].hoursArray[$index].last) }}мин.</span>
                         </td>
-                        <td>
+                        <td ng-click="goTo('/bronirovanie/'+(weekArray[1].date| date:'dd.MM.yyyy'))">
                             <span ng-show='(getDuration(weekArray[1].hoursArray[$index].last) >= 25)' class="busy"></span>
                             <span ng-show='(getDuration(weekArray[1].hoursArray[$index].last) > 0 && getDuration(weekArray[1].hoursArray[$index].last) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[1].hoursArray[$index].last) }}мин.</span>
                         </td>
-                        <td><span ng-show='(getDuration(weekArray[2].hoursArray[$index].last) >= 25)' class="busy"></span>
+                        <td ng-click="goTo('/bronirovanie/'+(weekArray[2].date| date:'dd.MM.yyyy'))">
+                            <span ng-show='(getDuration(weekArray[2].hoursArray[$index].last) >= 25)' class="busy"></span>
                             <span ng-show='(getDuration(weekArray[2].hoursArray[$index].last) > 0 && getDuration(weekArray[2].hoursArray[$index].last) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[2].hoursArray[$index].last) }}мин.</span>
                         </td>
-                        <td>
+                        <td ng-click="goTo('/bronirovanie/'+(weekArray[3].date| date:'dd.MM.yyyy'))">
                             <span ng-show='(getDuration(weekArray[3].hoursArray[$index].last) >= 25)' class="busy"></span>
                             <span ng-show='(getDuration(weekArray[3].hoursArray[$index].last) > 0 && getDuration(weekArray[3].hoursArray[$index].last) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[3].hoursArray[$index].last) }}мин.</span>
                         </td>
-                        <td>
+                        <td ng-click="goTo('/bronirovanie/'+(weekArray[4].date| date:'dd.MM.yyyy'))">
                             <span ng-show='(getDuration(weekArray[4].hoursArray[$index].last) >= 25)' class="busy"></span>
                             <span ng-show='(getDuration(weekArray[4].hoursArray[$index].last) > 0 && getDuration(weekArray[4].hoursArray[$index].last) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[4].hoursArray[$index].last) }}мин.</span>
                         </td>
-                        <td>
+                        <td ng-click="goTo('/bronirovanie/'+(weekArray[5].date| date:'dd.MM.yyyy'))">
                             <span ng-show='(getDuration(weekArray[5].hoursArray[$index].last) >= 25)' class="busy"></span>
                             <span ng-show='(getDuration(weekArray[5].hoursArray[$index].last) > 0 && getDuration(weekArray[5].hoursArray[$index].last) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[5].hoursArray[$index].last) }}мин.</span>
                         </td>
-                        <td>
+                        <td ng-click="goTo('/bronirovanie/'+(weekArray[6].date| date:'dd.MM.yyyy'))">
                             <span ng-show='(getDuration(weekArray[6].hoursArray[$index].last) >= 25)' class="busy"></span>
                             <span ng-show='(getDuration(weekArray[6].hoursArray[$index].last) > 0 && getDuration(weekArray[6].hoursArray[$index].last) <= 25)' class="Booked">Свободно {{25 - getDuration(weekArray[6].hoursArray[$index].last) }}мин.</span>
                         </td>

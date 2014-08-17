@@ -11,7 +11,21 @@ $(document).ready(function(){
 	var dpHeight = 0;
 	var dpOver = false;
 	var tempID = "";
-	
+    setTimeout(a, 1000)
+//    if($("input.datepicker").val()) {
+//        scope = angular.element($("#changeTime")).scope();
+////        var dArray = date.split('.'),
+////            str = new Date(dArray[2] + '-' + dArray[1] + '-' + dArray[0]);
+//        scope.$emit('date', $("input.datepicker").val());
+//    }
+    function a () {
+        if($("input.datepicker").val()) {
+            scope = angular.element($("input.datepicker")).scope();
+//        var dArray = date.split('.'),
+//            str = new Date(dArray[2] + '-' + dArray[1] + '-' + dArray[0]);
+            scope.$emit('date', $("input.datepicker").val());
+        }
+    }
 	$("input.datepicker").click(function(){
 		tempID = $(this).attr("id");
 		$(this).removeAttr("id");
@@ -36,7 +50,7 @@ $(document).ready(function(){
 	var allHTML;
 	var spacer = "";
 	var days = "";
-	
+
 	function generateHTML() {
 		$("#datepicker").remove();
 		
@@ -87,7 +101,7 @@ $(document).ready(function(){
 			//пробрасываю в ангуляр
             scope = angular.element($("#changeTime")).scope();
             scope.$emit('date', selectedDay + "." + month + "." + year);
-			
+
 			$("#changeTime").removeAttr("id").attr("id",tempID);
 			$("#datepicker").hide(100);
 		});

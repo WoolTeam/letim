@@ -9,12 +9,13 @@ letim_calender_test:
 letim_calender_page:
     path:     /calendar/page
     defaults: { _controller: LetimCalenderBundle:Default:calendar }
-letim_bron_page:
-    path:     /bronirovanie
-    defaults: { _controller: LetimCalenderBundle:Default:bronirovanie }
 letim_bron_get_plan:
     path: /bronirovanie/plan
     defaults: { _controller: LetimCalenderBundle:Default:bronform }
+letim_bron_page:
+    path:     /bronirovanie/{date}
+    defaults: { _controller: LetimCalenderBundle:Default:bronirovanie ,date:''}
+
 letim_bron_set_plan:
     path: /bronirovanie/save
     defaults: { _controller: LetimCalenderBundle:Default:newBron }
