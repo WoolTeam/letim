@@ -82,8 +82,8 @@
                         <span ng-click="toggleH()">{{(timePolet|date:'dd.MM, HH:mm')||''}}</span>
                         <ul class="dropdown" ng-hide="hideListH || !plan || !dataArr">
                             <hour ng-repeat="h in weekArray[currentDate].hoursArray">
-                                <li ng-show="(getDuration(h.first) + polet.duration <= 25)" ng-click="setTimePolet(h,0,getDuration(h.first))">{{ h.hour + ':00' }}<i>{{ getDuration(h.first) ?' занято '+getDuration(h.first)+' минут':'' }}</i></li>
-                                <li ng-show="(getDuration(h.last) + polet.duration <=  25)" ng-click="setTimePolet(h,30,getDuration(h.last))">{{ h.hour + ':30' }}<i>{{ getDuration(h.last) ?' занято '+getDuration(h.last)+' минут':'' }}</i></li>
+                                <li ng-show="(getDuration(h.first) + polet.duration)" ng-click="setTimePolet(h,0,getDuration(h.first))">{{ h.hour + ':00' }}<i>{{ getDuration(h.first) ?' занято '+getDuration(h.first)+' минут':'' }}</i></li>
+                                <li ng-show="(getDuration(h.last) + polet.duration)" ng-click="setTimePolet(h,30,getDuration(h.last))">{{ h.hour + ':30' }}<i>{{ getDuration(h.last) ?' занято '+getDuration(h.last)+' минут':'' }}</i></li>
                             </hour>
                         </ul>
                     </div>
