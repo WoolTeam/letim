@@ -41,6 +41,8 @@ class TunelAdmin extends Admin {
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('startedAt');
+            ->addIdentifier('startedAt')
+            ->addIdentifier('clients');
+        
     }
 } 
