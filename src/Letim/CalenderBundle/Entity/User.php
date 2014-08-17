@@ -19,7 +19,7 @@ class User
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    public  $id;
 
     /**
      * @var string
@@ -274,5 +274,9 @@ class User
     public function getUserroles()
     {
         return $this->userroles;
+    }
+    public function __toString()
+    {
+        return $this->getEmail();
     }
 }

@@ -21,7 +21,7 @@
             <table>
                 <tr>
                     <th class="one_td">Время </th>
-                    <th>Понедельник <br>{{weekArray[0].date| date:'dd MMMM'}}</th>
+                    <th>Понедельник <br>{{weekArray[0].date| date:'dd MMMM'}} {{months[(weekArray[0].date| date:'dd M')]}}</th>
                     <th>Вторник <br>{{weekArray[1].date| date:'dd MMMM'}}</th>
                     <th>Среда <br>{{weekArray[2].date| date:'dd MMMM'}}</th>
                     <th>Четверг <br>{{weekArray[3].date| date:'dd MMMM'}}</th>

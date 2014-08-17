@@ -236,8 +236,19 @@ class DefaultController extends Controller
 
         }
         $em->persist($tunel);
-        $em->flush();
 
+        $em->flush();
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Hello Email')
+            ->setFrom('send@example.com')
+            ->setTo('feedback@letim.pro')
+            ->setBody(
+                $this->renderView(
+                    'LetimPageBundle:Default:email.html.twig',
+                    array('name' => $u->getName(), 'email' => $u->getEmail(), 'phone' => $u->getPhone()), 'text/html'
+                )
+            );
+        $this->get('mailer')->send($message);
         return new Response(json_encode(array('sucses' => true)));
 //        $em->getRepository('LetimCalenderBundle')->
     }

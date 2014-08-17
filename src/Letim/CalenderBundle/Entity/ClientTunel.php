@@ -88,13 +88,26 @@ class ClientTunel
 
         return $this;
     }
+
+    /**
+     * Set client
+     *
+     * @param \Letim\CalenderBundle\Entity\User $client
+     * @return ClientTunel
+     */
+    public function getUsers(\Letim\CalenderBundle\Entity\User $client = null)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
     public function __toString()
     {
         return $this->client->getEmail();
     }
-    public function getEmail() {
-        return $this->client->getEmail();
-    }
+//    public function getEmail() {
+//        return $this->client->getEmail();
+//    }
 //    public function setEmail(\Letim\CalenderBundle\Entity\User $client = null) {
 //        $n = new ClientTunel();
 //        $n->setTunel($this->getTunel());
@@ -116,6 +129,13 @@ class ClientTunel
     public function getClient()
     {
         return $this->client;
+    }
+    public function addClient($client) {
+        $this->client[]= $client;
+    }
+
+    public function removeClient($client) {
+        $this->client->removeElement($client);
     }
     public  function  toString() {
         return $this->getClient();

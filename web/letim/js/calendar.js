@@ -228,6 +228,7 @@ var app = angular.module('calendarApp', [])
                     $scope.status = status;
                 });
         };
+        $scope.months = ["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
 //        $scope.red = function () {
 //            //window.location.href = "/";
 //        }

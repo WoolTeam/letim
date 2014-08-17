@@ -230,8 +230,8 @@ class Tunel
      *
      * @param \Letim\CalenderBundle\Entity\ClientTunel $clients
      */
-    public function removeClient(\Letim\CalenderBundle\Entity\ClientTunel $clients)
-    {
-        $this->clients->removeElement($clients);
-    }
+//    public function removeClient(\Letim\CalenderBundle\Entity\ClientTunel $clients)
+//    {
+//        $this->clients->removeElement($clients);
+//    }
 }
