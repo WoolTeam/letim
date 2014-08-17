@@ -21,13 +21,13 @@
             <table>
                 <tr>
                     <th class="one_td">Время </th>
-                    <th>Понедельник <br>{{weekArray[0].date| date:'dd MMMM'}} {{months[(weekArray[0].date| date:'dd M')]}}</th>
-                    <th>Вторник <br>{{weekArray[1].date| date:'dd MMMM'}}</th>
-                    <th>Среда <br>{{weekArray[2].date| date:'dd MMMM'}}</th>
-                    <th>Четверг <br>{{weekArray[3].date| date:'dd MMMM'}}</th>
-                    <th>Пятница <br>{{weekArray[4].date| date:'dd MMMM'}}</th>
-                    <th>Субота <br>{{weekArray[5].date| date:'dd MMMM'}}</th>
-                    <th>Воскресенье <br>{{weekArray[6].date| date:'dd MMMM'}}</th>
+                    <th>Понедельник <br>{{weekArray[0].date| date:'dd '}} {{months[(weekArray[0].date|date:'M')-1]}}</th>
+                    <th>Вторник <br>{{weekArray[1].date| date:'dd'}} {{months[(weekArray[1].date|date:'M')-1]}}</th>
+                    <th>Среда <br>{{weekArray[2].date| date:'dd'}} {{months[(weekArray[2].date|date:'M')-1]}}</th>
+                    <th>Четверг <br>{{weekArray[3].date| date:'dd'}} {{months[(weekArray[3].date|date:'M')-1]}}</th>
+                    <th>Пятница <br>{{weekArray[4].date| date:'dd'}} {{months[(weekArray[4].date|date:'M')-1]}}</th>
+                    <th>Субота <br>{{weekArray[5].date| date:'dd'}} {{months[(weekArray[5].date|date:'M')-1]}}</th>
+                    <th>Воскресенье <br>{{weekArray[6].date| date:'dd'}} {{months[(weekArray[6].date|date:'M')-1]}}</th>
                 </tr>
                 <!--{{weekArray[0].hoursArray.length}}-->
                 <table class="cal_table" ng-repeat="week in weekArray[0].hoursArray">
