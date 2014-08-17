@@ -41,7 +41,7 @@ class TunelAdmin extends Admin {
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('startedAt','datetime',array('format' => 'H:i d M'))
+            ->addIdentifier('startedAt','datetime',array('format' => 'H:i d m'))
             ->addIdentifier('planName')
             ->addIdentifier('clients')
             ->addIdentifier('planType')
