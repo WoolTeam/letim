@@ -385,6 +385,10 @@ p {
     text-align: left;
     color: #000;
 }
+.calendar table td a {
+    color:#000000;
+    text-decoration: none;
+}
 
 .calendar .busy {
     display: block;
@@ -734,6 +738,10 @@ h6 img {
     color: #5c6b7b;
     vertical-align: middle;
     text-align: center;
+}
+
+.tabl2 tr:hover td{
+    background-color: #E0E0DD;
 }
 
 .tabl2 .buton {
