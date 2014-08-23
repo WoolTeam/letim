@@ -62,12 +62,18 @@ class DefaultController extends Controller
     public function listAction($tpl, $limit)
     {
         $em = $this->getDoctrine()->getManager();
+        $max = $em->createQuery('
+            SELECT MAX(r.id) FROM LetimReviewBundle:Review r
+            ')
+            ->getSingleScalarResult();
         $build = $em->createQueryBuilder();
         $build->select(array('r.text', 'r.author'));
         $build->from("LetimReviewBundle:Review", 'r');
         $build->where("r.active = 1");
+        $build->add('where', 'r.id <= :rand');
         $build->orderBy("r.createdAt", "DESC");
         if ($limit) {
+            $build->setParameter('rand',rand(0,$max));
             $build->setFirstResult(0);
             $build->setMaxResults($limit);
         }
