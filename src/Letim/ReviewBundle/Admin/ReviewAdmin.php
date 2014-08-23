@@ -25,7 +25,7 @@ class ReviewAdmin extends Admin
         $formMapper
             ->add('text', 'genemu_tinymce', array('label' => 'Текст отзыва'))
             ->add('author',null, array('label' => 'Автор'))
-            ->add('email',null, array('label' => 'Email', 'required' => true))
+            //->add('email',null, array('label' => 'Email', 'required' => true))
             ->add('active', null, array('label' => 'Опубликовать', 'required' => false))
             ->add('createdAt', null, array('label' => 'Время создания'))
             ->add('updatedAt', null, array('label' => 'Время обновления'));
@@ -35,7 +35,7 @@ class ReviewAdmin extends Admin
     {
         $datagridMapper
             ->add('author', null, array('label' => 'Автор'))
-            ->add('email', null, array('label' => 'Email'))
+            //->add('email', null, array('label' => 'Email'))
             ->add('active', null, array('label' => 'Опубликованные'));
     }
 
@@ -66,7 +66,7 @@ class ReviewAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('author')
-            ->add('email')
+            ->add('active')
             ->add('text');
     }
 }
