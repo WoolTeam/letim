@@ -31,4 +31,8 @@
             return false;
         });
     };
+    $(document).ready(function(){
+        $.datepicker.setDefaults( $.datepicker.regional[ "" ] );
+        $(".datepicker").datepicker( $.datepicker.regional[ "en" ]);
+    });
 })(jQuery, window, document);

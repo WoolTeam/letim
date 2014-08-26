@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c19556235963b962f26ef8c621c76428",
+    "hash": "f4ce4377263039a979943fd2b1c73a7d",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1366,12 +1366,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "11f8a60cf5cf64531c3d97ee2a3a2dc4eeb2e354"
+                "reference": "e6fc41ccb7cbd3e70bd2875f8985339cceb700ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/11f8a60cf5cf64531c3d97ee2a3a2dc4eeb2e354",
-                "reference": "11f8a60cf5cf64531c3d97ee2a3a2dc4eeb2e354",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/e6fc41ccb7cbd3e70bd2875f8985339cceb700ac",
+                "reference": "e6fc41ccb7cbd3e70bd2875f8985339cceb700ac",
                 "shasum": ""
             },
             "require": {
@@ -1437,7 +1437,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2014-08-13 07:49:21"
+            "time": "2014-08-25 20:25:21"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -1569,12 +1569,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataCoreBundle.git",
-                "reference": "8bbc05a5a8ecaec252bcebb45160b2f0a8c05e91"
+                "reference": "88c530177f1784f9628d247c7fcfbcb91353b07f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/8bbc05a5a8ecaec252bcebb45160b2f0a8c05e91",
-                "reference": "8bbc05a5a8ecaec252bcebb45160b2f0a8c05e91",
+                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/88c530177f1784f9628d247c7fcfbcb91353b07f",
+                "reference": "88c530177f1784f9628d247c7fcfbcb91353b07f",
                 "shasum": ""
             },
             "require": {
@@ -1623,7 +1623,7 @@
             "keywords": [
                 "sonata"
             ],
-            "time": "2014-08-14 11:44:57"
+            "time": "2014-08-21 08:31:30"
         },
         {
             "name": "sonata-project/doctrine-orm-admin-bundle",
@@ -1631,12 +1631,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle.git",
-                "reference": "0b5a3c28e96d64600d44d39eb6063cd56abc5cf1"
+                "reference": "34b8f90d65b57fcd2008a1b809b56edd2d1961a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/0b5a3c28e96d64600d44d39eb6063cd56abc5cf1",
-                "reference": "0b5a3c28e96d64600d44d39eb6063cd56abc5cf1",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/34b8f90d65b57fcd2008a1b809b56edd2d1961a4",
+                "reference": "34b8f90d65b57fcd2008a1b809b56edd2d1961a4",
                 "shasum": ""
             },
             "require": {
@@ -1693,7 +1693,7 @@
                 "generator",
                 "sonata"
             ],
-            "time": "2014-08-09 20:31:39"
+            "time": "2014-08-18 08:58:10"
         },
         {
             "name": "sonata-project/exporter",
@@ -1870,20 +1870,22 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.0.1",
+            "version": "v1.2.2",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "fdba214b1e087c149843bde976263c53ac10c975"
+                "reference": "d4d85d6055b87f394d941b45ddd3a9173e1e3d2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/fdba214b1e087c149843bde976263c53ac10c975",
-                "reference": "fdba214b1e087c149843bde976263c53ac10c975",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/d4d85d6055b87f394d941b45ddd3a9173e1e3d2a",
+                "reference": "d4d85d6055b87f394d941b45ddd3a9173e1e3d2a",
                 "shasum": ""
             },
             "require": {
+                "ext-intl": "*",
+                "lib-icu": ">=4.4",
                 "php": ">=5.3.3",
                 "symfony/intl": "~2.3"
             },
@@ -1913,7 +1915,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-10-04 09:12:07"
+            "time": "2014-07-25 09:58:17"
         },
         {
             "name": "symfony/monolog-bundle",

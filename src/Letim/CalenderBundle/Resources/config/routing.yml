@@ -18,6 +18,9 @@ letim_bron_set_plan:
 letim_bron_page:
     path:     /bronirovanie/{date}
     defaults: { _controller: LetimCalenderBundle:Default:bronirovanie ,date:''}
+sonata_admin_custompage:
+    pattern:  /admin/bronirovanie
+    defaults: { _controller: LetimCalenderBundle:Admin:bronirovanie }
 
 
 #    methods:  [POST]

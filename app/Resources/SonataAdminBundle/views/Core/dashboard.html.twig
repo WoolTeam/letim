@@ -14,7 +14,12 @@ file that was distributed with this source code.
 {% block title %}{{ 'title_dashboard'|trans({}, 'SonataAdminBundle') }}{% endblock%}
 {% block breadcrumb %}{% endblock %}
 {% block content %}
-
+    {#<div class="row-fluid">#}
+        {#<div class="span6">#}
+            {#<a href="{{ url('sonata_admin_custompage') }}" class="btn">Форма бронирования</a>#}
+        {#</div>#}
+    {#</div>#}
+    {#<br/>#}
     {{ sonata_block_render_event('sonata.admin.dashboard.top', { 'admin_pool': admin_pool }) }}
 
     {% if blocks.top|length > 0 %}
@@ -27,7 +32,7 @@ file that was distributed with this source code.
         </div>
     {% endif %}
 
-    {% render controller("LetimCalenderBundle:Default:bronirovanieA") %}
+
     <div class="row" style="min-height: 100%;margin: 0 auto;width: 1020px;">
         {% set has_center = false %}
 

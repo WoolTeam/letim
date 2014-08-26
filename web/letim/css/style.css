@@ -1150,3 +1150,6 @@ h6 {
     -moz-box-sizing:content-box;
     box-sizing: content-box;
 }
+section.content {
+   background-color: #ffffff;
+}

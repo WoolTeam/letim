@@ -39,18 +39,20 @@ class TunelAdmin extends Admin {
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('clients', null, array('label' => 'Клиент'));
+            ->add('startedAt', 'datetime'
+            );
+            //->add('clients', null, array('label' => 'Клиент'))
+            //$datagridMapper->add('startedAt', null, array('attr' => array('class' => 'datepicker')));
     }
 
     // Fields to be shown on lists
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('startedAt','datetime',array('format' => 'H:i d.m'))
+            ->addIdentifier('startedAt','datetime',array('format' => 'H:i d.M','locale' => 'ru'))
             ->addIdentifier('planName', null, array('label' => 'Тариф'))
             ->addIdentifier('planType', null, array('label' => 'Тип тарифа'))
-            ->addIdentifier('clients', null, array('label' => 'Клиент'));
-
+            ->addIdentifier('clients', null, array('label' => 'Клиент'))
         ;
 
     }
