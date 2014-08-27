@@ -33,11 +33,11 @@ class FaqPagesAdmin extends Admin{
         ;
     }
 
-    public function configureShowField(ShowMapper $showMapper){
-        $showMapper
-            ->add('id', null, array())
-        ;
-    }
+//    public function configureShowField(ShowMapper $showMapper){
+//        $showMapper
+//            ->add('id', null, array())
+//        ;
+//    }
 
     protected function configureListFields(ListMapper $listMapper)
     {

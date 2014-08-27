@@ -42,13 +42,13 @@ class MenuAdmin extends Admin{
         ;
     }
 
-    public function configureShowField(ShowMapper $showMapper){
-        $showMapper
-            ->add('name', null, array())
-            ->add('id', null, array())
-            //->add('route', null, array())
-        ;
-    }
+//    public function configureShowField(ShowMapper $showMapper){
+//        $showMapper
+//            ->add('name', null, array())
+//            ->add('id', null, array())
+//            //->add('route', null, array())
+//        ;
+//    }
 
     protected function configureListFields(ListMapper $listMapper)
     {

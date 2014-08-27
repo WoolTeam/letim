@@ -43,13 +43,13 @@ class NewsPageAdmin extends Admin{
 //        return $instance;
 //    }
 
-    public function configureShowField(ShowMapper $showMapper){
-        $showMapper
-            //->add('title', null, array())
-            ->add('id', null, array())
-            //->add('route', null, array())
-        ;
-    }
+//    public function configureShowField(ShowMapper $showMapper){
+//        $showMapper
+//            //->add('title', null, array())
+//            ->add('id', null, array())
+//            //->add('route', null, array())
+//        ;
+//    }
 
     protected function configureListFields(ListMapper $listMapper)
     {

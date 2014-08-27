@@ -20,3 +20,8 @@ services:
            tags:
            - { name:  sonata.admin, manager_type: orm, group: Текущие полеты, label: Добавить полет}
            arguments: [null, Letim\CalenderBundle\Entity\Tunel, SonataAdminBundle:CRUD]
+      admin.clientTunel:
+            class: Letim\CalenderBundle\Admin\ClientTunelAdmin
+            tags:
+            - { name:  sonata.admin, manager_type: orm, group: полеты, label: Полеты}
+            arguments: [null, Letim\CalenderBundle\Entity\ClientTunel, SonataAdminBundle:CRUD]

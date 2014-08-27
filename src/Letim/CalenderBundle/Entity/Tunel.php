@@ -4,6 +4,7 @@ namespace Letim\CalenderBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Letim\CalenderBundle\Entity\ClientTunel;
 
 /**
  * Tunel
@@ -63,7 +64,7 @@ class Tunel
     /**
      * @var ArrayCollection
      * 
-     * @ORM\OneToMany(targetEntity="ClientTunel", mappedBy="tunel")
+     * @ORM\OneToMany(targetEntity="ClientTunel", mappedBy="tunel",cascade={"all"},orphanRemoval=true)
      */
     private $clients;
 
@@ -219,20 +220,62 @@ class Tunel
 //        $this->clients;
 //        return $this->clients;
 //    }
-
+    /**
+     * Set clients
+     *
+     * @param ArrayCollection $clients
+//     */
+//    public function setClients($clients)
+//    {
+//        if (!$clients) {
+//            $this->clients = new ArrayCollection();
+//            return;
+//        }
+//
+//        foreach ($clients as $item) {
+//            $item->setClient($this);
+//        }
+//
+//        foreach ($this->getClients() as $item) {
+//            if (!$clients->contains($item)) {
+//                $this->getClients()->removeElement($item);
+//                $item->setClient(null);
+//            }
+//        }
+//
+//        $this->clients = $clients;
+//    }
     /**
      * Add clients
      *
      * @param \Letim\CalenderBundle\Entity\ClientTunel $clients
      * @return Tunel
      */
-    public function addClient(\Letim\CalenderBundle\Entity\ClientTunel $clients)
+    public function addClients(ClientTunel $clients)
     {
-        $this->clients[] = $clients;
+        //$this->clients[] = $clients;
+        //$this->setTunel($this);
+        //$ct = new ClientTunel;
+        //$clients->setTunel($this);
+        //$clients->setClient();
+        //$clients->addClient($this);
+        //$ct->setTunel($this);
+        //$clients->setTunel($this->getId());
+        //$clients->setClient()
+        $this->clients->add($clients);
+        return $this;
+    }
+    public function setClients($clients)
+    {
+
+        if (count($clients) > 0) {
+            foreach ($clients as $i) {
+                $i->setTunel($this);
+            }
+        }
 
         return $this;
     }
-
     /**
      * Remove clients
      *

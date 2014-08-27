@@ -474,7 +474,7 @@ h6 {
     float: right;
     border: 0;
     height: 43px;
-    width: 312px;
+    width: 312px !important;
     overflow: visible;
     cursor: pointer;
     font-size: 14px;
@@ -534,21 +534,21 @@ h6 img {
 }
 
 .form_user2 .pole {
-    background: #f8f8f8;
-    border: 1px solid #e1e1e1;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -khtml-border-radius: 5px;
-    border-radius: 5px;
-    float: right;
-    width: 292px;
-    height: 41px;
-    margin: 0 0 10px 0;
-    padding: 0 10px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 17px;
-    color: #5a626a;
-    line-height: 41px;
+    background: #f8f8f8 !important;
+    border: 1px solid #e1e1e1 !important;
+    -moz-border-radius: 5px !important;
+    -webkit-border-radius: 5px !important;
+    -khtml-border-radius: 5px !important;
+    border-radius: 5px !important;
+    float: right !important;
+    width: 292px !important;
+    height: 41px !important;
+    margin: 0 0 10px 0 !important;
+    padding: 0 10px !important;
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 17px !important;
+    color: #5a626a !important;
+    line-height: 41px !important;
 }
 
 .form_user2 .pole2 {

@@ -43,13 +43,13 @@ class MenuItemAdmin extends Admin{
         ;
     }
 
-    public function configureShowField(ShowMapper $showMapper){
-        $showMapper
-            ->add('name', null, array())
-//            ->add('menu', null, array())
-            ->add('id', null, array())
-        ;
-    }
+//    public function configureShowField(ShowMapper $showMapper){
+//        $showMapper
+//            ->add('name', null, array())
+////            ->add('menu', null, array())
+//            ->add('id', null, array())
+//        ;
+//    }
 
     protected function configureListFields(ListMapper $listMapper)
     {

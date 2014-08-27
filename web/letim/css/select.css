@@ -1,37 +1,37 @@
-.form1 {float:right;margin:-59px 0 0 0;}                                            
+.form1 {float:right;margin:-59px 0 0 0;}
 
                              /* select */
 .form1 select.select1,
 .form1 .select1.selectBox   {
 	display: block;
 	position: relative;
-	background: url(../images/select-button1.png) no-repeat 0 0;               
+	background: url(../images/select-button1.png) no-repeat 0 0;
 	width: 312px;
-	height: 45px;	
+	height: 45px;
   text-align: left;
 	font-family: 'Open Sans', sans-serif;
         font-size: 17px;
         color: #5a626a;
 	text-decoration: none;
-	border: 1px solid #fff; 
+	border: 1px solid #fff;
 	margin:4px 0;
 	padding:0;
-	line-height: 45px;}     
-                                                                                           
-.select1.selectBox, .select1 .selectBox-dropdown-menu,  ul.select1 {      
-	       position: absolute;    
+	line-height: 45px;}
+
+.select1.selectBox, .select1 .selectBox-dropdown-menu,  ul.select1 {
+	       position: absolute;
          top:0;
 	       list-style: none;
 	       font-family: 'Open Sans', sans-serif;
         font-size: 14px;
         color: #5a626a;
 	       line-height: 24px;
-	       background: url(../images/select1.png) 0 100% no-repeat;        
+	       background: url(../images/select1.png) 0 100% no-repeat;
 	       margin: -2px 0 0 1px;
 	       padding:5px 0;
 	       border: 0;
-         z-index:1;}  
-   
+         z-index:1;}
+
 .select1.selectBox-dropdown-menu li a {
 	display: block;
 	padding: 3px 0 3px 13px;
@@ -39,17 +39,17 @@
 	text-decoration: none;
 	cursor: pointer;}
 
-.select1.selectBox-dropdown-menu li a:hover {color: #000;} 
+.select1.selectBox-dropdown-menu li a:hover {color: #000;}
 
 .form1 .selectBox-label {padding: 0 5px 0 13px;}
-	
+
 .form1 .selectBox-arrow {
-	position: absolute;   
+	position: absolute;
 	left: auto;
 	right: 0;
 	top: 0;
 	width: 187px;
-	height: 26px; 
+	height: 26px;
 	overflow: hidden;
 	cursor: pointer;}
                     /* select */
@@ -64,46 +64,46 @@
 .form2  .select2.selectBox {
 	display: block;
 	position: relative;
-	background: url(../images/select-button2.png) 0 0 no-repeat;               
+	background: url(../images/select-button2.png) 0 0 no-repeat;
 	width: 178px;
-	height: 26px;	
+	height: 26px;
   text-align: left;
 	font: 12px tahoma;
 	color: #fff;
 	text-shadow:1px 1px 1px #3333;
 	text-decoration: none;
-	border: 1px solid #fff; 
+	border: 1px solid #fff;
 	margin:4px 0;
 	padding:0;
-	line-height: 26px;}   
+	line-height: 26px;}
 
 .select2.selectBox:hover {
 	color: #e7e9e8;
 	text-decoration: none;}
-	
+
 .form2 .selectBox-label {padding: 0 5px 0 13px;}
-	
+
 .select2.selectBox-arrow {
-	position: absolute;   
+	position: absolute;
 	left: auto;
 	right: 0;
 	top: 0;
 	width: 187px;
-	height: 26px; 
+	height: 26px;
 	overflow: hidden;
 	cursor: pointer;}
-	
+
 .select2.selectBox-dropdown-menu {
-	position: absolute;    
+	position: absolute;
   top:0;
 	list-style: none;
 	font:  12px tahoma;
 	line-height: 12px;
-	background: url(../images/select2.png) 0 100% no-repeat;        
+	background: url(../images/select2.png) 0 100% no-repeat;
 	margin: -7px 0 0 1px;
-	padding:5px 0;  
+	padding:5px 0;
 	border: 0;}
-	
+
 .select2.selectBox-dropdown-menu li {display: block;}
 
 .selectBox-dropdown-menu li a {
@@ -114,7 +114,7 @@
 	cursor: pointer;}
 
 .select2.selectBox-dropdown-menu li a:hover {
-	color: #e7e9e8;	
-	text-decoration: none;}  
-  
+	color: #e7e9e8;
+	text-decoration: none;}
+
                        /* select */
