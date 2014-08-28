@@ -27,8 +27,20 @@
         color:#335985;
         border:none;
         float:right;
-        }        
+        }
+.sonata-bc .calendar1 .datepicker {
+    background: url(../images/bcg-dp2.gif) no-repeat 0 0;
 
+    padding:0 40px 0 14px;
+    margin: 0;
+    width: 259px !important;
+    height: 53px !important;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color:#335985;
+    border:none;
+    float:right;
+}
 #datepicker {position:absolute; top:0; left:30px; width:201px; border:1px solid #333; border:1px solid 000;background:#FFF;z-index:99999;}
 #datepicker {font-family:Tahoma, Geneva, sans-serif; font-size:14px; padding:3px 3px 0;}
 

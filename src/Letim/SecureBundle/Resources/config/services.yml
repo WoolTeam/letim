@@ -5,3 +5,14 @@ services:
 #    letim_secure.example:
 #        class: %letim_secure.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+    letim_secure.admin.user:
+        class: Letim\SecureBundle\Admin\UserAdmin
+        arguments: [~, Letim\SecureBundle\Entity\User, LetimSecureBundle:UserAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: User}
+
+#    letim_secure.admin.roles:
+#        class: Letim\SecureBundle\Admin\RolesAdmin
+#        arguments: [~, Letim\SecureBundle\Entity\Roles, SonataAdminBundle:CRUD]
+#        tags:
+#            - {name: sonata.admin, manager_type: orm, group: admin, label: Roles}

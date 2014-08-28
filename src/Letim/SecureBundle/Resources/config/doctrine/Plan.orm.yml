@@ -1,0 +1,60 @@
+Letim\SecureBundle\Entity\Plan:
+    type: entity
+    table: plan
+    indexes:
+        plan_to_plan_type:
+            columns:
+                - type_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        duration:
+            type: smallint
+            nullable: false
+            unsigned: true
+            comment: ''
+        cost:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+        maxPeople:
+            type: smallint
+            nullable: false
+            unsigned: true
+            comment: ''
+            column: max_people
+        createdAt:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: updated_at
+    manyToOne:
+        type:
+            targetEntity: PlanType
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                type_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

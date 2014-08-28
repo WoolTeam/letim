@@ -40,7 +40,19 @@ class User implements UserInterface
      */
     private $userroles;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
+     */
+    private $name;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="surname", type="string", length=255, nullable=true)
+     */
+    private $surname;
     /**
      * Set id
      *
@@ -86,6 +98,7 @@ class User implements UserInterface
     {
         return $this->username;
     }
+
 
     /**
      * Set email
@@ -194,5 +207,72 @@ class User implements UserInterface
     public function equals(UserInterface $user)
     {
         return md5($this->getUsername()) == md5($user->getUsername());
+    }
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set surname
+     *
+     * @param string $surname
+     * @return User
+     */
+    public function setSurname($surname)
+    {
+        $this->surname = $surname;
+
+        return $this;
+    }
+
+    /**
+     * Get surname
+     *
+     * @return string
+     */
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+    /**
+     * @var string
+     */
+    private $phone;
+
+
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     * @return User
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string 
+     */
+    public function getPhone()
+    {
+        return $this->phone;
     }
 }

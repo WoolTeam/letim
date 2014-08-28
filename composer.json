@@ -21,6 +21,7 @@
         "sonata-project/admin-bundle": "*@stable",
         "sonata-project/doctrine-orm-admin-bundle": "*@stable",
         "sonata-project/core-bundle": "*@stable",
+        "sonata-project/user-bundle": "*@stable",
         "genemu/form-bundle": "2.2.*",
         "knplabs/knp-menu": "~2.0",
         "iphp/filestore-bundle":"dev-master",

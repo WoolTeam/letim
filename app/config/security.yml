@@ -64,6 +64,6 @@ security:
             security: true
             anonymous: true
 
-    access_control:
-        - { path: /admin/.*, role: ROLE_ADMIN }
-        - { path: /.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
+#    access_control:
+#        - { path: /admin/.*, role: ROLE_ADMIN }
+#        - { path: /.*, role: IS_AUTHENTICATED_ANONYMOUSLY }

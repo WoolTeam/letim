@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * User
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var integer
@@ -35,7 +35,24 @@ class User
      */
     private $salt;
 
+    /**
+     * @var \Letim\SecureBundle\Entity\Roles
+     */
+    private $userroles;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="surname", type="string", length=255, nullable=true)
+     */
+    private $surname;
     /**
      * Set id
      *
@@ -81,6 +98,7 @@ class User
     {
         return $this->username;
     }
+
 
     /**
      * Set email
@@ -150,23 +168,83 @@ class User
     {
         return $this->salt;
     }
-    public function getUserRoles()
+
+    /**
+     * Set userroles
+     *
+     * @param \Letim\SecureBundle\Entity\Roles $userroles
+     * @return User
+     */
+    public function setUserroles(\Letim\SecureBundle\Entity\Roles $userroles = null)
     {
-        return $this->userRoles;
+        $this->userroles = $userroles;
+
+        return $this;
+    }
+
+    /**
+     * Get userroles
+     *
+     * @return \Letim\SecureBundle\Entity\Roles 
+     */
+    public function getUserroles()
+    {
+        return $this->userroles;
+    }
+    public function getRoles()
+    {
+        $roles[] = $this->getUserroles()->getName();
+        return $roles;
+    }
+    public function getPassword()
+    {
+        return $this->pass;
     }
     public function eraseCredentials()
     {
 
     }
-
-    public function getRoles()
-    {
-        return $this->getUserRoles()->toArray();
-    }
-
-
     public function equals(UserInterface $user)
     {
         return md5($this->getUsername()) == md5($user->getUsername());
+    }
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set surname
+     *
+     * @param string $surname
+     * @return User
+     */
+    public function setSurname($surname)
+    {
+        $this->surname = $surname;
+
+        return $this;
+    }
+
+    /**
+     * Get surname
+     *
+     * @return string
+     */
+    public function getSurname()
+    {
+        return $this->surname;
     }
 }

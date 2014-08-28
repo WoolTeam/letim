@@ -277,6 +277,6 @@ class User
     }
     public function __toString()
     {
-        return $this->getEmail();
+        return $this->getName().' '.$this->getSurname();
     }
 }

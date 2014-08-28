@@ -1,0 +1,43 @@
+Letim\SecureBundle\Entity\Tunel:
+    type: entity
+    table: tunel
+    indexes:
+        tunel_to_plan:
+            columns:
+                - plan_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        planId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            column: plan_id
+        active:
+            type: boolean
+            nullable: false
+            comment: ''
+        startedAt:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: started_at
+        createdAt:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: updated_at
+    lifecycleCallbacks: {  }

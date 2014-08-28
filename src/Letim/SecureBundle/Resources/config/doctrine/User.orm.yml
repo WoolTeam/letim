@@ -12,13 +12,15 @@ Letim\SecureBundle\Entity\User:
             unsigned: false
             comment: ''
             id: true
+            generator:
+                strategy: IDENTITY
+    fields:
         username:
             type: string
-            nullable: false
+            nullable: true
             length: 60
             fixed: false
             comment: ''
-            id: true
         email:
             type: string
             nullable: false
@@ -26,8 +28,6 @@ Letim\SecureBundle\Entity\User:
             fixed: false
             comment: ''
             default: ''
-            id: true
-    fields:
         pass:
             type: string
             nullable: false
@@ -35,6 +35,24 @@ Letim\SecureBundle\Entity\User:
             fixed: false
             comment: ''
         salt:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+            comment: ''
+        name:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+        surname:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+            comment: ''
+        phone:
             type: string
             nullable: true
             length: 255

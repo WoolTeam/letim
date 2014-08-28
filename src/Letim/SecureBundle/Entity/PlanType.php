@@ -5,9 +5,9 @@ namespace Letim\SecureBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Roles
+ * PlanType
  */
-class Roles
+class PlanType
 {
     /**
      * @var integer
@@ -34,7 +34,7 @@ class Roles
      * Set name
      *
      * @param string $name
-     * @return Roles
+     * @return PlanType
      */
     public function setName($name)
     {
@@ -50,9 +50,6 @@ class Roles
      */
     public function getName()
     {
-        return $this->name;
-    }
-    public function __toString() {
         return $this->name;
     }
 }

@@ -1,0 +1,33 @@
+Letim\SecureBundle\Entity\ClientTunel:
+    type: entity
+    table: client_tunel
+    indexes:
+        client_tunel_to_tunel:
+            columns:
+                - tunel_id
+        client_tunel_to_user:
+            columns:
+                - client_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        tunelId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            column: tunel_id
+        clientId:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            column: client_id
+    lifecycleCallbacks: {  }

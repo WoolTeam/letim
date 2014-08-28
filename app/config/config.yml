@@ -65,8 +65,10 @@ sonata_block:
     default_contexts: [cms]
     blocks:
 #        Enable the SonataAdminBundle block
-        sonata.block.service.text:
         sonata.admin.block.admin_list:
+                    contexts:   [admin]
+        sonata.block.service.text:
+#        sonata.admin.block.admin_list:
 #            contexts:   [admin]
         # Your other blocks
 
@@ -88,3 +90,8 @@ iphp_file_store:
                date:
                   params: { field : date, depth : month }
            namer: ~
+#sonata_user:
+#    security_acl:     false
+#    class:
+#        user:         Leyim\SecureBundle\Entity\User
+#        group:        Leyim\SecureBundle\Entity\Roles
