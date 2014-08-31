@@ -18,6 +18,9 @@ var app = angular.module('calendarApp', [])
                 //console.log(startDay);
                 return date;
         }
+        function getDecimal(num) {
+            return num % 1;
+        }
         function getHours(startHour, endHour) {
             var hoursArray = [];
             while(startHour < endHour) {
@@ -52,17 +55,59 @@ var app = angular.module('calendarApp', [])
             return fillWeek(start);
         }
         function setMinutsOfWeek(week, data) {
-            var i = 0, j = 0;
+            var i = 0, j = 0,k,val;
             while(i < 23) {
+
                 if(data[i]) {
                     week.hoursArray[j].first = data[i];
+                }
+
+                if(data[i]) {
+                    val = ($scope.getDuration(data[i])/30)^0;
+                    if(val > 1) {
+                        k = 0;
+                        console.log(val);
+                        while(k < val) {
+                            console.log(k);
+                            week.hoursArray[j].first = data[i];
+                            //i += 1;
+                            k += 1;
+                            week.hoursArray[j].last = data[i];
+                            //i += 1;
+                            k += 1;
+                            j += 1;
+                        }
+                        i = i + k;
+                    }
+
                 }
                 i += 1;
                 if(data[i]) {
                     week.hoursArray[j].last = data[i];
-                    //console.log(week.hoursArray[j].last);
                 }
-                //console.log(week.hoursArray[j]);
+
+                //j += 1;
+                if(data[i]) {
+                val = ($scope.getDuration(data[i])/30)^0;
+                    if(val > 1) {
+                        k = 0;
+                        console.log(val);
+                        while(k < val) {
+                            console.log(k);
+                            week.hoursArray[j].first = data[i];
+                            //i += 1;
+                            k += 1;
+                            week.hoursArray[j].last = data[i];
+                            //i += 1;
+                            k += 1;
+                            j += 1;
+                        }
+//                        week.hoursArray[j].first = data[i];
+//                        i += 1;
+//                        i = i + k;
+                    }
+
+                }
                 i += 1;
                 j += 1;
             }
@@ -134,6 +179,7 @@ var app = angular.module('calendarApp', [])
                     success(function(data, status) {
                         if(data) {
                             $scope.plan = data;
+                            $scope.MP = findMax($scope.plan)
                             $scope.notPlan = "false";
                         }
                     }).
@@ -149,6 +195,15 @@ var app = angular.module('calendarApp', [])
                 $scope.notPlan = "true";
             }
         });
+        function findMax(arr) {
+            var i, max = 0;
+            for(i = 0; arr.length > i; i += 1) {
+                if(max < arr[i].maxPeople) {
+                    max = arr[i].maxPeople;
+                }
+            }
+            return max;
+        }
         $scope.$watch('maxpeople', function () {
             getPlan($scope.typeid, $scope.maxpeople);
             if($scope.client) {
@@ -157,6 +212,23 @@ var app = angular.module('calendarApp', [])
 
             $scope.getUsers();
         });
+        $scope.$watch('MP', function (val, oldval) {
+            var i = 0, people = [];
+            if(val) {
+                console.log(val);
+                while(i < val) {
+                    i += 1;
+                    people[i-1] = i;
+                }
+                $scope.people = people;
+                //console.log(people);
+            }
+        });
+        $scope.setMaxpeople = function(p) {
+            $scope.maxpeople = p;
+            $scope.humanList = true;
+        }
+
         $scope.$watch('typeid', function (val) {
             getPlan($scope.typeid, $scope.maxpeople);
         });
@@ -171,6 +243,10 @@ var app = angular.module('calendarApp', [])
         $scope.hideListH = true;
         $scope.toggleH = function () {
             $scope.hideListH = !$scope.hideListH;
+        };
+        $scope.humanList = true;
+        $scope.toggleHuman = function () {
+            $scope.humanList = !$scope.humanList;
         };
         $scope.filterFn = function (item) {
 //            if() {

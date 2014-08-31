@@ -79,6 +79,7 @@ class DefaultController extends Controller
                             $curarr['id'] = $res->getId();
                             $curarr['clients'] = $cl;
                             $curarr['duration'] = $res->getPlan()->getDuration();
+                            $curarr['tot'] = $tot;
                             $arr[$i][$j][] = $curarr;
                             $curarr = null;
                             $cl = null;

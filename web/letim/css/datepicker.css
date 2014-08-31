@@ -28,6 +28,11 @@
         border:none;
         float:right;
         }
+.calendar1 .datepicker {
+    width: 259px !important;
+    height: 47px !important;
+}
+
 .sonata-bc .calendar1 .datepicker {
     background: url(../images/bcg-dp2.gif) no-repeat 0 0;
 

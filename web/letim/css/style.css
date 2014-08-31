@@ -128,6 +128,9 @@ ul.top_menu a {
     line-height: 67px;
     text-decoration: none;
 }
+.display: none; .select1 {
+    display: none;
+}
 
 ul.top_menu a:hover, ul.top_menu a.active {
     height: 61px;

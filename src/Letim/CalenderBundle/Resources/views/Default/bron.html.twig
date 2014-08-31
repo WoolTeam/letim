@@ -31,7 +31,7 @@
 
                     <p>
                         <label>Тип тарифа</label>
-                    <div class="form1">
+                    <div class="form1 ang">
                         <select class="select1" ng-model="typeid">
 
                             {% endverbatim %}
@@ -44,13 +44,13 @@
                     </div>
                     </p>
                     <p>
+
+                    <div class="wrapper-dropdown">
                         <label>Количество</label>
-                    <div class="form1">
-                        <select class="select1" ng-model="maxpeople">
-                            <option value='1'>1 человека</option>
-                            <option value='2'>2 человек</option>
-                            <option value='3'>3 человека</option>
-                        </select>
+                        <span ng-click="toggleHuman()">{{maxpeople}} {{ maxpeople > 1? 'человека': 'человек'}}</span>
+                        <ul class="dropdown" ng-hide="humanList">
+                            <li ng-repeat="c in people" ng-click="setMaxpeople(c)">{{ c }} {{ c > 1? 'человека': 'человек'}}</li>
+                        </ul>
                     </div>
 
                     </p>
@@ -82,8 +82,8 @@
                         <span ng-click="toggleH()">{{(timePolet|date:'dd.MM, HH:mm')||''}}</span>
                         <ul class="dropdown" ng-hide="hideListH || !plan || !dataArr">
                             <hour ng-repeat="h in weekArray[currentDate].hoursArray">
-                                <li ng-show="(getDuration(h.first) + polet.duration)" ng-click="setTimePolet(h,0,getDuration(h.first))">{{ h.hour + ':00' }}<i>{{ getDuration(h.first) ?' занято '+getDuration(h.first)+' минут':'' }}</i></li>
-                                <li ng-show="(getDuration(h.last) + polet.duration)" ng-click="setTimePolet(h,30,getDuration(h.last))">{{ h.hour + ':30' }}<i>{{ getDuration(h.last) ?' занято '+getDuration(h.last)+' минут':'' }}</i></li>
+                                <li ng-show="(getDuration(h.first) + polet.duration) < 30" ng-click="setTimePolet(h,0,getDuration(h.first))">{{ h.hour + ':00' }}<i>{{ getDuration(h.first) ?' занято '+getDuration(h.first)+' минут':'' }}</i></li>
+                                <li ng-show="(getDuration(h.last) + polet.duration) < 30" ng-click="setTimePolet(h,30,getDuration(h.last))">{{ h.hour + ':30' }}<i>{{ getDuration(h.last) ?' занято '+getDuration(h.last)+' минут':'' }}</i></li>
                             </hour>
                         </ul>
                     </div>

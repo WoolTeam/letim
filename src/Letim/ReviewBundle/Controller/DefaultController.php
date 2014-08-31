@@ -63,17 +63,21 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $max = $em->createQuery('
-            SELECT MAX(r.id) FROM LetimReviewBundle:Review r
-            ')
-            ->getSingleScalarResult();
+            SELECT r.id as id FROM LetimReviewBundle:Review r
+            WHERE r.active = 1')
+            ->getArrayResult();
+        foreach($max as $item) {
+            $ids[] = $item['id'];
+        }
+        $random = array_rand($ids, 2);
         $build = $em->createQueryBuilder();
         $build->select(array('r.text', 'r.author'));
         $build->from("LetimReviewBundle:Review", 'r');
         $build->where("r.active = 1");
-        $build->add('where', 'r.id <= :rand');
+        $build->add('where', 'r.id IN (:rand)');
         $build->orderBy("r.createdAt", "DESC");
         if ($limit) {
-            $build->setParameter('rand',rand(0,$max));
+            $build->setParameter('rand', array(0 =>$ids[$random[0]], 1 =>$ids[$random[1]]));
             $build->setFirstResult(0);
             $build->setMaxResults($limit);
         }
