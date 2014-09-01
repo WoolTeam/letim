@@ -13,6 +13,7 @@ class RateController extends Controller
         $em = $this->getDoctrine()->getManager();
         $query = $em->createQuery(
             'SELECT
+            p.id planid,
             p.name,
             p.duration,
             p.maxPeople,
@@ -31,7 +32,9 @@ class RateController extends Controller
                 'duration' => $plan['duration'],
                 'name' => $plan['name'],
                 'maxPeople' => $plan['maxPeople'],
-                'cost' => $plan['cost']
+                'cost' => $plan['cost'],
+                'planid' => $plan['planid'],
+                'typeid' => $plan['typeid'],
             );
         }
         return $this->render('LetimPageBundle:Rate:index.html.twig', array(

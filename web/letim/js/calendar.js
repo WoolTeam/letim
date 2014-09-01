@@ -1,8 +1,8 @@
 /**
  * Created by Колюха on 12.08.14.
  */
-var app = angular.module('calendarApp', [])
-    .controller('CalendarController', ['$scope', '$filter', '$http', '$timeout', '$location', function($scope, $filter, $http, $timeout, $location) {
+var app = angular.module('calendarApp', ['LocalStorageModule'])
+    .controller('CalendarController', ['$scope', '$filter', '$http', '$timeout', '$location','localStorageService', function($scope, $filter, $http, $timeout, $location, localStorageService) {
         var date = new Date(),
             start = startDayInWeek(date);
         $scope.thisDate = "";
@@ -12,6 +12,11 @@ var app = angular.module('calendarApp', [])
             console.log(day);
             return day;
         }
+        //console.log(localStorageService.get('tipeid'));
+        if (localStorageService.get('tipeid')) {
+            $scope.typeid = localStorageService.get('tipeid');
+        }
+
         function startDayInWeek(date) {
             var numberInWeek = dayInWeek(date) || 7,
                 startDay = date.setDate(date.getDate() - numberInWeek);
@@ -68,14 +73,18 @@ var app = angular.module('calendarApp', [])
                         k = 0;
                         console.log(val);
                         while(k < val) {
-                            console.log(k);
+                            //console.log(k);
+                            if(k < val) {
                             week.hoursArray[j].first = data[i];
                             //i += 1;
                             k += 1;
+                            }
+                            if(k < val) {
                             week.hoursArray[j].last = data[i];
                             //i += 1;
                             k += 1;
                             j += 1;
+                            }
                         }
                         i = i + k;
                     }
@@ -94,13 +103,18 @@ var app = angular.module('calendarApp', [])
                         console.log(val);
                         while(k < val) {
                             console.log(k);
-                            week.hoursArray[j].first = data[i];
-                            //i += 1;
-                            k += 1;
+                            if(k < val) {
+                                week.hoursArray[j].first = data[i];
+                                //i += 1;
+                                k += 1;
+                            }
+                            if(k < val) {
                             week.hoursArray[j].last = data[i];
                             //i += 1;
                             k += 1;
                             j += 1;
+                            }
+
                         }
 //                        week.hoursArray[j].first = data[i];
 //                        i += 1;
@@ -126,7 +140,7 @@ var app = angular.module('calendarApp', [])
         function setMinutes (data) {
             var i = 0;
             while(i <= 6) {
-                if(data[i]) {
+                if(data && data[i]) {
                     console.log(data[i]);
                     setMinutsOfWeek($scope.weekArray[i], data[i]);
                 }
@@ -179,8 +193,14 @@ var app = angular.module('calendarApp', [])
                     success(function(data, status) {
                         if(data) {
                             $scope.plan = data;
-                            $scope.MP = findMax($scope.plan)
+                            //$scope.maxpeople = '';
+                            setDefaultPlan($scope.plan);
+                            $scope.MP = findMax($scope.plan);
                             $scope.notPlan = "false";
+                            //console.log($scope.MP.maxpeople);
+//                            if(!$scope.MP.maxpeople) {
+//                                $scope.maxpeople = '';
+//                            }
                         }
                     }).
                     error(function(data, status) {
@@ -190,11 +210,32 @@ var app = angular.module('calendarApp', [])
             }
         }
         $scope.$watch('plan', function (val,old) {
-            $scope.polet = '';
+            $scope.polet = $scope.polet || '';
             if(val && val.length === 0) {
                 $scope.notPlan = "true";
             }
         });
+        function setDefaultPlan(plans) {
+            var i, planid;
+            if (localStorageService.get('planid')) {
+                planid = localStorageService.get('planid');
+                for(i = 0; i < plans.length; i += 1) {
+                    if(plans[i].id === parseInt(planid)) {
+                        $scope.polet = plans[i];
+                    }
+                }
+            }
+            console.log('maxpeople');
+            if (localStorageService.get('maxpeople')) {
+                console.log('maxpeople');
+                console.log(localStorageService.get('maxpeople'));
+                $scope.maxpeople = localStorageService.get('maxpeople');
+            }
+            if($scope.cashClear) {
+                localStorageService.clearAll();
+            }
+
+        };
         function findMax(arr) {
             var i, max = 0;
             for(i = 0; arr.length > i; i += 1) {
@@ -231,6 +272,8 @@ var app = angular.module('calendarApp', [])
 
         $scope.$watch('typeid', function (val) {
             getPlan($scope.typeid, $scope.maxpeople);
+
+            $scope.polet = '';
         });
         $scope.setPolet = function (p) {
             $scope.polet = p;
@@ -316,4 +359,16 @@ var app = angular.module('calendarApp', [])
         $scope.$on('date', function (e, date) {
             console.log(date);
         });
+    }])
+    .controller('tarif', ['$scope', '$filter', '$http', '$timeout', 'localStorageService', function($scope, $filter, $http, $timeout, localStorageService) {
+        localStorageService.clearAll();
+        $scope.setTypeId = function (tipeid) {
+            localStorageService.set('tipeid', tipeid);
+        };
+        $scope.setPlanId = function (planid) {
+            localStorageService.set('planid', planid);
+        };
+        $scope.setMaxpeople = function (maxpeople) {
+            localStorageService.set('maxpeople', maxpeople);
+        };
     }]);

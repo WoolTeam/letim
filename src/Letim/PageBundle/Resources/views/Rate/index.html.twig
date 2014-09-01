@@ -1,6 +1,10 @@
 {% extends "::letim.base.html.twig" %}
+
 {% block content %}
-    <div id="content">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
+    <script type="text/javascript" src="/letim/js/angular-local-storage.js"></script>
+    <script type="text/javascript" src="/letim/js/calendar.js"></script>
+    <div id="content" ng-app="calendarApp">
 
         <div class="zagolovok3">Тарифы</div>
         {% for key, item in rate %}
@@ -13,80 +17,14 @@
             </tr>
 
             {% for r in item %}
-                <tr>
-                    <td><a href="/calendar/page">{{ r.duration }} минуты</a></td>
-                    <td><a href="/calendar/page">{{ r.cost }} руб.</a></td>
-                    <td><a href="/calendar/page">До {{ r.maxPeople }} человек</a></td>
+                <tr ng-controller='tarif'>
+                    <td><a ng-click="setTypeId({{ r.typeid }});setPlanId({{ r.planid }});setMaxpeople({{ r.maxPeople }});" href="/calendar/page">{{ r.duration }} минуты</a></td>
+                    <td><a ng-click="setTypeId({{ r.typeid }});setPlanId({{ r.planid }});setMaxpeople({{ r.maxPeople }});" href="/calendar/page">{{ r.cost }} руб.</a></td>
+                    <td><a ng-click="setTypeId({{ r.typeid }});setPlanId({{ r.planid }});setMaxpeople({{ r.maxPeople }});" href="/calendar/page">До {{ r.maxPeople }} человек</a></td>
                 </tr>
             {% endfor %}
         </table>
         {% endfor %}
     </div>
 {% endblock %}
-{#<div id="content">#}
 
-
-    {#<div class="zagolovok3">О трубе</div>#}
-
-
-
-    {#<div class="plaha">Детский (от 4 до 14 лет )</div>#}
-
-    {#<table class="tabl2">#}
-        {#<tr>#}
-            {#<th>Время полета</th>#}
-            {#<th>Цена</th>#}
-            {#<th>Примечание</th>#}
-        {#</tr>#}
-        {#<tr>#}
-            {#<td>2 минуты</td>#}
-            {#<td>800 руб.</td>#}
-            {#<td>До 2 человек</td>#}
-        {#</tr>#}
-        {#<tr>#}
-            {#<td>2 минуты</td>#}
-            {#<td>800 руб.</td>#}
-            {#<td>До 2 человек</td>#}
-        {#</tr>#}
-        {#<tr>#}
-            {#<td>2 минуты</td>#}
-            {#<td>800 руб.</td>#}
-            {#<td>До 2 человек</td>#}
-        {#</tr>#}
-        {#<tr>#}
-            {#<td colspan="3"><input name="" class="buton" value="" type="submit" /></td>#}
-        {#</tr>#}
-    {#</table>#}
-
-
-    {#<div class="plaha">Детский (от 4 до 14 лет )</div>#}
-
-    {#<table class="tabl2">#}
-        {#<tr>#}
-            {#<th>Время полета</th>#}
-            {#<th>Цена</th>#}
-            {#<th>Примечание</th>#}
-        {#</tr>#}
-        {#<tr>#}
-            {#<td>2 минуты</td>#}
-            {#<td>800 руб.</td>#}
-            {#<td>До 2 человек</td>#}
-        {#</tr>#}
-        {#<tr>#}
-            {#<td>2 минуты</td>#}
-            {#<td>800 руб.</td>#}
-            {#<td>До 2 человек</td>#}
-        {#</tr>#}
-        {#<tr>#}
-            {#<td>2 минуты</td>#}
-            {#<td>800 руб.</td>#}
-            {#<td>До 2 человек</td>#}
-        {#</tr>#}
-        {#<tr>#}
-            {#<td colspan="3"><input name="" class="buton" value="" type="submit" /></td>#}
-        {#</tr>#}
-    {#</table>#}
-
-
-
-{#</div>#}
