@@ -67,13 +67,12 @@
                     </div>
                     </p>
                     <p>
+                    <div class="wrapper-dropdown">
                         <label>Количество</label>
-                    <div class="form1">
-                        <select class="select1" ng-model="maxpeople">
-                            <option value='1'>1 человек</option>
-                            <option value='2'>2 человека</option>
-                            <option value='3'>3 человека</option>
-                        </select>
+                        <span ng-click="toggleHuman()">{{maxpeople}} {{ maxpeople > 1? 'человека': 'человек'}}</span>
+                        <ul class="dropdown" ng-hide="humanList">
+                            <li ng-repeat="c in people" ng-click="setMaxpeople(c)">{{ c }} {{ c > 1? 'человека': 'человек'}}</li>
+                        </ul>
                     </div>
 
                     </p>
